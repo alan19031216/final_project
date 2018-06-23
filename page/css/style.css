@@ -1,0 +1,23 @@
+
+/* Load more */
+.load-more , .load-more_phone{
+    width: 50%;
+    background: #15a9ce;
+    text-align: center;
+    color: white;
+    padding: 5px 0px;
+    font-family: sans-serif;
+}
+
+.load-more:hover , .load-more_phone:hover{
+    cursor: pointer;
+}
+
+
+/* more link */
+.more{
+    color: blue;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 8px;
+}
