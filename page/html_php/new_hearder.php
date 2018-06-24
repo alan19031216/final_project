@@ -124,7 +124,7 @@ include 'html_php/header.php';
 
  <div class="" id="test">
    <nav>
-     <div class="nav-wrapper">
+     <div class="nav-wrapper orange">
        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
        <a class="brand-logo hide-on-large-only" href="new_home.php" class="brand-logo">Let's Cook</a>
        <ul id="nav-mobile" class="hide-on-med-and-down">
