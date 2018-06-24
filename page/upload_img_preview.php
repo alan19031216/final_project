@@ -397,7 +397,7 @@
               document.getElementById("video_file").style.visibility = "hidden";
               document.getElementById("player").style.visibility = "visible";
             }
-           });
+          });
           </script>
 
          <h5 id="video_text" style="visibility:hidden;">Doesn't has provide any video</h5>
@@ -460,7 +460,7 @@
   <br><br>
   <hr>
   <button class="waves-effect waves-light btn" type="submit" id="submit" onclick="submit1()">
-    <i class="material-icons right">send</i>Submit
+    <i class="material-icons right">send</i>Upload
   </button>
   <button class="waves-effect waves-light btn indigo" type="submit" id="draft" onclick="submit2()">
     <i class="material-icons right">send</i>Draft
