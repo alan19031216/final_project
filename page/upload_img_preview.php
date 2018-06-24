@@ -350,7 +350,7 @@
          {
           $rowno=$("#employee_table_step3 tr").length;
           $rowno=$rowno+1;
-          $("#employee_table_step3 tr:last").after("<tr id='row"+$rowno+"'><td style='width:70%'><div class='input-field col s12'><textarea  id='textarea1' name='description[]' class='materialize-textarea' required></textarea><label for='textarea1'>Textarea</label></div></td><td style='width:10%'><button class='btn-floating waves-effect waves-light red' type='button' value='DELETE' onclick=delete_row('row"+$rowno+"')><i class='material-icons'>delete_forever</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move up blue' data-position='top' data-tooltip='Move up' type='button' value='move up' onclick=get_id_step3('"+$rowno+"')><i class='material-icons'>arrow_drop_up</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move down' data-position='bottom' data-tooltip='Move down' type='button' value='move down' onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_down</i></button></td></tr>");
+          $("#employee_table_step3 tr:last").after("<tr id='row"+$rowno+"'><td style='width:70%'><div class='input-field col s12'><textarea  id='textarea1' name='description[]' class='materialize-textarea' required></textarea><label for='textarea1'>Description</label></div></td><td style='width:10%'><button class='btn-floating waves-effect waves-light red' type='button' value='DELETE' onclick=delete_row('row"+$rowno+"')><i class='material-icons'>delete_forever</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move up blue' data-position='top' data-tooltip='Move up' type='button' value='move up' onclick=get_id_step3('"+$rowno+"')><i class='material-icons'>arrow_drop_up</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move down' data-position='bottom' data-tooltip='Move down' type='button' value='move down' onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_down</i></button></td></tr>");
 
           // $("#employee_table_step3 tr:last").after("<tr id='row"+$rowno+"'><td style='width:10px'>"+$rowno +")</td><td><br><div class='file-field input-field'><div class='btn'><span>File</span><input type='file' name='pic[]'></div><div class='file-path-wrapper'><input class='file-path validate' type='text'></div></div></td><td><div class='input-field col s12'><textarea id='textarea1' name='description[]' class='materialize-textarea'></textarea><label for='textarea1'>Textarea</label></div></td><td><input type='button' value='DELETE' onclick=delete_row('row"+$rowno+"')></td></tr>");
           $('#textarea1').trigger('autoresize');
@@ -386,13 +386,13 @@
             var video = '<?php echo $video; ?>';
             // alert (video);
             if(video == "not"){
-              document.getElementById("video").style.visibility = "visible";
+              document.getElementById("video_video").style.visibility = "visible";
               document.getElementById("video_text").style.visibility = "visible";
-              document.getElementById("video_file").style.visibility = "visible";
+              document.getElementById("video_file").style.visibility = "hidden";
               document.getElementById("player").style.visibility = "hidden";
             }
             else{
-              document.getElementById("video").style.visibility = "hidden";
+              document.getElementById("video_video").style.visibility = "hidden";
               document.getElementById("video_text").style.visibility = "hidden";
               document.getElementById("video_file").style.visibility = "hidden";
               document.getElementById("player").style.visibility = "visible";
@@ -402,11 +402,11 @@
 
          <h5 id="video_text" style="visibility:hidden;">Doesn't has provide any video</h5>
          <!-- video -->
-         <div class="" id="video">
+         <div class="" id="video_video">
            <div class="file-field input-field" id="video_file">
               <div class="btn">
                 <span>Video</span>
-                <input type="file" name="video" onchange="videoCheck()">
+                <input type="file" name="video" id="" onchange="videoCheck()">
               </div>
               <div class="file-path-wrapper">
                 <input class="file-path validate" type="text" name="video" value="<?php echo $location_video; ?>" >
