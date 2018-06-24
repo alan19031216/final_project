@@ -40,6 +40,7 @@
 <title>Preview recipe</title>
 
 <br>
+
 <div class="row" style="margin-left:100px;margin-right:100px" id="row">
   <script type="text/javascript">
   // get window width and update margin
@@ -132,7 +133,8 @@
         <label for="textarea1">Simple description</label>
       </div>
       <script type="text/javascript">
-        $('#textarea1').val('<?php echo $simple_description; ?>');
+        //var a_string = escape("");
+        $('#textarea1').val(<?php echo $simple_description; ?>);
       </script>
 
       <br class="hide-on-med-and-up">
@@ -268,12 +270,13 @@
         <tr id="row1">
            <td>
              <div class="input-field col s12">
-               <textarea  id="textarea_step<?php echo $i;?>" class="materialize-textarea" name="description[]" value="<?php echo $description[$i]; ?>" required></textarea>
-               <label for="textarea1">Description</label>
+               <textarea id="textarea_step<?php echo $i;?>" class="materialize-textarea" name="description[]" value="<?php echo $description[$i]; ?>" required></textarea>
+               <label>Description</label>
              </div>
 
              <script type="text/javascript">
-               $('#textarea_step<?php echo $i;?>').val('<?php echo $description[$i]; ?>');
+                //var a_string = escape("");
+               $('#textarea_step<?php echo $i;?>').val("<?php echo $description[$i]; ?>");
              </script>
 
            </td>
@@ -530,7 +533,7 @@
           document.getElementById("my_file").disabled = false;
           document.getElementById("pre_time").disabled = false;
           document.getElementById("player").style.visibility = "hidden";
-          document.getElementById("video").style.visibility = "visible";
+          document.getElementById("video_video").style.visibility = "visible";
           //document.getElementById("test5").disabled = false;
           // document.getElementById("cooking_time").disabled = false;
           // document.getElementById("number_of_serve").disabled = false;
