@@ -229,7 +229,8 @@
   </form>
   <script type="text/javascript">
     function submit(){
-      location.reload();
+      window.location.href = "my_profile.php?city='My_subscription'";
+      //location.reload();
     }
   </script>
 </div> <!-- modal -->
