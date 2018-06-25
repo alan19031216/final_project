@@ -6,10 +6,10 @@ $username = $_SESSION['username'];
 $sql_check = $conn->query("SELECT * FROM subscript WHERE username = '$username'");
 $count_row = $sql_check->rowCount();
 if($count_row == 0){
-  $time = $_SESSION['$times'] ;
-  $current_time = $_SESSION['$current_time'];
-  $expired_date = $_SESSION['$expired_date'];
-
+  $time = $_SESSION['times'] ;
+  $current_time = $_SESSION['current_time'];
+  $expired_date = $_SESSION['expired_date'];
+  //echo $time;
   //echo $expired_date;
   try {
   	$sql = $conn->query("INSERT INTO subscript(username , times , subscript_date , expired_date)
@@ -25,7 +25,7 @@ if($count_row == 0){
   }
 }
 else{
-  echo "<script>window.location = 'new_home.php'</script>";  
+  echo "<script>window.location = 'new_home.php'</script>";
 }
 
 
