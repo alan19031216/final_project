@@ -67,6 +67,7 @@ $code = $_GET['code'];
                    <input id="password" name="password" type="password"
                    onChange="checkPasswordMatch();" class="validate" required>
                    <label for="password">Password</label>
+                   <span id="divCheckPasswordMatch_new_passsword" class="blue"></span>
                  </div>
                </div>
                <div class="row">
@@ -100,6 +101,7 @@ $code = $_GET['code'];
          var notMatch = 'Passwords do not match!';
          var empty = 'Password cannot be empty';
          var result;
+         var regex = /^(?=.*?[a-z])(?=.*?[0-9]).{8,}$/;
 
          if (password != confirmPassword){
            result = notMatch.fontcolor("red");
@@ -119,8 +121,23 @@ $code = $_GET['code'];
            $("#divCheckPasswordMatch").html(result);
              document.getElementById("update_password").disabled = true;
          }
+         else if(regex.test(password) == false){
+           //alert(regex.test(new_password));
+           $("#divCheckPasswordMatch_new_passsword").html("New password shuold include: Minimum eight in length and At least one lower case English letter");
+           document.getElementById("update_password").disabled = true;
+         }
+         else if(regex.test(password) == false && password == confirmPassword){
+           //alert(regex.test(new_password));
+           $("#divCheckPasswordMatch_new_passsword").html("New password shuold include: Minimum eight in length and At least one lower case English letter");
+           document.getElementById("update_password").disabled = true;
+         }
+         else if (password == "" || confirmPassword == "") {
+           $("#divCheckPasswordMatch").html(result);
+           document.getElementById("update_password").disabled = true;
+         }
          else{
            $("#divCheckPasswordMatch").html(result);
+           document.getElementById("divCheckPasswordMatch_new_passsword").style.visibility = "hidden";
            document.getElementById("update_password").disabled = false;
          }
      }
