@@ -166,8 +166,6 @@ include 'html_php/new_hearder.php';
                document.getElementById("price").value = "15";
            break;
        }
-
-
       }
      </script>
 
