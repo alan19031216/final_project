@@ -90,7 +90,8 @@
               type: "POST",
             success: function(a){
               if(a == 'success'){
-                alert(a);
+                alert("Please check your email");
+                //alert(a);
                 num = 0;
               }
               else{
