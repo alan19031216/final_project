@@ -144,6 +144,11 @@
                   $("#divCheckPasswordMatch_new_passsword").html("New password shuold include: Minimum eight in length and At least one lower case English letter");
                   document.getElementById("button_update").disabled = true;
                 }
+                else if(regex.test(password) == false && new_password == confirmPassword){
+                  //alert(regex.test(new_password));
+                  $("#divCheckPasswordMatch_new_passsword").html("New password shuold include: Minimum eight in length and At least one lower case English letter");
+                  document.getElementById("button_update").disabled = true;
+                }
                 else if (new_password == "" || confirmPassword == "") {
                   $("#divCheckPasswordMatch").html(result);
                   document.getElementById("button_update").disabled = true;
