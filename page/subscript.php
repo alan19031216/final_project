@@ -106,6 +106,8 @@ include 'html_php/new_hearder.php';
        </table>
      </div>
 
+
+
      <script type="text/javascript">
      function changeColour(value){
        var color;
@@ -264,9 +266,38 @@ include 'html_php/new_hearder.php';
            // lastScrollPosition = newScrollPosition;
        }
        </script>
-
-
   </div><!-- row -->
+
+  <div class="parallax-container" style="height:400px;">
+   <div class="parallax"><img src="img/recipe_book.jpg"></div>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+  </script>
+  <br><br>
+  <div class="container">
+    <div class="card">
+      <h3 class="center">The Ultimate Recipe Magazine</h3>
+      <div class="" style="padding:20px">
+        Recipes is a cooking and food magazine that covers every kind of recipe imaginable.
+        Learn how to make desserts, snacks for the kids, dinner recipes, lunch ideas, breakfast recipes,
+        quick and easy meals, slow cooker recipes, holiday meal ideas and so much more. Plan your weeknight
+        dinners and find yummy weekend brunch recipes with the help of recipes magazine. Make meals
+        using seasonal ingredients year-round with recipes magazine's spring, summer, fall and winter
+        recipe ideas. Anyone who loves to cook and find new recipe ideas would enjoy a recipes magazine
+        subscription from Magazine.Store!
+        <br><br>
+        Frequency of all magazines subject to change without notice. Double issues may be published,
+        which count as 2 issues. We reserve the right to substitute gifts of equal or greater value.
+        Applicable sales tax will be added. RM. orders only.
+      </div>
+
+    </div>
+  </div>
+
   <br><br><br><br><br><br><br><br><br><br><br>
   </body>
 </html>
