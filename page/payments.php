@@ -5,7 +5,7 @@ require 'php/config.php';
 session_start();
 
 // PayPal settings
-$paypal_email = 'terry1903@live.com';
+$paypal_email = 'terry970724@gmail.com';
 $return_url = "http://localhost/final%20project/final/page/success.php";
 $cancel_url = 'http://localhost/webDatadase/onlineShopping/page/user/cart.php';
 $notify_url = 'http://domain.com/payments.php';
