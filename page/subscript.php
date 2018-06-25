@@ -173,6 +173,7 @@ include 'html_php/new_hearder.php';
      <div class="col l3 m12 s12 grey lighten-4" id="sticker">
        <form onSubmit="return check_payment()" action="payments.php" method="post" id="paypal_form" target="_blank" class="paypal">
          <input type="hidden" name="cmd" value="_xclick"/>
+         <input type="hidden" name="currency_code" value="MYR" />
          <h4>Booking summary</h4>
          <p id="text_summary"></p>
          <h4>Total Price: <b id="price_text"></b> </h4>
