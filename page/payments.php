@@ -12,43 +12,45 @@ $notify_url = 'http://domain.com/payments.php';
 
 $price = $_POST['price'];
 $username = $_POST['username'];
+//$times = $_POST['$times'];
 $times;
-if($price == '100'){
-	$time = '12 months';
+if($price == '235'){
+	$times = '12 months';
+}
+else if($price == '115'){
+	$times = '6 months';
 }
 else if($price == '55'){
-	$time = '6 months';
-}
-else if($price == '35'){
-	$time = '3 months';
+	$times = '3 months';
 }
 else if($price == '15'){
-	$time = '1 months';
+	$times = '1 months';
 }
+//echo $times;
 date_default_timezone_set("Asia/Kuala_Lumpur");
     //echo date('d-m-Y H:i:s'); //Returns IST
 $current_time = date('y-m-d', time());
-$expired_date = strtotime("+".$time, strtotime(date("y-m-d")));
+$expired_date = strtotime("+".$times, strtotime(date("y-m-d")));
 $expired_date = date("y-m-d", $expired_date);
 
 $_SESSION['username'] = $username;
-$_SESSION['$times'] = $time;
+$_SESSION['$times'] = $times;
 $_SESSION['$current_time'] = $current_time;
 $_SESSION['$expired_date'] = $expired_date;
-//echo $expired_date;
+
 
 //echo $username;
-// try {
-// 	$sql = $conn->query("INSERT INTO subscript(username , times , subscript_date , expired_date)
-// 	VALUES ('$username' , '$time' , '$current_time' , '$expired_date')");
-//
-// 	$sql_history = $conn->query("INSERT INTO subs_history
-// 		(username , times , subscript_date , expired_date) VALUES
-// 		('$username' , '$time', '$current_time' , '$expired_date')");
-// }
-// catch(PDOException $e) {
-// 		echo "Error: " . $e->getMessage();
-// }
+try {
+	$sql = $conn->query("INSERT INTO subscript(username , times , subscript_date , expired_date)
+	VALUES ('$username' , '$time' , '$current_time' , '$expired_date')");
+
+	$sql_history = $conn->query("INSERT INTO subs_history
+		(username , times , subscript_date , expired_date) VALUES
+		('$username' , '$time', '$current_time' , '$expired_date')");
+}
+catch(PDOException $e) {
+		echo "Error: " . $e->getMessage();
+}
 
 $item_name = 'Subscript book of recipe fee';
 $item_amount = $price;
