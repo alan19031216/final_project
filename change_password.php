@@ -163,7 +163,7 @@ $code = $_GET['code'];
               if(a == 'Success'){
                 alert(a);
                 num = 0;
-                window.location.href = 'http://localhost/final%20project/final/index.php';
+                window.location.href = 'http://localhost/final%20project/final/new_index.php';
               }
               else{
                 //alert(a);
