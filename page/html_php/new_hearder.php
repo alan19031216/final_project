@@ -113,14 +113,22 @@ include 'html_php/header.php';
      <br>
      <center>
        <div class="#e0e0e0 grey lighten-2 card" style="width:50%;background-color:#ff0000;">
-
-         <a href="#"><div class="col l12 waves-effect waves-light btn" style="width:300px;">
+         <a href='#'>
+          <div class="col l12 waves-effect waves-light btn dropdown-button" data-activates="dropdown1" style="width:300px;">
            <i class="material-icons left">account_circle</i>Welcome back <?php echo $_SESSION['username']; ?>
-         </div></a>
+          </div>
+         </a>
        </div>
      </center>
    </div>
  </div>
+
+   <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+    <!-- <li class="divider" tabindex="-1"></li> -->
+    <li><a href="php/logout.php"><i class="material-icons">beach_access</i>Logut</a></li>
+    <!-- <li><a href="#!"><i class="material-icons">cloud</i>five</a></li> -->
+  </ul>
 
  <div class="" id="test">
    <nav>
@@ -166,5 +174,7 @@ include 'html_php/header.php';
   $(document).ready(function(){
     // mobile slide
     $(".button-collapse").sideNav();
+    // button dropdown
+    $('.dropdown-trigger').dropdown();
   });
 </script>
