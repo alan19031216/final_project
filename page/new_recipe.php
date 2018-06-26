@@ -670,7 +670,7 @@ require 'html_php/navbar_html.php';
           </div>
         </center>
         <?php
-        if($video == 'php/video/'){
+        if($video == 'php/video/' || $video == ''){
 
         }
         else{
@@ -769,7 +769,7 @@ require 'html_php/navbar_html.php';
                     <div class="card-content">
                       <div class="row">
                         <div class="col l3 m3 s12">
-                          <center><img src="<?php echo $img; ?>" alt="" class="circle responsive-img " width="50%" >
+                          <center><img src="php/<?php echo $img; ?>" alt="" class="circle responsive-img " width="50%" >
                             <p><?php echo $row_comment['username']; ?></p>
                           </center>
                         </div>
