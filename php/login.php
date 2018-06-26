@@ -13,7 +13,7 @@ try {
     $count = $stmt->rowCount();
     if($count > 0){
       $_SESSION['username'] = $username;
-      header('Location: ../page/home.php');
+      header('Location: ../page/new_home.php');
     }
     else {
       echo '<script language="javascript">';
