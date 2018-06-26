@@ -79,7 +79,7 @@
 </table>
 
 <div id="modal1" class="modal modal-fixed-footer">
-  <form>
+  <!-- <form> -->
   <ul class="stepper horizontal" id="horizontal">
      <li class="step active">
         <div data-step-label="Confirm!" class="step-title waves-effect waves-dark">Step 1</div>
@@ -221,15 +221,17 @@
         <div class="step-content">
            Finish!
            <div class="step-actions">
-              <button class="modal-close waves-effect waves-dark btn blue" type="" onclick="submit">SUBMIT</button>
+             <a href="my_profile.php?city='My_subscription'" class="modal-close waves-effect waves-dark btn blue">SUBMIT</a>
+             <!-- <button class="modal-close waves-effect waves-dark btn blue" type="" onclick="submit()"></button> -->
            </div>
         </div>
      </li>
   </ul>
-  </form>
+  <!-- </form> -->
   <script type="text/javascript">
     function submit(){
-      window.location.href = "my_profile.php?city='My_subscription'";
+      alert('1');
+      //window.location.href = "my_profile.php?city='My_subscription'";
       //location.reload();
     }
   </script>
