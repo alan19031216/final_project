@@ -5,7 +5,7 @@ $email = $_POST['email'];
 try {
   $sql = $conn->query("SELECT * FROM user WHERE email = '$email'");
   foreach ($sql as $row) {
-    $data = $row['update_date'];
+    $data_update = $row['update_date'];
     $username = $row['username'];
   }
   $count_row = $sql->rowCount();
@@ -14,16 +14,25 @@ try {
   }
   else{
     date_default_timezone_set("Asia/Kuala_Lumpur");
-    $datetime1 = new DateTime();
-    $datetime2 = new DateTime($data);
-    $interval = $datetime1->diff($datetime2);
-    $elapsed = $interval->format('%i');
+    // $datetime1 = new DateTime();
+    // $datetime2 = new DateTime($data);
+    // $interval = $datetime1->diff($datetime2);
+    // $elapsed = $interval->format('%h');
+    $date = strtotime("now");
+    //$data_update = date("d-m-y h-i-s", strtotime($data_update));
+    $date1 = strtotime($data_update);
+    $d = floor(($date-$date1)/86400); // day
+    $h = floor(($date-$date1)%86400/3600); // hour
+    $m = floor(($date-$date1)%86400/60); // minutes
+    $s = floor(($date-$date1)%86400%60); // s
+    $total = ($d  * 86400) + ($h * 3600) + ($m * 60) + $s;
     //echo $elapsed;
 
     $code = substr(str_shuffle(str_repeat("0123456789ABCDEFGHIJKLMNOPQRSTUVWXZY", 5)), 0, 5);
     $number_of_rows = $sql->rowCount();
-    if ($elapsed < 5) {
+    if ($total < 300) {
       echo "Please wait more 5 minutes. Now already - " .$elapsed. "mint(s)";
+      //echo $total;
     }
     elseif($number_of_rows > 0){
       $sql = $conn->query("UPDATE user SET update_date=now() , forgot_code = '$code' WHERE email = '$email'");
