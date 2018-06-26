@@ -3,7 +3,7 @@ session_start();
 if(session_destroy()){
   echo "<script>
         alert('Logout success');
-        window.location.href='../../index.php';
+        window.location.href='../../new_index.php';
         </script>";
 }
 ?>
