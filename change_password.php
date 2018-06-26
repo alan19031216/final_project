@@ -123,11 +123,13 @@ $code = $_GET['code'];
          }
          else if(regex.test(password) == false){
            //alert(regex.test(new_password));
+           $("#divCheckPasswordMatch").hide();
            $("#divCheckPasswordMatch_new_passsword").html("New password shuold include: Minimum eight in length and At least one lower case English letter");
            document.getElementById("update_password").disabled = true;
          }
          else if(regex.test(password) == false && password == confirmPassword){
            //alert(regex.test(new_password));
+           $("#divCheckPasswordMatch").hide();
            $("#divCheckPasswordMatch_new_passsword").html("New password shuold include: Minimum eight in length and At least one lower case English letter");
            document.getElementById("update_password").disabled = true;
          }
