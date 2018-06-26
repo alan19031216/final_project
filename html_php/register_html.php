@@ -30,6 +30,7 @@
           <input id="password" name="password" type="password"
           onChange="checkPasswordMatch();" class="validate" required>
           <label for="password">Password</label>
+          <span id="divCheckPasswordMatch_new_passsword" style="color:blue"></span>
         </div>
       </div>
 
@@ -65,6 +66,7 @@
 
     var notConfirm = 'Please confirm email'
     var notConfirm_result = notConfirm.fontcolor("blue");
+
     $.ajax({
       type:"POST",
       url:"php/check/checkUsername.php",
@@ -131,6 +133,7 @@ function checkPasswordMatch() {
     var notMatch = 'Passwords do not match!';
     var empty = 'Password cannot be empty';
     var result;
+    var regex = /^(?=.*?[a-z])(?=.*?[0-9]).{8,}$/;
 
     if (password != confirmPassword){
       result = notMatch.fontcolor("red");
@@ -150,8 +153,25 @@ function checkPasswordMatch() {
       $("#divCheckPasswordMatch").html(result);
         document.getElementById("button_register").disabled = true;
     }
+    else if(regex.test(password) == false){
+      //alert(regex.test(new_password));
+      $("#divCheckPasswordMatch").hide();
+      $("#divCheckPasswordMatch_new_passsword").html("New password shuold include: Minimum eight in length and At least one lower case English letter");
+      document.getElementById("button_register").disabled = true;
+    }
+    else if(regex.test(password) == false && password == confirmPassword){
+      //alert(regex.test(new_password));
+      $("#divCheckPasswordMatch").hide();
+      $("#divCheckPasswordMatch_new_passsword").html("New password shuold include: Minimum eight in length and At least one lower case English letter");
+      document.getElementById("button_register").disabled = true;
+    }
+    else if (password == "" || confirmPassword == "") {
+      $("#divCheckPasswordMatch").html(result);
+      document.getElementById("button_register").disabled = true;
+    }
     else{
       $("#divCheckPasswordMatch").html(result);
+      $("#divCheckPasswordMatch_new_passsword").hide();
       document.getElementById("button_register").disabled = false;
     }
 }
