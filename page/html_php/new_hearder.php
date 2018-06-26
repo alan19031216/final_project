@@ -58,7 +58,7 @@ include 'html_php/header.php';
 
    <div class="col l4 m4 s6">
      <br>
-       <nav class="blue">
+       <nav class="orange">
          <div class="nav-wrapper">
            <form>
              <div class="input-field">
