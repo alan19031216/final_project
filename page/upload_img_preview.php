@@ -133,8 +133,9 @@
         <label for="textarea1">Simple description</label>
       </div>
       <script type="text/javascript">
-        //var a_string = escape("");
-        $('#textarea1').val(<?php echo $simple_description; ?>);
+        //var a_string = "";
+        //var b = a_string.replace(/['"]+/g, '');
+        $('#textarea1').val("<?php echo $simple_description; ?>");
       </script>
 
       <br class="hide-on-med-and-up">
