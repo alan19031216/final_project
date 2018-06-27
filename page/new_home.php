@@ -74,6 +74,11 @@
              <a href="my_profile.php?city='My_subscription'">My subscription</a>
            </td>
            <td class="td1">
+             <a href="my_profile.php?city='notification'">Notification</a>
+           </td>
+         </tr>
+         <tr>
+           <td colspan="2">
              <a href="my_profile.php?city='My_profile'">Edit profile</a>
            </td>
          </tr>
