@@ -23,7 +23,7 @@
   }else{
     $image_hidden = $_POST['image_hidden'];
     $location_cover = "php/img/".$image_hidden;
-    //echo $image_hidden;
+    //echo $location_cover;
   }
 
   $pre_time = $_POST['pre_time'];
@@ -63,13 +63,13 @@
   else{
     $location_video = $_POST['video_hidden'];
     $location_video = "php/video/".$location_video;
-    //echo $video_hidden;
+    //echo $location_video;
   }
 
   try {
     $sql_first = ("INSERT INTO recipe
-      (username , name , simple_description , cover_img , rating , code , video) VALUES
-      ('$username' , '$recipe_name' , '$simple_description' , '$location_cover' , '0' , '$code' , '$location_video')");
+      (username , name , simple_description , cover_img , rating , pre_time , cooking_time , number_of_serve , code , video) VALUES
+      ('$username' , '$recipe_name' , '$simple_description' , '$location_cover' , '0' , '$pre_time' , '$cooking_time' , '$number_of_serve', '$code' , '$location_video')");
 
     for($i = 0; $i < count($name_ingredients); $i++){
        if($name_ingredients[$i] != "" && $num[$i] != "" && $unit[$i] != ""){
@@ -83,7 +83,6 @@
       if($description[$i] != "")  {
         $sql_step3 = "INSERT INTO food_step (code , description)
         VALUES('$code' , '$description[$i]' )";
-
       }
     }// for step3
 
@@ -96,7 +95,6 @@
       $conn->query($sql_step2);
       $conn->query($sql_step3);
       $conn->query($sql_rating);
-
     }
   }// try
    catch (PDOException  $e) {
