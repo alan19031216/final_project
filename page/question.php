@@ -54,7 +54,7 @@ $username = $_SESSION['username'];
               $date1 = strtotime("$ask_time");
               $t = floor(($date-$date1)/86400);
               //echo $t;
-              if($t == 0){
+              if($t == -1 || $t == 0){
                 $t = "Today";
               }
               else if($t == 1){
@@ -164,7 +164,6 @@ $username = $_SESSION['username'];
               else{
                 return true;
               }
-
             }
           </script>
 
