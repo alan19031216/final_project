@@ -31,7 +31,7 @@ try {
     $code = substr(str_shuffle(str_repeat("0123456789ABCDEFGHIJKLMNOPQRSTUVWXZY", 5)), 0, 5);
     $number_of_rows = $sql->rowCount();
     if ($total < 300) {
-      echo "Please wait more 5 minutes. Now already - " .$elapsed. "mint(s)";
+      echo "Please wait more 5 minutes. Now already - " .$s. "second";
       //echo $total;
     }
     elseif($number_of_rows > 0){
