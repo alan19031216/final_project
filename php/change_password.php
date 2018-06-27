@@ -2,7 +2,9 @@
 include 'config.php';
 $username = $_POST['username'];
 $password = $_POST['password'];
-$password = md5($password);
+$salt = '}#f4ga~g%7hjg4&j(7mk?/!bj30ab-wi=6^7-$^R9F|GK5J#E6WT;IO[JN'; // random string
+$password = sha1(md5($salt.$password)); // sha1 hash with salt & md5 #6
+//$password = md5($password);
 $code = $_POST['code'];
 
 try {
