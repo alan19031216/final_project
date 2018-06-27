@@ -22,6 +22,7 @@ try {
     }
 
     $sql_draft_delete = $conn->query("DELETE FROM recipe WHERE id = '$draft_id'");
+    $sql_favorite_delete = $conn->query("DELETE FROM favorite WHERE code = '$code'");
     if($sql_draft_delete){
       $sql_insert = $conn->query("INSERT INTO draft (username , name , simple_description , cover_img , rating , code , video , recipe_type , pre_time , cooking_time , number_of_serve ) VALUES
       ('$username' , '$name' , '$simple_description' , '$cover_image' , '$rating' , '$code' , '$video' ,'$recipe_type' , '$pre_time' , '$cooking_time' , '$number_of_serve')");
