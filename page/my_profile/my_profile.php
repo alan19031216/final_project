@@ -87,7 +87,7 @@
               <div class="row">
                  <div class="input-field col l12 m12 s12">
                    Old password
-                   <input name="old_password" type="password" class="validate" required>
+                   <input name="old_password" type="password" id="old_password" class="validate" required>
                  </div>
                </div>
 
@@ -95,7 +95,7 @@
                 <div class="input-field col l12 m12 s12">
                   New password
                   <input name="new_password" id="new_password" type="password" onChange="checkPasswordMatch();" class="validate" required>
-                  <span id="divCheckPasswordMatch_new_passsword"></span>
+                  <span id="divCheckPasswordMatch_new_passsword" style="color:blue;"></span>
                 </div>
               </div>
 
@@ -117,11 +117,13 @@
             <script type="text/javascript">
             // Check Passwords match or not -->
             function checkPasswordMatch() {
+                var old_password = $("#old_password").val();
                 var new_password = $("#new_password").val();
                 var confirmPassword = $("#password").val();
                 var match = 'Passwords match';
                 var notMatch = 'Passwords do not match!';
                 var empty = 'Password cannot be empty';
+                var same = 'Password cannot same as old password';
                 var result;
                 var regex = /^(?=.*?[a-z])(?=.*?[0-9]).{8,}$/;
 
@@ -130,6 +132,9 @@
                 }
                 else if (new_password == "" || confirmPassword == "") {
                   result = empty.fontcolor("blue");
+                }
+                else if (old_password == confirmPassword || old_password == new_password) {
+                  result = same.fontcolor("blue");
                 }
                 else {
                   result = match.fontcolor("#64dd17");
@@ -141,11 +146,13 @@
                 }
                 else if(regex.test(new_password) == false){
                   //alert(regex.test(new_password));
+                  $("#divCheckPasswordMatch").hide();
                   $("#divCheckPasswordMatch_new_passsword").html("New password shuold include: Minimum eight in length and At least one lower case English letter");
                   document.getElementById("button_update").disabled = true;
                 }
-                else if(regex.test(password) == false && new_password == confirmPassword){
+                else if(regex.test(password) == false && new_password != confirmPassword){
                   //alert(regex.test(new_password));
+                  $("#divCheckPasswordMatch").hide();
                   $("#divCheckPasswordMatch_new_passsword").html("New password shuold include: Minimum eight in length and At least one lower case English letter");
                   document.getElementById("button_update").disabled = true;
                 }
@@ -153,8 +160,13 @@
                   $("#divCheckPasswordMatch").html(result);
                   document.getElementById("button_update").disabled = true;
                 }
+                else if (old_password == confirmPassword || old_password == new_password) {
+                  $("#divCheckPasswordMatch").html(result);
+                  document.getElementById("button_update").disabled = true;
+                }
                 else{
                   $("#divCheckPasswordMatch").html(result);
+                  $("#divCheckPasswordMatch_new_passsword").hide();
                   document.getElementById("divCheckPasswordMatch_new_passsword").style.visibility = "hidden";
                   document.getElementById("button_update").disabled = false;
                 }
