@@ -23,7 +23,7 @@ try {
     $sql_favorite = $conn->query("SELECT * FROM favorite WHERE code = '$code'");
     foreach ($sql_favorite as $sql_favorite) {
       $username_notification = $sql_favorite['username'];
-      $sql_notification = $conn->query("INSERT INTO notification (username , reason) VALUES ('$username_notification' , '$name has been remove from your favorite because the author has remove it.')");
+      $sql_notification = $conn->query("INSERT INTO notification (username , title , reason) VALUES ('$username_notification' ,  'Remove favorite' , '$name has been remove from your favorite because the author has remove it.')");
     }
     $sql_draft_delete = $conn->query("DELETE FROM recipe WHERE id = '$draft_id'");
     $sql_favorite_delete = $conn->query("DELETE FROM favorite WHERE code = '$code'");
