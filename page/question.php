@@ -66,6 +66,9 @@ $username = $_SESSION['username'];
               else if( $t > 31){
                 $t = date('d-m-y h:i', $date1);
               }
+              else{
+                $t = $t . " days";
+              }
 
           ?>
           <a class="edit-btn">
@@ -146,7 +149,7 @@ $username = $_SESSION['username'];
             </div>
 
             <div class="center">
-              <input type="submit" value="Submit" onClick="return length1()">
+              <input class="waves-effect waves-light btn" type="submit" value="Submit" onClick="return length1()">
               <!-- <button onclick="return length()" type="submit" class="waves-effect waves-light btn" ><i class="material-icons left">cloud</i>button</button> -->
             </div>
           </form>
