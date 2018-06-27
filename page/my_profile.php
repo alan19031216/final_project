@@ -195,42 +195,9 @@ $city = $_GET['city'];
       </div> <!-- message-->
 
       <div id="notification" class="tabcontent">
-        <h3 class="center">Notification</h3>
-        <a href="#" class="waves-effect waves-light btn" onclick="view_report()">View report status</a>
-        <div id="report_table" hidden>
-          <table>
-            <tr>
-              <th>Report code</th>
-              <th>Status</th>
-              <th>Admin response</th>
-              <th>Date</th>
-            </tr>
-          <?php
-            $username_notification = $_SESSION['username'];
-            $sql_notification = $conn->query("SELECT * FROM report_history WHERE username = '$username_notification'");
-            foreach ($sql_notification as $row_notification) {
-          ?>
-          <tr>
-            <td><?php echo $row_notification['code']; ?></td>
-            <td><?php echo $row_notification['status']; ?></td>
-            <td><?php echo $row_notification['admin_response']; ?></td>
-            <td><?php echo $row_notification['response_time']; ?></td>
-          </tr>
-          <?php
-            }
-           ?>
-           </table>
-         </div>
-         <script type="text/javascript">
-           function view_report(){
-             var x_report_table = document.getElementById("report_table");
-               if (x_report_table.style.display === "none") {
-                   x_report_table.style.display = "block";
-               } else {
-                   x_report_table.style.display = "none";
-               }
-           }
-         </script>
+        <?php
+        include 'my_profile/notification.php';
+         ?>
       </div> <!-- my subscription-->
 
       <div id="My_subscription" class="tabcontent">
