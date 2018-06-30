@@ -91,6 +91,7 @@ function delete1(){
   }
   else {
     foreach ($sql_my_recipe as $row_my_recipe) {
+      $code = $row_my_recipe['code'];
 ?>
 
   <div class="col l4 m6 s12">
@@ -102,7 +103,46 @@ function delete1(){
 
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4"><?php echo $row_my_recipe['name']; ?><i class="material-icons right">more_vert</i></span>
-        <script>rate(<?php echo $row_my_recipe['rating']; ?>);</script>
+        <style>
+          .demo-table {width: 100%;border-spacing: initial;margin: 10px 0px;word-break: break-word;table-layout: auto;line-height:4.8em;color:#333;}
+          .demo-table td {border-bottom: #f0f0f0 1px solid;background-color: #ffffff;padding: 5px;}
+          .demo-table ul{margin:0;padding:0;}
+          .demo-table li{cursor:pointer;list-style-type: none;display: inline-block;color: #F0F0F0;text-shadow: 0 0 1px #666666;font-size:23px;}
+          .demo-table .highlight, .demo-table .selected {color:#F4B30A;text-shadow: 0 0 1px #F48F0A;}
+        </style>
+        <table class="demo-table">
+          <tbody>
+          <?php
+            $select_rate = $conn->query("SELECT * FROM tutorial WHERE code = '$code'");
+            foreach ($select_rate as $tutorial) {
+          ?>
+          <tr>
+            <td valign="top">
+                <div>
+                  <ul >
+                    <?php
+                    for($i=1;$i<=5;$i++) {
+                    $selected = "";
+                    if(!empty($tutorial["rating"]) && $i<=$tutorial["rating"]) {
+                    $selected = "selected";
+                    }
+                    ?>
+                    <li class="<?php echo $selected; ?> hide-on-small-only" id="rate_view_<?php echo $i; ?>" style="font-size:20px">
+                       &#9733;
+                     </li>
+                     <li class="<?php echo $selected; ?> hide-on-med-and-up" id="rate_view_<?php echo $i; ?>" style="font-size:45px">
+                        &#9733;
+                      </li>
+                    <?php } // , <?php echo $tutorial['code'];  ?>
+                  </ul>
+                </div>
+              </td>
+          </tr>
+          <?php
+            }
+          ?>
+          </tbody>
+        </table>
       </div>
 
       <div class="card-action">
