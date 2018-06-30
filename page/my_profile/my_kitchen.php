@@ -9,9 +9,13 @@
 <script type="text/javascript">
 var count_shake = 0;
 $(document).ready(function(){
+  $(".a-shake").hide();
     $("#delete1").click(function(){
       if(count_shake == 0){
         $("div .card-shake").addClass("shake");
+        $(".a-shake").show();
+        $(".a-view_recipe").hide();
+        $(".a-save_to_draft").hide();
         $("#delete1").removeClass("red");
         $("#delete1").addClass("blue");
         $("#delete1").text("Done");
@@ -20,6 +24,9 @@ $(document).ready(function(){
       else if (count_shake == 1) {
         $("div .card-shake").removeClass("shake");
         $("#delete1").removeClass("blue");
+        $(".a-shake").hide();
+        $(".a-view_recipe").show();
+        $(".a-save_to_draft").show();
         $("#delete1").addClass("red");
         $("#delete1").text("Delete");
         count_shake = 0;
@@ -98,7 +105,6 @@ function delete1(){
     <div class="card sticky-action card-shake">
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator" src="<?php echo $row_my_recipe['cover_img'];?>" style="width:100%;height:200px;%;">
-        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
       </div>
 
       <div class="card-content">
@@ -147,9 +153,10 @@ function delete1(){
 
       <div class="card-action">
         Type: <?php echo $row_my_recipe['type']; ?>
-        <a class="btn-floating waves-effect waves-light red right btn tooltipped" data-position="right" data-tooltip="View Recipe" href="new_recipe.php?code=<?php echo $row_my_recipe['code']; ?>"><i class="material-icons">book</i></a>
+        <a class="btn-floating waves-effect waves-light red right btn tooltipped a-view_recipe" data-position="right" data-tooltip="View Recipe" href="new_recipe.php?code=<?php echo $row_my_recipe['code']; ?>"><i class="material-icons">book</i></a>
         <!-- <a id="<?php echo $row_my_recipe['code']; ?>" class="btn-floating waves-effect waves-light right tooltipped"  data-position="top" data-tooltip="Add to favorite" onclick="addFavorite('<?php echo $row_my_recipe['code']; ?>')"><i class="material-icons">stars</i></a> -->
-        <a id="draft_<?php echo $row_my_recipe['code']; ?>" class="btn-floating waves-effect waves-light yellow darken-3 right btn tooltipped" data-position="top" data-tooltip="Save  to draft" onclick="save_to_draft('<?php echo $row_my_recipe['id']; ?>')"><i class="material-icons">file_download</i></a>
+        <a id="draft_<?php echo $row_my_recipe['code']; ?>" class="btn-floating waves-effect waves-light yellow darken-3 right btn tooltipped a-save_to_draft" data-position="top" data-tooltip="Save to draft" onclick="save_to_draft('<?php echo $row_my_recipe['id']; ?>')"><i class="material-icons">file_download</i></a>
+        <a id="draft_<?php echo $row_my_recipe['code']; ?>" class="btn-floating waves-effect waves-light red darken-3 right btn tooltipped a-shake" data-position="left" data-tooltip="Delete recipe" onclick="delete('<?php echo $row_my_recipe['id']; ?>')"><i class="material-icons">delete_forever</i></a>
         <br><br>
       </div>
 
