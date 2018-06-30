@@ -29,6 +29,8 @@
  <script type="text/javascript">
    function view_report(){
      var x_report_table = document.getElementById("report_table");
+     var x_other_notification = document.getElementById("other_notification");
+     x_other_notification.style.display = "none";
        if (x_report_table.style.display === "none") {
            x_report_table.style.display = "block";
        } else {
@@ -65,6 +67,8 @@
  </div>
  <script type="text/javascript">
    function other_notification(){
+     var x_report_table = document.getElementById("report_table");
+     x_report_table.style.display = "none";
      var x_other_notification = document.getElementById("other_notification");
        if (x_other_notification.style.display === "none") {
            x_other_notification.style.display = "block";
