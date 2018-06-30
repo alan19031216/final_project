@@ -18,7 +18,7 @@ $city = $_GET['city'];
          tablinks[i].className = tablinks[i].className.replace(" active", "");
      }
      document.getElementById(<?php echo $city ?>).style.display = "block";
-     evt.currentTarget.className += " active";
+     //currentTarget.className += " active";
  });
  </script>
 
