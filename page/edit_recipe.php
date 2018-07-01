@@ -49,6 +49,7 @@
               }
               //echo $recipe_code;
              ?>
+             <input type="hidden" name="recipe_code" value="<?php echo $recipe_code ?>">
            <div class="row">
              <div class="col l4 m12 s12">
                <h4 class="center">Recipe image</h4>
