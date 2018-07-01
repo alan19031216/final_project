@@ -1,7 +1,7 @@
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 <h3 class="center">My Kitchen</h3>
 <br>
-<a class="waves-effect waves-light btn">Edit</a>
+<a class="waves-effect waves-light btn" id="edit_recipe">Edit</a>
 <a class="waves-effect waves-light btn red" id="delete1">Delete</a>
 <!-- <a class="btn tooltipped" data-position="top" data-tooltip="I am a tooltip"> Top</a> -->
 
@@ -10,8 +10,10 @@
 var count_shake = 0;
 $(document).ready(function(){
   $(".a-shake").hide();
+  $(".a-edit").hide();
     $("#delete1").click(function(){
       if(count_shake == 0){
+        $("#edit_recipe").hide();
         $("div .card-shake").addClass("shake");
         $(".a-shake").show();
         $(".a-view_recipe").hide();
@@ -22,6 +24,7 @@ $(document).ready(function(){
         count_shake = 1;
       }
       else if (count_shake == 1) {
+        $("#edit_recipe").show();
         $("div .card-shake").removeClass("shake");
         $("#delete1").removeClass("blue");
         $(".a-shake").hide();
@@ -31,18 +34,33 @@ $(document).ready(function(){
         $("#delete1").text("Delete");
         count_shake = 0;
       }
+        //alert("a");
+    });
 
+    $("#edit_recipe").click(function(){
+      if(count_shake == 0){
+        $("#delete1").hide();
+        $(".a-view_recipe").hide();
+        $(".a-save_to_draft").hide();
+        $(".a-edit").show();
+        $("#edit_recipe").removeClass("green");
+        $("#edit_recipe").addClass("pink");
+        $("#edit_recipe").text("Done");
+        count_shake = 1;
+      }
+      else if (count_shake == 1) {
+        $("#delete1").show();
+        $(".a-edit").hide();
+        $(".a-view_recipe").show();
+        $(".a-save_to_draft").show();
+        $("#edit_recipe").removeClass("pink");
+        $("#edit_recipe").addClass("green");
+        $("#edit_recipe").text("Edit");
+        count_shake = 0;
+      }
         //alert("a");
     });
 });
-
-function delete1(){
-  //var element = document.getElementById("shake1");
-
-  //element.classList.add("shake");
-  //document.getElementById("shake1").style.WebkitAnimationName = "spaceboots"; // Code for Chrome, Safari, and Opera
-  //alert("a");
-}
 </script>
 <style media="screen">
   @-webkit-keyframes spaceboots {
@@ -150,13 +168,18 @@ function delete1(){
           </tbody>
         </table>
       </div>
-
       <div class="card-action">
         Type: <?php echo $row_my_recipe['type']; ?>
         <a class="btn-floating waves-effect waves-light red right btn tooltipped a-view_recipe" data-position="right" data-tooltip="View Recipe" href="new_recipe.php?code=<?php echo $row_my_recipe['code']; ?>"><i class="material-icons">book</i></a>
         <!-- <a id="<?php echo $row_my_recipe['code']; ?>" class="btn-floating waves-effect waves-light right tooltipped"  data-position="top" data-tooltip="Add to favorite" onclick="addFavorite('<?php echo $row_my_recipe['code']; ?>')"><i class="material-icons">stars</i></a> -->
         <a id="draft_<?php echo $row_my_recipe['code']; ?>" class="btn-floating waves-effect waves-light yellow darken-3 right btn tooltipped a-save_to_draft" data-position="top" data-tooltip="Save to draft" onclick="save_to_draft('<?php echo $row_my_recipe['id']; ?>')"><i class="material-icons">file_download</i></a>
-        <a id="draft_<?php echo $row_my_recipe['code']; ?>" class="btn-floating waves-effect waves-light red darken-3 right btn tooltipped a-shake" data-position="left" data-tooltip="Delete recipe" onclick="delete_1('<?php echo $row_my_recipe['id']; ?>')"><i class="material-icons">delete_forever</i></a>
+        <a class="btn-floating waves-effect waves-light red darken-3 right btn tooltipped a-shake" data-position="left" data-tooltip="Delete recipe" onclick="delete_1('<?php echo $row_my_recipe['id']; ?>')">
+          <i class="material-icons">delete_forever</i>
+        </a>
+        <a class="btn-floating waves-effect waves-light green darken-3 right btn tooltipped a-edit" data-position="top" data-tooltip="Edit recipe">
+          <div class='recipe_code2 display-none' hidden><?php echo $row_my_recipe['code']; ?></div>
+          <i class="material-icons">edit</i>
+        </a>
         <br><br>
       </div>
 
@@ -177,6 +200,28 @@ function delete1(){
     }
   }
 ?>
+<script type="text/javascript">
+
+$(document).on('click', '.a-edit', function(){
+  var recipe_code = $(this).find('.recipe_code2').text();
+  alert(recipe_code);
+
+  // hide create product button
+  $('#row_card').hide();
+
+  //fade out effect first
+  $('#all_row').fadeOut('slow', function(){
+      $('#page-content_message').load('edit_recipe.php?recipe_code=' + recipe_code , function(){
+      //$('#page-content').load('question_question.php', function(){
+          // hide loader image
+          //$('#loader-image').hide();
+
+          // fade in effect
+          $('#page-content_message').fadeIn('slow');
+      });
+  });
+});
+</script>
 
 <script type="text/javascript">
 $(document).ready(function(){
