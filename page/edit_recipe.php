@@ -32,6 +32,7 @@
       <div class="col l12 m12 s12">
         <div class="card">
           <div class="card-content">
+            <form class="" action="php/edit_recipe.php" method="post" enctype="multipart/form-data">
             <span class="card-title center">Edit recipe</span>
             <?php
               include 'php/config.php';
@@ -343,8 +344,9 @@
            </div> <!-- recipe detail -- >
           </div><!-- card-content -->
           <div class="card-action">
-            <a class="center" href="#">Submit</a>
+            <button class="center" href="#" type="submit">Submit</button>
           </div>
+          </form>
         </div>
       </div>
     </div> <!-- row -->
