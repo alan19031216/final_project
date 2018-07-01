@@ -320,6 +320,7 @@
                           for(var index in allowedExtension) {
                               if(fileExtension === allowedExtension[index]) {
                                   $('#player').hide();
+                                  document.getElementById('video_check').value = '1';
                                   isValidFile = true;
                                   break;
                               }
@@ -330,8 +331,6 @@
                               document.getElementById('video').value = "";
                           }
                           return isValidFile;
-                          document.getElementById('video_check').value = '1';
-
                     }// checkvideo
 
                   </script>
