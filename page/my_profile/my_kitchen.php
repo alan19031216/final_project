@@ -204,7 +204,7 @@ $(document).ready(function(){
 
 $(document).on('click', '.a-edit', function(){
   var recipe_code = $(this).find('.recipe_code2').text();
-  alert(recipe_code);
+  //alert(recipe_code);
 
   // hide create product button
   $('#row_card').hide();
