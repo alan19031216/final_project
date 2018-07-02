@@ -6,7 +6,7 @@ foreach ($select as $row) {
 <div class="col s3">
   <div class="card medium sticky-action">
     <div class="card-image waves-effect waves-block waves-light">
-      <img loop class="activator" src="page/php/<?php  echo $row['cover_img'];?>">
+      <img loop class="activator" src="page/<?php  echo $row['cover_img'];?>">
     </div>
 
     <div class="card-content">
@@ -49,7 +49,7 @@ foreach ($select as $row) {
          ?>
          <tr style="border-bottom:1pt solid black;">
            <td>
-             <img loop class="activator" src="page/php/<?php  echo $row['cover_img'];?>" style="width:60%;height:40%;">
+             <img loop class="activator" src="page/<?php  echo $row['cover_img'];?>" style="width:60%;height:40%;">
            </td>
 
            <td>
