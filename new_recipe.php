@@ -313,7 +313,7 @@
             print'<h4>Video</h4>';
             print '<hr>';
             print '<div>';
-            print '<center><video src="page/php/'.$video.'" height="30%" width = "50%" controls></video></center>';
+            print '<center><video src="page/'.$video.'" height="30%" width = "50%" controls></video></center>';
             print '</div>';
          }
          ?>
