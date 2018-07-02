@@ -2,7 +2,7 @@
 require 'config.php';
 
 $username = $_POST['username'];
-$target_dir = "img/";
+$target_dir = "php/img/user_image/";
 $name = $target_dir.$_FILES['image']['name'];
 $tmp_name = $_FILES['image']['tmp_name'];
 $location = "$name";
