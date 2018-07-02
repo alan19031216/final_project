@@ -18,7 +18,7 @@
     <div class="card medium sticky-action" style="height:450px">
       <div class="card-image waves-effect waves-block waves-light">
 
-        <img loop class="activator" src="page/php/<?php  echo $row['cover_img'];?>">
+        <img loop class="activator" src="page/<?php  echo $row['cover_img'];?>">
       </div>
 
       <div class="card-content">
