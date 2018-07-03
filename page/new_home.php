@@ -37,7 +37,7 @@
        <thead>
          <tr>
            <td colspan="2" class="center">
-             <img class="circle" src="php/<?php echo $image; ?>" style="width:100%;height:250px;">
+             <img class="circle" src="<?php echo $image; ?>" style="width:100%;height:250px;">
            </td>
          </tr>
          <tr>
