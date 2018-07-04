@@ -1,4 +1,4 @@
-$('.carousel.carousel-slider').carousel({fullWidth: true});
+//$('.carousel.carousel-slider').carousel({fullWidth: true});
 // side nav (mobile)
 // $(".button-collapse").sideNav();
 // // dropdown for web
