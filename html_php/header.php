@@ -10,7 +10,7 @@
     <script src="https://js.leapmotion.com/leap-0.6.4.js"></script>
     <!--rating-->
     <script src="page/js/rate.js"></script>
-    <script type="text/javascript" src="page/extras/modernizr.2.5.3.min.js"></script>
+    <script type="text/javascript" src="js/modernizr.2.5.3.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
 
     <script type="text/javascript" src="script.js"></script>

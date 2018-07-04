@@ -18,7 +18,7 @@
     <div class="card medium sticky-action" style="height:450px">
       <div class="card-image waves-effect waves-block waves-light">
 
-        <img loop class="activator" src="page/<?php  echo $row['cover_img'];?>">
+        <img loop class="activator" src="../page/<?php  echo $row['cover_img'];?>">
       </div>
 
       <div class="card-content">
@@ -58,7 +58,7 @@
 
       <div class="card-action">
         Type: <?php echo $row['type']; ?>
-        <a class="btn-floating waves-effect waves-light red right" href="recipe.php?code=<?php echo $row['code']; ?>"><i class="material-icons">book</i></a>
+        <a class="btn-floating waves-effect waves-light red right" href="recipe/<?php echo $row['code']; ?>"><i class="material-icons">book</i></a>
       </div>
 
 
