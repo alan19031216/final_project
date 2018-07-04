@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Recipe</title>
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://js.leapmotion.com/leap-0.6.4.js"></script>
     <script src="js/leapcursor-with-dependencies.min.js?gestureColor=#6DCC44"></script>
     <!--rating-->
     <script src="page/js/rate.js"></script>
-    <script type="text/javascript" src="page/extras/modernizr.2.5.3.min.js"></script>
-    <script type="text/javascript" src="new_recipe.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="../page/extras/modernizr.2.5.3.min.js"></script>
+    <script type="text/javascript" src="../new_recipe.js"></script>
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
   </head>
   <body>
 
@@ -313,7 +313,7 @@
             print'<h4>Video</h4>';
             print '<hr>';
             print '<div>';
-            print '<center><video src="page/'.$video.'" height="30%" width = "50%" controls></video></center>';
+            print '<center><video src="../page/'.$video.'" height="30%" width = "50%" controls></video></center>';
             print '</div>';
          }
          ?>
@@ -354,7 +354,7 @@
                  <div class="card-content">
                    <div class="row">
                      <div class="col l3 m3 s12">
-                       <center><img src="page/<?php echo $img; ?>" alt="" class="circle responsive-img " width="50%" >
+                       <center><img src="../page/<?php echo $img; ?>" alt="" class="circle responsive-img " width="50%" >
                          <p><?php echo $row_comment['username']; ?></p>
                        </center>
                      </div>
