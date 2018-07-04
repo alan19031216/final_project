@@ -51,7 +51,7 @@
 							</ul>
 							<figcaption>
                 <br><br><br><br>
-								<a href="index.php"><h2>Let's cook</h2></a>
+								<a href="new_index.php"><h2>Let's cook</h2></a>
 							</figcaption>
 						</figure>
 					</li>
