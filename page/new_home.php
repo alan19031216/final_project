@@ -9,7 +9,22 @@
   if($image == "" || $image == " " || $image == "img/"){
     $image = "img/user_icon.png";
   }
- ?>
+
+   // gets the user IP Address
+   $user_ip=$_SERVER['REMOTE_ADDR'];
+
+   $check_ip = $conn->query("select userip from pageview where page='yourpage' and userip='$user_ip'");
+   $countRow = $check_ip->rowCount();
+   if($countRow>=1)
+   {
+   }
+   else
+   {
+     $insertview = $conn->query("insert into pageview values('','yourpage','$user_ip')");
+   }
+  ?>
+
+
  <style media="screen">
  .td , .td1{
      border-bottom: 1px solid #ddd;
