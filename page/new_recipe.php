@@ -1,8 +1,6 @@
 <?php
-//require 'html_php/header.php';
-require 'php/config.php';
-//require 'html_php/navbar_html.php';
-//echo $code;
+session_start();
+$username = $_SESSION['username'];
  ?>
  <!DOCTYPE html>
  <html>
@@ -24,14 +22,14 @@ require 'php/config.php';
    <ul id="dropdown1" class="dropdown-content">
      <li class="divider"></li>
      <li><a href="user_profile.php"><i class="material-icons">account_box</i>User profile</a></li>
-     <li><a href="php/logout.php">Logout</a></li>
+     <li><a href="../php/logout.php">Logout</a></li>
      <li class="divider"></li>
    </ul>
 
    <div class="navbar-fixed">
      <nav class="orange">
      <!--  <a href="#!" class="brand-logo">Logo</a> -->
-     <a href="new_home.php" class="brand-logo">Let's Cook</a>
+     <a href="../new_home.php" class="brand-logo">Let's Cook</a>
        <!--<a href="home.php">
          <img class="responsive-img brand-logo hide-on-small-only" src="img/logo.jpg" alt="" width="13%">
        </a>-->
@@ -85,6 +83,7 @@ require 'php/config.php';
       <?php
         require 'php/config.php';
         $code = $_GET['code'];
+        //echo $code;
         $page = 1;
         $sql_make = $conn->query("SELECT * FROM make_it WHERE code = '$code'");
         $count_row = $sql_make->rowCount();
@@ -151,8 +150,6 @@ require 'php/config.php';
                   ?>
                   </tbody>
                 </table>
-
-
 
               </div>
               <div class="col l6 m6 s12">
