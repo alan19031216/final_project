@@ -55,45 +55,61 @@ $city = $_GET['city'];
   <br>
   <div class="page-content_message" id="page-content_message"></div>
   <div class="row all_row" id="all_row">
-    <div class="col l2 m4 tab">
+    <div class="col l2 m4 s12 tab">
       <br>
-      <a href="#" onclick="openCity(event, 'My Favorite')"><div class="col l12 waves-effect waves-light btn">
-        My Favorite
-      </div></a>
+      <a href="#" onclick="openCity(event, 'My Favorite')">
+        <div class="col l12 m12 s12 waves-effect waves-light btn">
+          My Favorite
+        </div>
+      </a>
       <br><br>
-      <a href="#" onclick="openCity(event, 'My_kitchen')"><div class="col l12 waves-effect waves-light btn">
-        My kitchen
-      </div></a>
+      <a href="#" onclick="openCity(event, 'My_kitchen')">
+        <div class="col l12 m12 s12 waves-effect waves-light btn">
+            My kitchen
+        </div>
+      </a>
       <br><br>
-      <a href="#" onclick="openCity(event, 'My_question')"><div class="col l12 waves-effect waves-light btn">
-        My question
-      </div></a>
+      <a href="#" onclick="openCity(event, 'My_question')">
+        <div class="col l12 m12 s12 waves-effect waves-light btn">
+          My question
+        </div>
+      </a>
       <br><br>
-      <a href="#" onclick="openCity(event, 'message')"><div class="col l12 waves-effect waves-light btn">
-        Message
-      </div></a>
+      <a href="#" onclick="openCity(event, 'message')">
+        <div class="col l12 m12 s12 waves-effect waves-light btn">
+          Message
+        </div>
+      </a>
       <br><br>
-      <a href="#" onclick="openCity(event, 'notification')"><div class="col l12 waves-effect waves-light btn">
-        Notification
-      </div></a>
+      <a href="#" onclick="openCity(event, 'notification')">
+        <div class="col l12 m12 s12 waves-effect waves-light btn">
+          Notification
+        </div>
+      </a>
       <br><br>
-      <a href="#" onclick="openCity(event, 'My_draft')"><div class="col l12 waves-effect waves-light btn">
-        My draft
-      </div></a>
+      <a href="#" onclick="openCity(event, 'My_draft')">
+        <div class="col l12 m12 s12 waves-effect waves-light btn">
+          My draft
+        </div>
+      </a>
       <br><br>
-      <a href="#" onclick="openCity(event, 'My_subscription')"><div class="col l12 waves-effect waves-light btn">
-        My subscription
-      </div></a>
+      <a href="#" onclick="openCity(event, 'My_subscription')">
+        <div class="col l12 m12 s12 waves-effect waves-light btn">
+          My subscription
+        </div>
+      </a>
       <br><br>
-      <a href="#" onclick="openCity(event, 'My_profile')"><div class="col l12 waves-effect waves-light btn">
-        My profile
-      </div></a>
+      <a href="#" onclick="openCity(event, 'My_profile')">
+        <div class="col l12 m12 s12 waves-effect waves-light btn">
+          My profile
+        </div>
+      </a>
       <br>
     </div><!-- tab -->
     <br>
 
-    <div class="col l10 m8 grey lighten-3">
-      <div id="My Favorite" class="tabcontent">
+    <div class="col l10 m8 s12 grey lighten-3">
+      <div id="My Favorite" class="tabcontent col l12 m12 s12">
         <?php
           include 'my_profile/my_favorite.php';
          ?>

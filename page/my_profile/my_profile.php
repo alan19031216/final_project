@@ -20,16 +20,16 @@
               ?>
               <form action="php/user.php" method="post" enctype="multipart/form-data">
               <div class="row">
-                <div class="input-field col l12">
+                <div class="input-field col l12 m12 s12">
                   Username
                   <input type="text" class="validate" name="username" value="<?php echo $username; ?>" readonly>
                 </div>
-                <div class="input-field col l12">
+                <div class="input-field col l12 m12 s12">
                   Email
                   <input type="text" class="validate" value="<?php echo $email; ?>" readonly>
                 </div>
                 <br><br>
-                <div class="file-field input-field">
+                <div class="file-field input-field l12 m12 s12">
                   <div class="btn">
                     <span>Change your profile picture</span>
                     <input type="file" id="my_file" name="image" accept="image/*" onchange="previewFile()">
