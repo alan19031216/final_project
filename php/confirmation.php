@@ -34,7 +34,7 @@ $sql2 = $conn->query("INSERT INTO login(username, password)VALUES('$name', '$pas
 // if successfully moved data from table"temp_members_db" to table "registered_members" displays message "Your account has been activated" and don't forget to delete confirmation code from table "temp_members_db"
 if($sql2){
 
-$sql4 = $conn->query("INSERT INTO user(username, email , img , join_time)VALUES('$name', '$email' , 'img/' , '$current_time')");
+$sql4 = $conn->query("INSERT INTO user(username, email , img , join_time)VALUES('$name', '$email' , ' ' , '$current_time')");
 echo '<script language="javascript">';
 echo 'alert("Your account has been activated!!")';
 echo '</script>';
