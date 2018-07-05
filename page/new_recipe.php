@@ -269,7 +269,7 @@ $username = $_SESSION['username'];
                   //alert("Data2: " + data);
                 //  change = data;
 
-                  $.post('php/getFavorite.php' , {postcode:code , postusername:username} ,
+                  $.post('../php/getFavorite.php' , {postcode:code , postusername:username} ,
                   function(data){
                     if(data == "1"){
                       alert("Got something wrong");
@@ -333,7 +333,7 @@ $username = $_SESSION['username'];
           function make_it(username , code){
             if(confirm("Have you make it?") == true){
               $.ajax({
-                  url: "php/make_it.php",
+                  url: "../php/make_it.php",
                   data:'user=' +username +
                        '&code='+code,
                   type: "POST",
@@ -342,7 +342,7 @@ $username = $_SESSION['username'];
                   if(a == 'exist'){
                     if(confirm("Do you want to unmake it?") == true){
                       $.ajax({
-                          url: "php/update_make_it.php",
+                          url: "../php/update_make_it.php",
                           data:'user=' +username +
                                '&code='+code,
                           type: "POST",
@@ -401,7 +401,7 @@ $username = $_SESSION['username'];
             	});
             	$.ajax({
 
-            	url: "php/add_rating.php",
+            	url: "../php/add_rating.php",
             	data:'id=' + id +
                    '&user=' + user +
                    '&code='+$('#code').val() +
@@ -415,13 +415,14 @@ $username = $_SESSION['username'];
                           alert("Number cannot smaller than 1 and bigger than 5!");
                         }else {
                           $.ajax({
-                            url: "php/update_add_rating.php",
+                            url: "../php/update_add_rating.php",
                             data:'user=' +$('#username').val() +
                                  '&code='+$('#code').val() +
                                  '&rating='+ rate,
                             type: "POST",
                           success: function(a){
-                            alert(a);
+                            alert("Rate success");
+                            //alert(a);
                             //alert($('#code').val());
                           },
                           error: function(){
@@ -736,7 +737,7 @@ $username = $_SESSION['username'];
         </div>
         <center>
           <div class="col l3 m3 s12">
-            <a style="width:50%;" onclick="make_it()" href="login_register.php" class="waves-effect waves-light btn blue">
+            <a style="width:50%;" onclick="make_it()" class="waves-effect waves-light btn blue">
               <i class="large material-icons left">done</i>I make it
             </a>
           </div>
@@ -780,14 +781,14 @@ $username = $_SESSION['username'];
                  else{
                    $.ajax({
                      type:"POST",
-                     url:"php/comment_recipe.php",
+                     url:"../php/comment_recipe.php",
                      data: 'username=' + username_comment +
                            '&product_id=' + product_id_TA +
                            '&comment=' + comment_TA,
                      success: function(data){
                        if(data == 1){
                          $('#all_comment').hide();
-                         $('#reload_all_comment').load('reload_all_comment.php?product_id=' + product_id_TA, function(){
+                         $('#reload_all_comment').load('../reload_all_comment.php?product_id=' + product_id_TA, function(){
                             // hide loader image
                             //$('#loader-image').hide();
 
@@ -898,7 +899,7 @@ $username = $_SESSION['username'];
 
                       $.ajax({
                         type:"POST",
-                        url:"php/modal2__recipe_report.php",
+                        url:"../php/modal2__recipe_report.php",
                         data: 'username=' + username +
                               '&modal2_question_TA=' + modal2_question_TA +
                               '&modal2_check=' + modal2_check +
@@ -956,7 +957,7 @@ $username = $_SESSION['username'];
                     var username = document.getElementById('username_comment').value;
                     $.ajax({
                       type:"POST",
-                      url:"php/like_comment_recipe.php",
+                      url:"../php/like_comment_recipe.php",
                       data: 'username=' + username +
                             '&id=' + a,
                       success: function(data){
