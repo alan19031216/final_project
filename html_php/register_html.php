@@ -69,7 +69,7 @@
 
     $.ajax({
       type:"POST",
-      url:"php/check/checkUsername.php",
+      url:"../php/check/checkUsername.php",
       data: 'username=' + val,
       success: function(data){
         if(data == 1){
