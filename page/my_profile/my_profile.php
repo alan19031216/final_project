@@ -41,7 +41,7 @@
                 <center><button class="waves-effect waves-light btn" type="submit" name="button">Submit</button></center>
               </div>
               </form>
-              <center><img class="circle responsive-img" src="php/<?php echo $image; ?>" id="img" height="200" width="20%" alt="Image preview..."><br> (Current image)</center>
+              <center><img class="circle responsive-img" src="<?php echo $image; ?>" id="img" height="200" width="20%" alt="Image preview..."><br> (Current image)</center>
               <script type="text/javascript">
               // check image and preview image
               function previewFile() {

@@ -151,7 +151,7 @@ $city = $_GET['city'];
             <div class="col l6 m12 s12">
               <div class="card horizontal">
                 <div class="card-image">
-                  <img src="php/<?php echo $message_img; ?>" style="width:100%;height:200px;">
+                  <img src="<?php echo $message_img; ?>" style="width:100%;height:200px;">
                 </div>
                 <div class="card-stacked">
                   <div class="card-content">
