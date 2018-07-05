@@ -1,0 +1,8 @@
+RewriteEngine On
+
+RewriteRule    ^/?$    new_index.php [NC,L]    # Handle requests for "pet-care"
+
+RewriteRule    ^login_register/?$    login_register.php [NC,L]    # Handle requests for "pet-care"
+
+RewriteRule    ^recipe/([A-Za-z0-9-]+)/?$  new_recipe.php?code=$1    [L]    # Handle product requests
+
