@@ -25,6 +25,7 @@ $username = $_SESSION['username'];
       Type: <?php echo $row_my_favorite['type']; ?>
       <a class="btn-floating waves-effect waves-light red right" href="new_recipe.php?code=<?php echo $row_my_favorite['code']; ?>"><i class="material-icons">book</i></a>
       <a id="<?php echo $row_my_favorite['code']; ?>" class="btn-floating waves-effect waves-light right tooltipped"  data-position="top" data-tooltip="Add to favorite" onclick="addFavorite('<?php echo $row_my_favorite['code']; ?>')"><i class="material-icons">stars</i></a>
+      <br><br>
     </div>
 
     <div class="card-reveal">
