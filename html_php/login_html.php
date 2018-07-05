@@ -1,7 +1,7 @@
 <div id="modal1" class="modal">
   <div class="modal-content">
     <h4 class="center-align">Login</h4>
-    <form class="" action="php/login.php" method="post">
+    <form class="" action="../php/login.php" method="post">
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">account_circle</i>

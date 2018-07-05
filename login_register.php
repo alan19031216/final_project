@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/open_book_effect_login_register.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../css/open_book_effect_login_register.css"  media="screen,projection"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
     <title></title>
   </head>
   <body>
@@ -51,7 +51,7 @@
 							</ul>
 							<figcaption>
                 <br><br><br><br>
-								<a href="new_index.php"><h2>Let's cook</h2></a>
+								<a href="http://localhost/final%20project/final/"><h2>Let's cook</h2></a>
 							</figcaption>
 						</figure>
 					</li>
@@ -68,6 +68,6 @@
        ?>
 
   </body>
-  <script type="text/javascript" src="js/login_register.js"></script>
+  <script type="text/javascript" src="../js/login_register.js"></script>
 </html>
 <!--Fivera.net |||||| By Nikola Petrovic ||||||| Website dedicated to sharing resources-->

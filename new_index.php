@@ -123,7 +123,7 @@ include 'header.php';
         <center>
           <div class="#e0e0e0 grey lighten-2 card" style="width:50%;background-color:#ff0000;">
 
-            <a href="login_register.php"><div class="col l12 waves-effect waves-light btn" style="width:200px;">
+            <a href="login_register/"><div class="col l12 waves-effect waves-light btn" style="width:200px;">
               <i class="material-icons left">account_circle</i>login / Register
             </div></a>
 
