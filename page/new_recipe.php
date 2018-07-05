@@ -1,9 +1,84 @@
 <?php
-require 'html_php/header.php';
+//require 'html_php/header.php';
 require 'php/config.php';
-require 'html_php/navbar_html.php';
+//require 'html_php/navbar_html.php';
 //echo $code;
  ?>
+ <!DOCTYPE html>
+ <html>
+   <head>
+     <meta charset="utf-8">
+
+     <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+     <link type="text/css" rel="stylesheet" href="../css/style_bookshelf.css"  media="screen,projection"/>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> <script type="text/javascript" src="../js/materialize.min.js"></script>
+     <script type="text/javascript" src="../js/home.js"></script>
+     <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
+     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"> -->
+     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+     <!-- Compiled and minified JavaScript -->
+     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script> -->
+   </header>
+   <!-- Dropdown Structure -->
+   <ul id="dropdown1" class="dropdown-content">
+     <li class="divider"></li>
+     <li><a href="user_profile.php"><i class="material-icons">account_box</i>User profile</a></li>
+     <li><a href="php/logout.php">Logout</a></li>
+     <li class="divider"></li>
+   </ul>
+
+   <div class="navbar-fixed">
+     <nav class="orange">
+     <!--  <a href="#!" class="brand-logo">Logo</a> -->
+     <a href="new_home.php" class="brand-logo">Let's Cook</a>
+       <!--<a href="home.php">
+         <img class="responsive-img brand-logo hide-on-small-only" src="img/logo.jpg" alt="" width="13%">
+       </a>-->
+       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+       <ul class="right hide-on-med-and-down">
+         <li><a href="sell.php">Book of recipe</a></li>
+         <li>
+           <a class="dropdown-button" href="#!" data-activates="dropdown1">
+             Welcome back, <b><?php echo $_SESSION['username']; ?></b>
+             <i class="material-icons right">arrow_drop_down</i>
+           </a>
+         </li>
+       </ul>
+     </nav>
+   </div>
+
+   <!--Moblie slide bar-->
+   <ul class="side-nav" id="mobile-demo">
+     <center> <li><a href="new_home.php" style="pointer-events: none;cursor: default;"><b style="color:red;font-size:30px">Lest's Cook</b></a></li> </center>
+     <li><a href="sell.php">Book of recipe</a></li>
+     <li>
+       <ul class="collapsible collapsible-accordion">
+         <li>
+           <a class="collapsible-header waves-effect waves-teal">
+             Welcome back, <b style="color:blue"><?php echo $_SESSION['username'];; ?></b>
+             <i class="material-icons right">arrow_drop_down</i>
+           </a>
+           <div class="collapsible-body">
+             <ul>
+               <li class="divider"></li>
+               <li><a href="user_profile.php"><i class="material-icons">account_box</i>User profile</a></li>
+               <li><a href="php/logout.php">Logout</a></li>
+               <li class="divider"></li>
+             </ul>
+           </div>
+         </li>
+       </ul>
+     </li>
+   </ul>
+
+   <script type="text/javascript">
+     $(document).ready(function(){
+       // mobile slide
+       $(".button-collapse").sideNav();
+     });
+   </script>
+
 
  <script type="text/javascript" src="../new_recipe.js"></script>
       <br>
@@ -31,7 +106,7 @@ require 'html_php/navbar_html.php';
         <div class="top">
           <div class="row">
             <div class="col l4 m6 s12 center">
-              <img src="<?php echo $cover_img; ?>" style="height:50%;width:100%">
+              <img src="../<?php echo $cover_img; ?>" style="height:50%;width:100%">
               <div class="col l6 m6 s12">
                 <style>
                   .demo-table {width: 100%;border-spacing: initial;margin: 10px 0px;word-break: break-word;table-layout: auto;line-height:4.8em;color:#333;}
@@ -102,7 +177,7 @@ require 'html_php/navbar_html.php';
                <br>
                <div class="row" style="padding:10px">
                  <div class="col l4 m6">
-                   <img class="circle responsive-img" src="<?php echo $post_img; ?>" alt="" style="width:100%;height:200px">
+                   <img class="circle responsive-img" src="../<?php echo $post_img; ?>" alt="" style="width:100%;height:200px">
                  </div>
                  <div class="col l8 m6">
                    <p>Name: <?php echo $post_user_name;?></p>
@@ -170,7 +245,7 @@ require 'html_php/navbar_html.php';
               var code = document.getElementById('code').value;
               var username = document.getElementById('username').value;
 
-              $.post('php/getChange.php' , {postcode:code , postusername:username} ,
+              $.post('../php/getChange.php' , {postcode:code , postusername:username} ,
               function(data){
                 if(data == "1"){
                   //alert("Data1: " + data);
@@ -224,7 +299,7 @@ require 'html_php/navbar_html.php';
 
               var code = document.getElementById('code').value;
               var username = document.getElementById('username').value;
-              $.post('php/getChange.php' , {postcode:code , postusername:username} ,
+              $.post('../php/getChange.php' , {postcode:code , postusername:username} ,
               function(data){
                 if(data == "1"){
                   document.getElementById("favorite").classList.remove('red');
@@ -439,7 +514,7 @@ require 'html_php/navbar_html.php';
         <div class="print" id="print" hidden>
           <table border="1">
             <tr>
-              <td align="center" colspan="3" style="border:none"> <img src="img/logo.jpg" alt="" width="50%">  <hr> </td>
+              <td align="center" colspan="3" style="border:none"> <img src="../img/logo.jpg" alt="" width="50%">  <hr> </td>
             </tr>
             <tr>
               <td colspan="3" align="center"><h2>Ingredients</h2></td>
@@ -599,7 +674,7 @@ require 'html_php/navbar_html.php';
 
           <!--timer sound-->
           <audio id="myAudio">
-            <source src="mp3/alarm.mp3" type="audio/mp3">
+            <source src="../mp3/alarm.mp3" type="audio/mp3">
           </audio>
           <style media="screen">
           .numberCircle {
@@ -678,7 +753,7 @@ require 'html_php/navbar_html.php';
            print'<h4>Video</h4>';
            print '<hr>';
            print '<div>';
-           print '<center><video src="'.$video.'" height="30%" width = "50%" controls></video></center>';
+           print '<center><video src="../'.$video.'" height="30%" width = "50%" controls></video></center>';
            print '</div>';
         }
          ?>
@@ -769,7 +844,7 @@ require 'html_php/navbar_html.php';
                     <div class="card-content">
                       <div class="row">
                         <div class="col l3 m3 s12">
-                          <center><img src="<?php echo $img_comment; ?>" alt="" class="circle responsive-img " width="50%" >
+                          <center><img src="../<?php echo $img_comment; ?>" alt="" class="circle responsive-img " width="50%" >
                             <p><?php echo $row_comment['username']; ?></p>
                           </center>
                         </div>
