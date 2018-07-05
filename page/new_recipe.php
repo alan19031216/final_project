@@ -102,7 +102,7 @@ require 'html_php/navbar_html.php';
                <br>
                <div class="row" style="padding:10px">
                  <div class="col l4 m6">
-                   <img class="circle responsive-img" src="php/<?php echo $post_img; ?>" alt="" style="width:100%;height:200px">
+                   <img class="circle responsive-img" src="<?php echo $post_img; ?>" alt="" style="width:100%;height:200px">
                  </div>
                  <div class="col l8 m6">
                    <p>Name: <?php echo $post_user_name;?></p>
@@ -678,7 +678,7 @@ require 'html_php/navbar_html.php';
            print'<h4>Video</h4>';
            print '<hr>';
            print '<div>';
-           print '<center><video class='a' src="page/'.$video.'" height="30%" width = "50%" controls></video></center>';
+           print '<center><video src="'.$video.'" height="30%" width = "50%" controls></video></center>';
            print '</div>';
         }
          ?>
@@ -743,15 +743,15 @@ require 'html_php/navbar_html.php';
                  <?php
                    $code = $_GET['code'];
                    //echo $username ;
-                   $img = "";
+                   $img_comment = "";
                    $sql_comment= $conn->query("SELECT a.* , b.* FROM user as a LEFT JOIN comment_recipe as b ON a.username = b.username WHERE b.recipe_code = '$code' ORDER BY comment_date DESC");
 
                    foreach ($sql_comment as $row_comment) {
                      $id = $row_comment['id'];
-                     $img = $row_comment['img'];
-                     if($img == "" || $img == " " || $img == "img/"){
-                       $img = "img/user_icon.png";
+                     $img_comment = $row_comment['img'];
 
+                     if($img_comment == "" || $img_comment == ' '){
+                       $img_comment = "img/user_icon.png";
                      }
                      $sql_lik = $conn->query("SELECT * FROM liked WHERE comment_id = '$id'")->rowCount();
                      $like = '';
@@ -769,7 +769,7 @@ require 'html_php/navbar_html.php';
                     <div class="card-content">
                       <div class="row">
                         <div class="col l3 m3 s12">
-                          <center><img src="php/<?php echo $img; ?>" alt="" class="circle responsive-img " width="50%" >
+                          <center><img src="<?php echo $img_comment; ?>" alt="" class="circle responsive-img " width="50%" >
                             <p><?php echo $row_comment['username']; ?></p>
                           </center>
                         </div>
