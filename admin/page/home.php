@@ -1,6 +1,12 @@
 <?php
 session_start();
 $username = $_SESSION['username'];
+if($username == '' || $username == ' '){
+  echo '<script language="javascript">';
+  echo 'alert("Please login!!")';
+  echo '</script>';
+  header( "refresh:0.1; url= ../login.php" );
+}
 //$url = new url_rewriter('example/');
  ?>
 <!DOCTYPE html>
@@ -145,7 +151,14 @@ $username = $_SESSION['username'];
                 $('#lines_3').animateNumber({ number: <?php echo $count_subscrpt; ?> });
                 $('#lines_4').animateNumber({ number: <?php echo $countRow1; ?> });
               </script>
+          </div>
 
+          <div class="row">
+            <div class="col l6 m6">
+              <?php
+                  require 'calendar.html';
+               ?>
+            </div>
           </div>
         </section>
         </main>
@@ -161,7 +174,6 @@ $username = $_SESSION['username'];
         in the materialize js file & I don't want that.
         -->
         <!-- Yo dawg, I heard you like hacks. So I hacked your hack. (moved the sidenav js up so it actually works) -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
         <script>
         // Hide sideNav
@@ -189,6 +201,5 @@ $username = $_SESSION['username'];
             </ul>
           </div>
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
       </body>
     </html>
