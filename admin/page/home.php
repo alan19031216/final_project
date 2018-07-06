@@ -155,6 +155,135 @@ if($username == '' || $username == ' '){
 
           <div class="row">
             <div class="col l6 m6">
+              <br>
+              <button data-target="modal1" class=" waves-effect waves-light red btn modal-trigger" style="width:100%;">To do list +</button>
+              <br><br>
+              <div class="first_table" id="first_table">
+                <?php
+                //require 'php/config.php';
+                $username = $_SESSION['username'];
+                $sql = $conn->query("SELECT * FROM todolist WHERE username = '$username'");
+                $sql_count = $sql->rowCount();
+                if($sql_count == 0){
+                  print "<h5 class='center'>You haven't add any task yet</h5>";
+                }else{
+                ?>
+                <table class="striped">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Task</th>
+                      <th>Complete / Delete</th>
+                    </tr>
+                  </thead>
+
+                <?php
+
+                  $count = 1;
+                  foreach ($sql as $row) {
+                    $id = $row['id'];
+                ?>
+
+                  <tr>
+                    <td><?php echo $count++; ?></td>
+                    <td><?php echo $row['task']; ?></td>
+                    <td><a onclick="delete1(<?php echo $id; ?>)"><i class="material-icons">all_inclusive</i></a></td>
+                  </tr>
+                <?php
+                } // foreach
+                }// else
+                 ?>
+                </table>
+              </div>
+              <div class="second_table" id="second_table"></div>
+
+
+            </div>
+            <script type="text/javascript">
+            $(document).ready(function(){
+              $('.modal').modal();
+            });
+            </script>
+            <div id="modal1" class="modal bottom-sheet">
+              <div class="modal-content">
+                <h4 class="center">Add task</h4>
+                <div class="input-field col l12">
+                  <input type="hidden" id="username" value="<?php echo $_SESSION['username']; ?>">
+                  <input id="task" type="text" class="validate">
+                  <label for="last_name">Task</label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick="add_task()">Add</a>
+              </div>
+            </div>
+
+            <script type="text/javascript">
+              function add_task(){
+                var username = document.getElementById('username').value;
+                var task = document.getElementById('task').value;
+                // alert(username);
+                if (username != '' || username != 'root') {
+                  $.ajax({
+                    type:"POST",
+                    url:"php/add_task.php",
+                    data: 'username=' + username +
+                          '&task=' + task,
+                    success: function(data){
+                      if(data == 1){
+                        //alert(data);
+                        $('#first_table').hide();
+                        $('#second_table').hide();
+                        $('#second_table').load('todolist_table.php?username=' + username, function(){
+                           // hide loader image
+                           //$('#loader-image').hide();
+
+                           // fade in effect
+                           $('#second_table').fadeIn('slow');
+                       });
+                      }
+                      else{
+                        alert(data);
+                        // alert("Got some problem! Please try again");
+                        // location.reload();
+                      }
+                    }
+                 });
+                }
+              }
+
+              function delete1(a){
+                var username = document.getElementById('username').value;
+                var r = confirm("Delete you want to delete this task!");
+                  if (r == true) {
+                    $.ajax({
+                      type:"POST",
+                      url:"php/delete_task.php",
+                      data: 'id=' + a,
+                      success: function(data){
+                        if(data == 1){
+                          //alert(data);
+                          $('#first_table').hide();
+                          $('#second_table').hide();
+                          $('#second_table').load('todolist_table.php?username=' + username, function(){
+                             // hide loader image
+                             //$('#loader-image').hide();
+
+                             // fade in effect
+                             $('#second_table').fadeIn('slow');
+                         });
+                        }
+                        else{
+                          alert(data);
+                          // alert("Got some problem! Please try again");
+                          // location.reload();
+                        }
+                      }
+                   });
+                  }
+              }
+            </script>
+            <div class="col l6 m6">
               <?php
                   require 'calendar.html';
                ?>
