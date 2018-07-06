@@ -1,0 +1,5 @@
+    <ifmodule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^index\.html$ /aichengxu/index.php [L]
+    RewriteRule ^column/(.*)/([0-9]*).html$ /aichengxu/column.php?ID=$2 [L]
+    </ifmodule>

@@ -1,0 +1,7 @@
+RewriteEngine On
+
+RewriteRule    ^recipe/([A-Za-z0-9-]+)/?$  new_recipe.php?code=$1    [L]    # Handle product requests
+
+RewriteRule    ^recipe_draft/([A-Za-z0-9-]+)/?$  recipe_draft.php?code=$1    [L]    # Handle product requests
+
+#RewriteRule    ^my_profile/([A-Za-z0-9-]+)/?$  my_profile.php?city=$1    [L]    # Handle product requests
