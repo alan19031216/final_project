@@ -8,10 +8,7 @@
      $expired_date = $row_scription['expired_date'];
   }
   if($sql_scription){
-
   }
-
-
   $sql_count = $conn->query("SELECT * FROM subscript WHERE username = '$username'");
   $number_of_rows = $sql_count->fetchColumn();
   if($number_of_rows > 0){
