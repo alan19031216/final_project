@@ -49,6 +49,7 @@ if($username == '' || $username == ' '){
       <li><a class="subheader">Management</a></li>
       <li><a href="#" class="add_admin_b"><i class="material-icons pink-item">person_add</i>Add Admin</a></li>
       <li><a href="#" class="pull_book"><i class="material-icons pink-item">file_upload</i>Pull book</a></li>
+      <li><a href="view_report.php" class="view_report"><i class="material-icons pink-item">report_problem</i>View report</a></li>
     </ul>
     <script type="text/javascript">
     // clicking the edit button
@@ -67,7 +68,7 @@ if($username == '' || $username == ' '){
       });
     });
 
-    // clicking the edit button
+
     $(document).on('click', '.pull_book', function(){
       $("#text_h1").text("Pull book");
       // hide create product button
