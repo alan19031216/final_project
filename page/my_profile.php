@@ -99,6 +99,12 @@ $city = $_GET['city'];
         </div>
       </a>
       <br><br>
+      <a href="#" onclick="openCity(event, 'My_book')">
+        <div class="col l12 m12 s12 waves-effect waves-light btn">
+          My book
+        </div>
+      </a>
+      <br><br>
       <a href="#" onclick="openCity(event, 'My_profile')">
         <div class="col l12 m12 s12 waves-effect waves-light btn">
           My profile
@@ -226,6 +232,26 @@ $city = $_GET['city'];
         include 'my_profile/my_subscription.php';
          ?>
       </div> <!-- my subscription-->
+
+      <div id="My_book" class="tabcontent">
+        <h4 class="center">Your bookshelf </h4>
+
+        <center><div id="bookshelf">
+          <h4>New</h4>
+          <?php
+            require 'php/config.php';
+            $top = $conn->query("SELECT * FROM book");
+            foreach ($top as $row_top) {
+           ?>
+          <a href="../book/<?php echo $row_top['path']; ?>#toolbar=0&navpanes=0&scrollbar=0" target="_blank">
+            <p><?php echo $row_top['name']; ?></p>
+            <img src="../book/img/<?php echo $row_top['img']; ?>" height="200px">
+          </a>
+          <?php
+            }
+           ?>
+        </div></center>
+      </div> <!-- My_book-->
 
       <div id="My_draft" class="tabcontent">
         <?php
