@@ -107,7 +107,7 @@ if($username == '' || $username == ' '){
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer" class="animsition-link">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer " class="animsition-link">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
           </div><!-- ./col -->
           <div class="col l3 s6">
@@ -124,7 +124,7 @@ if($username == '' || $username == ' '){
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer" class="animsition-link">More info <i class="fa fa-arrow-circle-right"></i></a>
+              <a href="recipe_table.php" class="small-box-footer" class="animsition-link">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
             </div><!-- ./col -->
             <div class="col l3 s6">
@@ -141,8 +141,9 @@ if($username == '' || $username == ' '){
                 <div class="icon">
                   <i class="ion ion-email"></i>
                 </div>
-                <a href="#" class="small-box-footer" class="animsition-link">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="subsript_table.php" class="small-box-footer" class="animsition-link">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
+
               </div><!-- ./col -->
               <div class="col l3 s6">
                 <!-- small box -->
@@ -329,11 +330,10 @@ if($username == '' || $username == ' '){
         closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
           draggable: true // Choose whether you can drag to open on touch screens
           });
-
-
           $('select').material_select();
           $('.collapsible').collapsible();
           </script>
+
           <div class="fixed-action-btn horizontal tooltipped" data-position="top" dattooltipped" data-position="top" data-delay="50" data-tooltip="Quick Links">
             <a class="btn-floating btn-large red">
               <i class="large material-icons">mode_edit</i>
