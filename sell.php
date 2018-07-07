@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Index</title>
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
+    <!-- <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/> -->
     <link type="text/css" rel="stylesheet" href="css/style_bookshelf.css"  media="screen,projection"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -40,7 +40,7 @@
         <h2>Top sell</h2>
         <?php
           require 'php/config.php';
-          $top = $conn->query("SELECT a.* , b.* FROM book a LEFT JOIN book_detail b on a.code = b.code");
+          $top = $conn->query("SELECT * FROM book");
           foreach ($top as $row_top) {
          ?>
         <a href="book_detail.php?code=<?php echo $row_top['code']; ?>">
