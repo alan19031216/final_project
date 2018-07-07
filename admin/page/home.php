@@ -48,18 +48,35 @@ if($username == '' || $username == ' '){
 
       <li><a class="subheader">Management</a></li>
       <li><a href="#" class="add_admin_b"><i class="material-icons pink-item">person_add</i>Add Admin</a></li>
-      <li><a href="#"><i class="material-icons pink-item">file_upload</i>Pull book</a></li>
+      <li><a href="#" class="pull_book"><i class="material-icons pink-item">file_upload</i>Pull book</a></li>
     </ul>
     <script type="text/javascript">
     // clicking the edit button
     $(document).on('click', '.add_admin_b', function(){
       $("#text_h1").text("Add Admin");
       // hide create product button
-      $('#content').hide();
+      $('#content_up').hide();
+      $('#content_down').hide();
 
       // fade out effect first
       $('#page-content').fadeOut('slow', function(){
           $('#page-content').load('add_admin.php', function(){
+              // fade in effect
+              $('#page-content').fadeIn('slow');
+          });
+      });
+    });
+
+    // clicking the edit button
+    $(document).on('click', '.pull_book', function(){
+      $("#text_h1").text("Pull book");
+      // hide create product button
+      $('#content_up').hide();
+      $('#content_down').hide();
+
+      // fade out effect first
+      $('#page-content').fadeOut('slow', function(){
+          $('#page-content').load('pull_book.php', function(){
               // fade in effect
               $('#page-content').fadeIn('slow');
           });
@@ -74,7 +91,7 @@ if($username == '' || $username == ' '){
        </div>
        <div class="" id="page-content"></div>
       <!-- Stat Boxes -->
-      <div class="row" id="content">
+      <div class="row" id="content_up">
         <div class="col l3 s6">
           <!-- small box -->
           <div class="small-box bg-aqua">
@@ -153,7 +170,7 @@ if($username == '' || $username == ' '){
               </script>
           </div>
 
-          <div class="row">
+          <div class="row" id="content_down">
             <div class="col l6 m6">
               <br>
               <button data-target="modal1" class=" waves-effect waves-light red btn modal-trigger" style="width:100%;">To do list +</button>
