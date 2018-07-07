@@ -23,7 +23,7 @@ $name = $_POST['name'];
 //echo $name;
 
 try {
-  $sql = $conn->query("INSERT INTO book (name , img , path) VALUES ('$name' , '$location_cover' , '$location_cover_pdf')");
+  $sql = $conn->query("INSERT INTO book (name , img , path) VALUES ('$name' , '$image' , '$pdf')");
   echo "1";
 }
 catch(PDOException $e) {
