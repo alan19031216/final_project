@@ -150,12 +150,21 @@ $username = $_SESSION['username'];
                   ?>
                   </tbody>
                 </table>
-
               </div>
+              <style media="screen">
+                .blink{
+                animation: blink 1s linear infinite;
+                }
+                @keyframes blink{
+                0%{opacity: 0;}
+                50%{opacity: .5;}
+                100%{opacity: 1;}
+                }
+              </style>
               <div class="col l6 m6 s12">
                 <br>
                 <?php echo $count_row; ?> people made <br>
-                <a class="modal-trigger" href="#modal2"><?php echo $post_username; ?> post</a>
+                <a class="modal-trigger blink tooltipped" data-position="bottom" data-tooltip="Message to author" href="#modal2"> <i class="material-icons tiny">message</i> <?php echo $post_username; ?> post</a>
               </div>
             </div>
             <!-- upload user detail -->
