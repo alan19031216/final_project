@@ -54,6 +54,19 @@
 								<a href="http://localhost/final%20project/final/"><h2>Let's cook</h2></a>
 							</figcaption>
 						</figure>
+
+            <style media="screen">
+              p{
+              animation: blink 1s linear infinite;
+              }
+              @keyframes blink{
+              0%{opacity: 0;}
+              50%{opacity: .5;}
+              100%{opacity: 1;}
+              }
+            </style>
+            <br>
+            <p class="blink">Move to the book</p>
 					</li>
 				</ul>
 			</div>
