@@ -13,8 +13,8 @@ $code = substr(str_shuffle(str_repeat("0123456789ABCDEFGHIJKLMNOPQRSTUVWXZY", 5)
 //echo $a;
 
 try {
-  $sql =$conn->query("INSERT INTO report (username , comment_id , reason , reason_2) VALUES
-    ('$username' , '$id' , '$a' , '$modal2_question_TA')");
+  $sql =$conn->query("INSERT INTO report (username , comment_id , code , reason , reason_2) VALUES
+    ('$username' , '$id' , '$code' , '$a' , '$modal2_question_TA')");
 
     $sql_notification = $conn->query("INSERT INTO report_history (username , code , status , admin_response) VALUES
     ('$username' , '$code' , 'Reported' , '-')");
