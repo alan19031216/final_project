@@ -1,21 +1,23 @@
 <div class="" id="comment_row">
   <?php
-    $username = $_SESSION['username'];
+    //session_start();
+    $username_comment = $_GET['username'];
+    //echo $username_comment;
     $img_read = "";
-    $sql_user = $conn->query("SELECT * FROM user WHERE username = '$username'");
+    $sql_user = $conn->query("SELECT * FROM user WHERE username = '$username_comment'");
     foreach ($sql_user as $row) {
       $img_read = $row['img'];
     }
-
+    //echo $img_read;
     if($img_read == "" || $img_read == " "){
-      $img_read = "img/user_icon.png";
+      $img_read = "page/php/img/user_image/user_icon.png";
     }
    ?>
   <div class="col l3 m3 s12">
-     <img src="../<?php echo $img_read; ?>" alt="" class="circle responsive-img hide-on-small-only right" width="50%">
-     <center><img src="../<?php echo $img_read; ?>" alt="" class="circle responsive-img hide-on-med-and-up " width="30%"></center>
-
+     <img src="<?php echo $img_read; ?>" alt="" class="circle responsive-img hide-on-small-only right" width="50%">
+     <center><img src="<?php echo $img_read; ?>" alt="" class="circle responsive-img hide-on-med-and-up " width="30%"></center>
   </div>
+
   <div class="col l9 m9 s12">
     <form class="" method="post">
       <label for="textarea1">Comment</label>
