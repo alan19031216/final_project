@@ -98,13 +98,70 @@ if($username == '' || $username == ' '){
               $code = $_GET['code'];
               $id = $_GET['id'];
               $txt = $_GET['txt'];
+              $report_username = $_GET['report_username'];
               if($txt == "comment_id"){
                 $sql = $conn->query("SELECT * FROM comment WHERE id = '$id'");
+              }
+              elseif ($txt == "recipe_comment_id") {
+                $sql = $conn->query("SELECT * FROM comment_recipe WHERE id = '$id'");
+                //echo "1";
               }
               else{
                 $sql = $conn->query("SELECT * FROM question WHERE id = '$id'");
               }
+              foreach ($sql as $row) {
+                $username = $row['username'];
+                //echo $username;
+                $comment = $row['comment'];
+                $comment_date = $row['comment_date'];
+              }
             ?>
+            <div class="row">
+              <div class="col l12 m12 s12">
+                <div class="card">
+                  <div class="card-content">
+                    <span class="card-title center">Situtation</span>
+                      <div class="row">
+                        <div class="col l12 m12 s12">
+                          <div class="card">
+                            <div class="card-content">
+                              <div class="row">
+                                <div class="col l3 m3 s12">
+                                  <center><img src="php/img/user_icon.png" alt="" class="circle responsive-img " width="50%" >
+                                    <p><?php echo $username ; ?></p>
+                                  </center>
+                                </div>
+                                <div class="col l9 m9 s12">
+                                  <?php echo $comment; ?>
+                                  <br><br><br>
+                                  <p class="right"><?php echo $comment_date; ?></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="card-action center">
+                    <h3 class="">Action</h3>
+                    <a class="waves-effect waves-light btn red" href="#" onclick="delete_comment('<?php echo $id; ?>' , '<?php echo $txt ?>' , <?php echo $report_username; ?>)">Delete this comment and warning user</a>
+                    <!-- <a href="#">This is a link</a> -->
+                    <a class="waves-effect waves-light btn" href="#">No problem</a>
+                  </div>
+                </div>
+              </div>
+            </div>
          </div>
       </section>
     </main>
+
+    <script type="text/javascript">
+      function delete_comment(a , b , c){
+        alert(c);
+        var r = confirm("Confirm delete!");
+        if (r == true) {
+            
+        } else {
+        }
+      }
+    </script>
