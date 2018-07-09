@@ -25,7 +25,7 @@ $product_id=isset($_GET['product_id']) ? $_GET['product_id'] : die('ERROR: Produ
      <?php
        $results3 = (" category as b on a.Categoryid = b.id");
        $sql_show_all_comment = $conn->query("SELECT a.* , b.* FROM user as a LEFT JOIN comment as b
-         ON a.username = b.username WHERE b.question_id = '$product_id' ORDER BY date DESC");
+         ON a.username = b.username WHERE b.question_id = '$product_id' ORDER BY comment_date DESC");
        foreach ($sql_show_all_comment as $row_sql_show_all_comment) {
          $img = $row_sql_show_all_comment['img'];
          if($img == "" || $img == " " || $img == "img/"){
@@ -44,7 +44,7 @@ $product_id=isset($_GET['product_id']) ? $_GET['product_id'] : die('ERROR: Produ
              <div class="col l9 m9 s12">
                <p><?php echo $row_sql_show_all_comment['comment']; ?></p>
                <br><br><br>
-               <p class="right"><?php echo $row_sql_show_all_comment['date']; ?></p>
+               <p class="right"><?php echo $row_sql_show_all_comment['comment_date']; ?></p>
              </div>
              <div class="col l12 m12 s12">
                <a class="waves-effect waves-light btn red right" onclick="report_comment1('<?php echo $row_comment['id']; ?>')"><i class="material-icons left">flag</i>Report</a>
