@@ -19,7 +19,7 @@ try {
       echo '<script language="javascript">';
       echo 'alert("Wrong password or username")';
       echo '</script>';
-      header( "refresh:0.1; url= ../login_register.php" );
+      header( "refresh:0.1; url= ../login_register/" );
     }
   }
   catch(PDOException $e) {
