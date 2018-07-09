@@ -53,6 +53,7 @@ $city = $_GET['city'];
     }
     </style>
   <br>
+  <div class="page-content" id="page-content"></div>
   <div class="page-content_message" id="page-content_message"></div>
   <div class="row all_row" id="all_row">
     <div class="col l2 m4 s12 tab">
