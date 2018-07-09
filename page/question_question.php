@@ -201,7 +201,7 @@
                 <?php
                   //echo $username ;
                   $img = "";
-                  $sql_comment= $conn->query("SELECT a.* , b.* FROM user as a LEFT JOIN comment as b ON a.username = b.username WHERE b.question_id = '$product_id' ORDER BY date DESC");
+                  $sql_comment= $conn->query("SELECT a.* , b.* FROM user as a LEFT JOIN comment as b ON a.username = b.username WHERE b.question_id = '$product_id' ORDER BY comment_date DESC");
 
                   foreach ($sql_comment as $row_comment) {
                     $id = $row_comment['id'];
@@ -233,7 +233,7 @@
                       <div class="col l9 m9 s12">
                         <?php echo $row_comment['comment']; ?>
                         <br><br><br>
-                        <p class="right"><?php echo $row_comment['date']; ?></p>
+                        <p class="right"><?php echo $row_comment['comment_date']; ?></p>
                       </div>
                       <div class="col l12 m12 s12">
                         <a class="waves-effect waves-light btn red right" onclick="report_comment('<?php echo $row_comment['id']; ?>')"><i class="material-icons left">flag</i>Report</a>

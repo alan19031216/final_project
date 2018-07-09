@@ -72,7 +72,7 @@
    //$('#loader-image').show();
 
    // hide create product button
-   $('#row_card').hide();
+   $('#all_row').hide();
 
    // fade out effect first
    $('#page-content').fadeOut('slow', function(){

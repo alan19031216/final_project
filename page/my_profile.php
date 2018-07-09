@@ -170,7 +170,7 @@ $city = $_GET['city'];
                 $message_img = $row_message_user['img'];
               }
            ?>
-          <a class="edit-btn">
+          <a class="edit-btn_message">
             <div class="col l6 m12 s12">
               <div class="card horizontal">
                 <div class="card-image">
@@ -196,7 +196,7 @@ $city = $_GET['city'];
 
         <script type="text/javascript">
 
-        $(document).on('click', '.edit-btn', function(){
+        $(document).on('click', '.edit-btn_message', function(){
 
           var message_code = $(this).find('.message_code').text();
           var sender = $(this).find('.sender').text();
