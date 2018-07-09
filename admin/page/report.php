@@ -50,6 +50,7 @@ if($username == '' || $username == ' '){
       <li><a class="subheader">Management</a></li>
       <li><a href="#" class="add_admin_b"><i class="material-icons pink-item">person_add</i>Add Admin</a></li>
       <li><a href="#" class="pull_book"><i class="material-icons pink-item">file_upload</i>Pull book</a></li>
+      <li><a href="view_report.php" class="view_report"><i class="material-icons pink-item">report_problem</i>View report</a></li>
     </ul>
     <script type="text/javascript">
     // clicking the edit button
@@ -93,8 +94,16 @@ if($username == '' || $username == ' '){
 
          <div class="">
            <?php
+              require 'php/config.php';
               $code = $_GET['code'];
               $id = $_GET['id'];
+              $txt = $_GET['txt'];
+              if($txt == "comment_id"){
+                $sql = $conn->query("SELECT * FROM comment WHERE id = '$id'");
+              }
+              else{
+                $sql = $conn->query("SELECT * FROM question WHERE id = '$id'");
+              }
             ?>
          </div>
       </section>
