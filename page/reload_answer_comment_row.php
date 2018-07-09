@@ -37,7 +37,7 @@ $product_id=isset($_GET['product_id']) ? $_GET['product_id'] : die('ERROR: Produ
            <div class="row">
              <div class="col l3 m3 s12">
                 <center>
-                  <img src="php/<?php echo $img; ?>" alt="" class="circle responsive-img " width="50%">
+                  <img src="<?php echo $img; ?>" alt="" class="circle responsive-img " width="50%">
                   <p><?php echo $row_sql_show_all_comment['username']; ?></p>
                 </center>
              </div>

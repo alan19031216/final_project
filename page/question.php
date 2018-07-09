@@ -2,6 +2,7 @@
 include 'html_php/new_hearder.php';
 //require 'html_php/navbar_html.php';
 include 'php/config.php';
+//session_start();
 $username = $_SESSION['username'];
 //echo $username;
  ?>
