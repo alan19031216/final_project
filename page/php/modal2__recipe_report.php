@@ -15,6 +15,9 @@ $code = substr(str_shuffle(str_repeat("0123456789ABCDEFGHIJKLMNOPQRSTUVWXZY", 5)
 try {
   $sql =$conn->query("INSERT INTO report (username , code , recipe_comment_id , reason , reason_2) VALUES
     ('$username' , '$code' , '$id' , '$a' , '$modal2_question_TA')");
+
+  $sql_notification = $conn->query("INSERT INTO report_history (username , code , status , admin_response) VALUES
+  ('$username' , '$code' , 'Reported' , '-')");
   if($sql){
     echo "1";
   }
