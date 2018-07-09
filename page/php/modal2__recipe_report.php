@@ -9,11 +9,12 @@ $modal2_check = $_POST['modal2_check'];
 $myArray = explode(',', $modal2_check);
 //print_r($myArray);
 $a = implode(" <br>",$myArray);
+$code = substr(str_shuffle(str_repeat("0123456789ABCDEFGHIJKLMNOPQRSTUVWXZY", 5)), 0, 5);
 //echo $a;
 
 try {
-  $sql =$conn->query("INSERT INTO report (username , recipe_comment_id , reason , reason_2) VALUES
-    ('$username' , '$id' , '$a' , '$modal2_question_TA')");
+  $sql =$conn->query("INSERT INTO report (username , code , recipe_comment_id , reason , reason_2) VALUES
+    ('$username' , '$code' , '$id' , '$a' , '$modal2_question_TA')");
   if($sql){
     echo "1";
   }
