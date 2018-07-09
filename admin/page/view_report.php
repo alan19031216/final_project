@@ -50,6 +50,7 @@ if($username == '' || $username == ' '){
       <li><a class="subheader">Management</a></li>
       <li><a href="#" class="add_admin_b"><i class="material-icons pink-item">person_add</i>Add Admin</a></li>
       <li><a href="#" class="pull_book"><i class="material-icons pink-item">file_upload</i>Pull book</a></li>
+      <li><a href="view_report.php" class="view_report"><i class="material-icons pink-item">report_problem</i>View report</a></li>
     </ul>
     <script type="text/javascript">
     // clicking the edit button
@@ -90,7 +91,8 @@ if($username == '' || $username == ' '){
           <a href="#" data-activates="slide-out" class="button-collapse valign hide-on-large-only">
             <i class="material-icons">menu</i></a><h1 class="page-announce-text valign" id="text_h1">Subscript details </h1>
          </div>
-         <div style="padding:20px">
+         <div class="" id="page-content"></div>
+         <div style="padding:20px" id="content_up">
            <table id="table_id" class="display">
              <thead>
                  <tr>
@@ -104,16 +106,44 @@ if($username == '' || $username == ' '){
              <tbody>
                <?php
                  require 'php/config.php';
+                 //$report_username = $_SE
                  $sql_subscript = $conn->query("SELECT * FROM report");
                  $count = 1;
                  foreach ($sql_subscript as $row_subscript) {
+                   $report_username = $row_subscript['username'];
                    $question = $row_subscript['question_id'];
-                   $comment = $row_subscript['comment_id'] ;
+                   $comment = $row_subscript['comment_id'];
+                   $recipe_comment_id = $row_subscript['recipe_comment_id'];
+                   $txt = "";
                    if($question == 0){
-                     $id = $row_subscript['comment_id'];
+                     if($comment == 0){
+                       $id = $row_subscript['recipe_comment_id'];
+                       $txt = "recipe_comment_id";
+                     }
+                     else{
+                       $id = $row_subscript['comment_id'];
+                       $txt = "comment_id";
+                     }
                    }
                    elseif ($comment == 0){
-                     $id = $row_subscript['question_id'];
+                     if($question == 0){
+                       $id = $row_subscript['recipe_comment_id'];
+                       $txt = "recipe_comment_id";
+                     }
+                     else{
+                       $id = $row_subscript['question_id'];
+                       $txt = "question_id";
+                     }
+                   }
+                   elseif ($recipe_comment_id == 0){
+                     if($question == 0){
+                       $id = $row_subscript['comment_id'];
+                       $txt = "comment_id";
+                     }
+                     else{
+                       $id = $row_subscript['question_id'];
+                       $txt = "question_id";
+                     }
                    }
                 ?>
                  <tr>
@@ -121,7 +151,7 @@ if($username == '' || $username == ' '){
                      <td><?php echo $row_subscript['username']; ?></td>
                      <td><?php echo $row_subscript['code']; ?></td>
                      <td><?php echo $row_subscript['report_date']; ?></td>
-                     <td> <a href="report.php?code=<?php echo $row_subscript['code']; ?>&id=<?php echo $id; ?>"> <i class="material-icons">visibility</i></a> </td>
+                     <td> <a href="report.php?code=<?php echo $row_subscript['code']; ?>&id=<?php echo $id; ?>&txt=<?php echo $txt; ?>&report_username='<?php echo $report_username; ?>'"> <i class="material-icons">visibility</i></a> </td>
                  </tr>
                  <?php
                    }

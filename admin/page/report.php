@@ -144,9 +144,9 @@ if($username == '' || $username == ' '){
                   </div>
                   <div class="card-action center">
                     <h3 class="">Action</h3>
-                    <a class="waves-effect waves-light btn red" href="#" onclick="delete_comment('<?php echo $id; ?>' , '<?php echo $txt ?>' , <?php echo $report_username; ?>)">Delete this comment and warning user</a>
+                    <a class="waves-effect waves-light btn red" href="#" onclick="delete_comment('<?php echo $id; ?>' , '<?php echo $txt ?>' , <?php echo $report_username; ?> , '<?php echo $code; ?>' , <?php echo $username; ?>)">Delete this comment and warning user</a>
                     <!-- <a href="#">This is a link</a> -->
-                    <a class="waves-effect waves-light btn" href="#">No problem</a>
+                    <a class="waves-effect waves-light btn" href="#" onclick="not_problem_comment('<?php echo $id; ?>' , '<?php echo $txt ?>' , <?php echo $report_username; ?> , '<?php echo $code; ?>')">No problem</a>
                   </div>
                 </div>
               </div>
@@ -156,12 +156,57 @@ if($username == '' || $username == ' '){
     </main>
 
     <script type="text/javascript">
-      function delete_comment(a , b , c){
-        alert(c);
+      function delete_comment(a , b , c , d , e){
+        //alert(c);
         var r = confirm("Confirm delete!");
         if (r == true) {
-            
+          $.ajax({
+            type:"POST",
+            url:"php/report.php",
+            data: 'report_username=' + c +
+                  '&id=' + a +
+                  '&code=' + d +
+                  '&username=' + e +
+                  '&txt=' + b,
+            success: function(data){
+              if(data == 1){
+                window.location.href = 'view_report.php';
+                //alert(data);
+              }
+              else{
+                //alert(data);
+                alert("Got some problem! Please try again");
+                location.reload();
+              }
+            }
+          });
         } else {
         }
+      }
+
+      function not_problem_comment(a , b , c , d){
+        var r = confirm("Is that ok!");
+        if (r == true) {
+          $.ajax({
+            type:"POST",
+            url:"php/report_ok.php",
+            data: 'report_username=' + c +
+                  '&id=' + a +
+                  '&code=' + d +
+                  '&txt=' + b,
+            success: function(data){
+              if(data == 1){
+                window.location.href = 'view_report.php';
+                //alert(data);
+              }
+              else{
+                //alert(data);
+                alert("Got some problem! Please try again");
+                location.reload();
+              }
+            }
+          });
+        }
+
       }
     </script>
