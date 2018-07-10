@@ -237,10 +237,13 @@ $city = $_GET['city'];
       <div id="My_book" class="tabcontent">
         <h4 class="center">Your bookshelf </h4>
 
-        <center><div id="bookshelf">
-          <h4>New</h4>
+        <div id="bookshelf">
           <?php
             require 'php/config.php';
+            $username = $_SESSION['username'];
+            $sql_user_subscript = $conn->query("SELECT * FROM subs_history WHERE username = '$username'");
+            $count_sub = $sql_user_subscript->rowCount();
+            if($count_sub > 0){}
             $top = $conn->query("SELECT * FROM book");
             foreach ($top as $row_top) {
            ?>
@@ -251,7 +254,7 @@ $city = $_GET['city'];
           <?php
             }
            ?>
-        </div></center>
+        </div>
       </div> <!-- My_book-->
 
       <div id="My_draft" class="tabcontent">
