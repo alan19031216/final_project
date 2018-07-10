@@ -45,27 +45,47 @@ if($username == '' || $username == ' '){
 
       <li><a class="active" href="home.php"><i class="material-icons pink-item">dashboard</i>Dashboard</a></li>
       <li><div class="divider"></div></li>
-
       <li><a class="subheader">Management</a></li>
       <li><a href="#" class="add_admin_b"><i class="material-icons pink-item">person_add</i>Add Admin</a></li>
       <li><a href="#" class="pull_book"><i class="material-icons pink-item">file_upload</i>Pull book</a></li>
       <li><a href="view_report.php" class="view_report"><i class="material-icons pink-item">report_problem</i>View report</a></li>
     </ul>
+
+    <?php
+      $username = $_SESSION['username'];
+      //echo $username;
+      require 'php/config.php';
+      $sql_check_admin = $conn->query("SELECT * FROM admin WHERE username = 'admin'");
+      $count = $sql_check_admin->rowCount();
+      //echo $count;
+      $type_of_admin = "";
+      foreach ($sql_check_admin as $row_check) {
+        $type_of_admin = $row_check['type_of_admin'];
+      }
+      //echo $type_of_admin;
+     ?>
     <script type="text/javascript">
     // clicking the edit button
     $(document).on('click', '.add_admin_b', function(){
-      $("#text_h1").text("Add Admin");
-      // hide create product button
-      $('#content_up').hide();
-      $('#content_down').hide();
+      var type_of_admin = '<?php echo $type_of_admin; ?>';
+      //alert(type_of_admin);
+      if(type_of_admin == 's'){
+        $("#text_h1").text("Add Admin");
+        // hide create product button
+        $('#content_up').hide();
+        $('#content_down').hide();
 
-      // fade out effect first
-      $('#page-content').fadeOut('slow', function(){
-          $('#page-content').load('add_admin.php', function(){
-              // fade in effect
-              $('#page-content').fadeIn('slow');
-          });
-      });
+        // fade out effect first
+        $('#page-content').fadeOut('slow', function(){
+            $('#page-content').load('add_admin.php', function(){
+                // fade in effect
+                $('#page-content').fadeIn('slow');
+            });
+        });
+       }
+      else{
+        alert("You do not have permission!");
+      }
     });
 
 
