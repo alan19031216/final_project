@@ -98,6 +98,7 @@ if($username == '' || $username == ' '){
                  <tr>
                      <th>No</th>
                      <th>Username</th>
+                     <th>Reason</th>
                      <th>Report code</th>
                      <th>Report date</th>
                      <th>Action</th>
@@ -149,6 +150,7 @@ if($username == '' || $username == ' '){
                  <tr>
                      <td><?php echo $count++; ?></td>
                      <td><?php echo $row_subscript['username']; ?></td>
+                     <th><?php echo $row_subscript['reason']; ?></th>
                      <td><?php echo $row_subscript['code']; ?></td>
                      <td><?php echo $row_subscript['report_date']; ?></td>
                      <td> <a href="report.php?code=<?php echo $row_subscript['code']; ?>&id=<?php echo $id; ?>&txt=<?php echo $txt; ?>&report_username='<?php echo $report_username; ?>'"> <i class="material-icons">visibility</i></a> </td>
