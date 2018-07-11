@@ -9,7 +9,7 @@ $code = substr(str_shuffle(str_repeat("0123456789ABCDEFGHIJKLMNOPQRSTUVWXZY", 5)
 
 try {
   $sql = $conn->query("INSERT INTO admin (username , real_name , phone_number , type_of_admin) VALUES ('$username' , '$real_name' , '$phone_number' , 'n')");
-  $sql_login = $conn->query("INSERT INTO admin_login (username , code) VALUES ('$username' , '$code')");
+  $sql_login = $conn->query("INSERT INTO login (username , code , type) VALUES ('$username' , '$code' , 'a')");
   if($sql == true && $sql_login == true){
     $to=$email;
 
