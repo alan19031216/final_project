@@ -105,7 +105,7 @@ $username = $_SESSION['username'];
         <div class="top">
           <div class="row">
             <div class="col l4 m6 s12 center">
-              <img src="../<?php echo $cover_img; ?>" style="height:50%;width:100%">
+              <img src="<?php echo $cover_img; ?>" style="height:50%;width:100%">
               <div class="col l6 m6 s12">
                 <style>
                   .demo-table {width: 100%;border-spacing: initial;margin: 10px 0px;word-break: break-word;table-layout: auto;line-height:4.8em;color:#333;}
