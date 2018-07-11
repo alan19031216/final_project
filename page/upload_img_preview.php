@@ -118,6 +118,18 @@
         <input id="number_of_serve" type="number" class="validate" name="number_of_serve" value="<?php echo $number_of_serve; ?>" required>
         <label for="">Number of serve</label>
       </div>
+
+      <div class="input-field col l12 m12 s12">
+        <select name="type">
+           <option disabled selected>Choose your type</option>
+           <option value="Appetizers and Snacks">Appetizers and Snacks</option>
+           <option value="Breakfast and Brunch">Breakfast and Brunch</option>
+           <option value="Desserts">Desserts</option>
+           <option value="Dinners">Dinners</option>
+           <option value="Teaspoon">Drink</option>
+           <option value="Lunch">Lunch</option>
+         </select>
+      </div>
     </div>
   </div>
   <div class="col l8 m12 s12 ">
