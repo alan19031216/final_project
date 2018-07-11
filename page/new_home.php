@@ -3,6 +3,7 @@
   include 'php/config.php';
   $user = $_SESSION['username'];
   $user_image = $conn->query("SELECT * FROM user WHERE username = '$user'");
+  $image = "";
   foreach ($user_image as $row_image) {
     $image = $row_image['img'];
   }
