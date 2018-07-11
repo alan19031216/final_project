@@ -13,6 +13,7 @@
   $pre_time = $_POST['pre_time'];
   $cooking_time = $_POST['cooking_time'];
   $number_of_serve = $_POST['number_of_serve'];
+  $type = $_POST['type'];
 
   // recipe detail
   $recipe_name = $_POST['recipe_name'];
@@ -121,17 +122,31 @@
 
       <div class="input-field col l12 m12 s12">
         <select name="type">
-           <option disabled selected>Choose your type</option>
-           <option value="Appetizers and Snacks">Appetizers and Snacks</option>
-           <option value="Breakfast and Brunch">Breakfast and Brunch</option>
-           <option value="Desserts">Desserts</option>
-           <option value="Dinners">Dinners</option>
-           <option value="Teaspoon">Drink</option>
-           <option value="Lunch">Lunch</option>
+          <option disabled>Choose your type</option>
+          <?php
+            $options = array();
+            $options['Appetizers and Snacks'] = 'Appetizers and Snacks';
+            $options['Breakfast and Brunch'] = 'Breakfast and Brunch';
+            $options['Desserts'] = 'Desserts';
+            $options['Dinners'] = 'Dinners';
+            $options['Drink'] = 'Drink';
+            $options['Lunch'] = 'Lunch';
+
+            foreach ($options as $option) {
+          ?>
+          <option value="<?php echo $option; ?>" <?php if($option==$type) { echo "selected";} ?> ><?php echo $option;?></option>
+          <?php
+              }
+           ?>
          </select>
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('select').material_select();
+  });
+  </script>
   <div class="col l8 m12 s12 ">
     <h4 class="center">Recipe details</h4>
     <div class="row">
