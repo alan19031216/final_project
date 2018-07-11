@@ -194,7 +194,7 @@
                    <td><input  id="num<?php echo $i; ?>" type="number" name="num[]" value="<?php echo $num[$i]; ?>" placeholder="How many G/KG/ML/L...." required></td>
                    <!-- <td><input  id="unit<?php echo $i; ?>" type="text" name="unit[]" class="autocomplete" value="<?php echo $unit[$i]; ?>"placeholder="Unit" required></td> -->
                    <td id="row<?php echo $i ?>">
-                     <select name="type">
+                     <select name="unit[]">
                        <option disabled>Choose your type</option>
                      <?php
                        $options = array();
