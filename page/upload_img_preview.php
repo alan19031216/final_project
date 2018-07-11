@@ -187,11 +187,31 @@
               for($i = 0; $i < count($name_ingredients); $i++){
                 if($name_ingredients[$i] != "" && $num[$i] != "" && $unit[$i] != ""){
                   $count_ingredients++;
+                  $unit = $unit[$i];
             ?>
                 <tr id="row<?php echo $i+1 ?>">
                    <td><input  id="name_ingredients<?php echo $i; ?>" type="text" name="name_ingredients[]" value="<?php echo $name_ingredients[$i]; ?>" placeholder="Enter Iingredients" required></td>
                    <td><input  id="num<?php echo $i; ?>" type="number" name="num[]" value="<?php echo $num[$i]; ?>" placeholder="How many G/KG/ML/L...." required></td>
-                   <td><input  id="unit<?php echo $i; ?>" type="text" name="unit[]" class="autocomplete" value="<?php echo $unit[$i]; ?>"placeholder="Unit" required></td>
+                   <!-- <td><input  id="unit<?php echo $i; ?>" type="text" name="unit[]" class="autocomplete" value="<?php echo $unit[$i]; ?>"placeholder="Unit" required></td> -->
+                   <td id="row<?php echo $i ?>">
+                     <select name="type">
+                       <option disabled>Choose your type</option>
+                     <?php
+                       $options = array();
+                       $options['KG(Kilogram)'] = 'KG(Kilogram)';
+                       $options['L(Liters)'] = 'L(Liters)';
+                       $options['ML(Milliliters)'] = 'ML(Milliliters)';
+                       $options['Grain'] = 'Grain';
+                       $options['Teaspoon'] = 'Teaspoon';
+                       foreach ($options as $option) {
+                     ?>
+                     <option value="<?php echo $option; ?>" <?php if($option==$unit) { echo "selected";} ?> ><?php echo $option;?></option>
+                     <?php
+                        }
+                      ?>
+                    </select>
+                   </td>
+
                    <td>
                      <button id="button<?php echo $i+1 ?>" class='btn-floating waves-effect waves-light red' type='button' value='DELETE' name='button' onclick=delete_row('row"+$rowno+"')>
                        <i class='material-icons'>delete_forever</i>
@@ -250,23 +270,26 @@
           //$("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' name='unit[]' class='autocomplete' placeholder='Unit' required></td><td><input type='button' value='DELETE' onclick=delete_row('row"+$rowno+"')></td><td><input type='button' value='move up' class='move up' onclick=move_up('row"+$rowno+"')></td><td><input type='button' value='move down' class='move down' onclick=move_down('row"+$rowno+"')></td></tr>");
 
           // $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' name='unit[]' class='autocomplete' placeholder='Unit' required></td><td><input type='button' value='DELETE' onclick=delete_row('row"+$rowno+"')></td><td><input type='button' value='move up' class='move up' onclick=get_id('"+$rowno+"')></td><td><input class='btn' type='button' value='move down' class='move down' onclick=get_id('"+$rowno+"')></td></tr>");
-          $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' name='unit[]' class='autocomplete' placeholder='Unit' required></td><td><button class='btn-floating waves-effect waves-light red' type='button' value='DELETE' name='button' onclick=delete_row('row"+$rowno+"')><i class='material-icons'>delete_forever</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move up blue' data-position='top' data-tooltip='Move up' type='button' value='move up' name='button'onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_up</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move down' data-position='bottom' data-tooltip='Move down' type='button' value='move down' name='button' onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_down</i></button></td></tr>");
+          // $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' name='unit[]' class='autocomplete' placeholder='Unit' required></td><td><button class='btn-floating waves-effect waves-light red' type='button' value='DELETE' name='button' onclick=delete_row('row"+$rowno+"')><i class='material-icons'>delete_forever</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move up blue' data-position='top' data-tooltip='Move up' type='button' value='move up' name='button'onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_up</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move down' data-position='bottom' data-tooltip='Move down' type='button' value='move down' name='button' onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_down</i></button></td></tr>");
 
-          // $('input.autocomplete').autocomplete({
-          //   data: {
-          //     "KG(Kilogram)": null,
-          //     "G(Gram)": null,
-          //     "L(Liters)": null,
-          //     "ML(Milliliters)": null,
-          //     "Grain": null,
-          //     "Teaspoon": null
-          //   },
-          //   limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
-          //   onAutocomplete: function(val) {
-          //     // Callback function when value is autcompleted.
-          //   },
-          //   minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
-          // });
+          $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><select name='unit[]''><option disabled selected>Choose your option</option><option value='KG(Kilogram)'>KG(Kilogram)</option><option value='L(Liters)'>L(Liters)</option><option value='ML(Milliliters)'>ML(Milliliters)</option><option value='Grain'>Grain</option><option value='Teaspoon'>Teaspoon</option></select></td><td><button class='btn-floating waves-effect waves-light red' type='button' value='DELETE' name='button' onclick=delete_row('row"+$rowno+"')><i class='material-icons'>delete_forever</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move up blue' data-position='top' data-tooltip='Move up' type='button' value='move up' name='button'onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_up</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move down' data-position='bottom' data-tooltip='Move down' type='button' value='move down' name='button' onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_down</i></button></td></tr>");
+
+           $('input.autocomplete').autocomplete({
+             data: {
+               "KG(Kilogram)": null,
+               "G(Gram)": null,
+               "L(Liters)": null,
+               "ML(Milliliters)": null,
+               "Grain": null,
+               "Teaspoon": null
+             },
+             limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+             onAutocomplete: function(val) {
+               // Callback function when value is autcompleted.
+             },
+             minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+           });
+           $('select').material_select();
          }
          function delete_row(rowno)
          {
