@@ -26,7 +26,7 @@ date_default_timezone_set("Asia/Kuala_Lumpur");
 $current_time = date('Y-m-d', time());
 
 // Insert data that retrieves from "temp_members_db" into table "registered_members"
-$sql2 = $conn->query("INSERT INTO login(username, password)VALUES('$name', '$password')");
+$sql2 = $conn->query("INSERT INTO login(username, password , type)VALUES('$name', '$password' , 'u')");
 
 // if not found passkey, display message "Wrong Confirmation code"
 
