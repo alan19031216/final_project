@@ -49,6 +49,7 @@ if($username == '' || $username == ' '){
       <li><a href="#" class="add_admin_b"><i class="material-icons pink-item">person_add</i>Add Admin</a></li>
       <li><a href="#" class="pull_book"><i class="material-icons pink-item">file_upload</i>Pull book</a></li>
       <li><a href="view_report.php" class="view_report"><i class="material-icons pink-item">report_problem</i>View report</a></li>
+      <li><a href="logout.php"><i class="material-icons pink-item">remove_circle_outline</i>Logout</a></li>
     </ul>
 
     <?php
