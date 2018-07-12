@@ -150,7 +150,7 @@ include 'html_php/new_hearder.php';
                         <option value="ML(Milliliters)">ML(Milliliters)</option>
                         <option value="Grain">Grain</option>
                         <option value="Teaspoon">Teaspoon</option>
-                        <option value="Request"  data-icon="img/add_icon.png" class="left circle">Request</option>
+                        <option value="Request">Request</option>
                       </select>
                    </td>
                    <td></td>
