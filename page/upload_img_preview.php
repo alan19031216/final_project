@@ -183,48 +183,49 @@
         <div id="form_div">
           <table id="employee_table" align=center>
             <?php
+            $options_i = array();
+            $options_i['KG(Kilogram)'] = 'KG(Kilogram)';
+            $options_i['L(Liters)'] = 'L(Liters)';
+            $options_i['ML(Milliliters)'] = 'ML(Milliliters)';
+            $options_i['Grain'] = 'Grain';
+            $options_i['Teaspoon'] = 'Teaspoon';
+            $select = "";
             $count_ingredients = 0;
               for($i = 0; $i < count($name_ingredients); $i++){
                 if($name_ingredients[$i] != "" && $num[$i] != "" && $unit[$i] != ""){
+                  //echo $unit[3];
                   $count_ingredients++;
-                  $unit = $unit[$i];
+                  $unit_1 = $unit[$i];
             ?>
                 <tr id="row<?php echo $i+1 ?>">
                    <td><input  id="name_ingredients<?php echo $i; ?>" type="text" name="name_ingredients[]" value="<?php echo $name_ingredients[$i]; ?>" placeholder="Enter Iingredients" required></td>
                    <td><input  id="num<?php echo $i; ?>" type="number" name="num[]" value="<?php echo $num[$i]; ?>" placeholder="How many G/KG/ML/L...." required></td>
-                   <!-- <td><input  id="unit<?php echo $i; ?>" type="text" name="unit[]" class="autocomplete" value="<?php echo $unit[$i]; ?>"placeholder="Unit" required></td> -->
+                   <td><input hidden type="text" name="unit[]" id="unit_hidden<?php echo $i ?>" placeholder="Unit" value="<?php echo $unit[$i]; ?>" required></td>
                    <td id="row<?php echo $i ?>">
-                     <select name="unit[]">
+                     <select class="browser-default" id="change<?php echo $i ?>" onclick="select_onchange('<?php echo $i ?>');">
                        <option disabled>Choose your type</option>
                      <?php
-                       $options = array();
-                       $options['KG(Kilogram)'] = 'KG(Kilogram)';
-                       $options['L(Liters)'] = 'L(Liters)';
-                       $options['ML(Milliliters)'] = 'ML(Milliliters)';
-                       $options['Grain'] = 'Grain';
-                       $options['Teaspoon'] = 'Teaspoon';
-                       $select = "";
-                       foreach ($options as $option) {
+                       foreach ($options_i as $option_i) {
                      ?>
-                     <!-- <option value="<?php echo $option; ?>" <?php if($option==$unit) { echo "selected";} ?> ><?php echo $option;?></option> -->
                      <?php
-                        if($option==$unit){
+                        if($option_i == $unit_1){
                     ?>
-                      <option value="<?php echo $option; ?>" selected ><?php echo $option;?></option>
+                      <option value="<?php echo $option_i; ?>" selected ><?php echo $option_i;?></option>
                     <?php
                         }
-                        elseif(!in_array($unit, $os)){
+                        elseif(!in_array($unit_1, $options_i)){
                     ?>
-                      <option value="<?php echo $unit; ?>" selected ><?php echo $unit;?></option>
+                      <option value="<?php echo $unit_1; ?>" selected ><?php echo $unit_1;?></option>
                     <?php
                         }
                         else{
                       ?>
-                     <option value="<?php echo $option; ?>" <?php if($option==$unit) { echo "selected";} ?> ><?php echo $option;?></option>
+                      <option value="<?php echo $option_i; ?>" ><?php echo $option_i;?></option>
                      <?php
                           }
                         }
                       ?>
+                      <option value="Request">Request</option>
                     </select>
                    </td>
 
@@ -288,23 +289,7 @@
           // $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' name='unit[]' class='autocomplete' placeholder='Unit' required></td><td><input type='button' value='DELETE' onclick=delete_row('row"+$rowno+"')></td><td><input type='button' value='move up' class='move up' onclick=get_id('"+$rowno+"')></td><td><input class='btn' type='button' value='move down' class='move down' onclick=get_id('"+$rowno+"')></td></tr>");
           // $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' name='unit[]' class='autocomplete' placeholder='Unit' required></td><td><button class='btn-floating waves-effect waves-light red' type='button' value='DELETE' name='button' onclick=delete_row('row"+$rowno+"')><i class='material-icons'>delete_forever</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move up blue' data-position='top' data-tooltip='Move up' type='button' value='move up' name='button'onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_up</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move down' data-position='bottom' data-tooltip='Move down' type='button' value='move down' name='button' onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_down</i></button></td></tr>");
 
-          $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><select name='unit[]''><option disabled selected>Choose your option</option><option value='KG(Kilogram)'>KG(Kilogram)</option><option value='L(Liters)'>L(Liters)</option><option value='ML(Milliliters)'>ML(Milliliters)</option><option value='Grain'>Grain</option><option value='Teaspoon'>Teaspoon</option></select></td><td><button class='btn-floating waves-effect waves-light red' type='button' value='DELETE' name='button' onclick=delete_row('row"+$rowno+"')><i class='material-icons'>delete_forever</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move up blue' data-position='top' data-tooltip='Move up' type='button' value='move up' name='button'onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_up</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move down' data-position='bottom' data-tooltip='Move down' type='button' value='move down' name='button' onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_down</i></button></td></tr>");
-
-           $('input.autocomplete').autocomplete({
-             data: {
-               "KG(Kilogram)": null,
-               "G(Gram)": null,
-               "L(Liters)": null,
-               "ML(Milliliters)": null,
-               "Grain": null,
-               "Teaspoon": null
-             },
-             limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
-             onAutocomplete: function(val) {
-               // Callback function when value is autcompleted.
-             },
-             minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
-           });
+          $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' hidden name='unit[]' id='unit_hidden"+$rowno+"' placeholder='Unit' required></td><td><select class='browser-default' id='change"+$rowno+"' onclick=select_onchange('"+$rowno+"')><option disabled selected>Choose your option</option><option value='KG(Kilogram)'>KG(Kilogram)</option><option value='L(Liters)'>L(Liters)</option><option value='ML(Milliliters)'>ML(Milliliters)</option><option value='Grain'>Grain</option><option value='Teaspoon'>Teaspoon</option><option value='Request'>Request</option></select></td><td><button class='btn-floating waves-effect waves-light red' type='button' value='DELETE' name='button' onclick=delete_row('row"+$rowno+"')><i class='material-icons'>delete_forever</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move up blue' data-position='top' data-tooltip='Move up' type='button' value='move up' name='button'onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_up</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move down' data-position='bottom' data-tooltip='Move down' type='button' value='move down' name='button' onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_down</i></button></td></tr>");
            $('select').material_select();
          }
          function delete_row(rowno)
@@ -323,6 +308,54 @@
                  row.next().after(row);
            });
          }
+         </script>
+
+         <div id="modal1" class="modal modal-fixed-footer">
+           <h2 class="center">New request</h2>
+           <div class="row">
+             <div class="col l12 m12 s12" style="padding:40px;">
+               <label>Unit</label>
+               <input id="request_unit" name="request_unit" class="validate">
+             </div>
+             <center><button class="btn" type="button" name="button" onclick="addSelect()">Submit</button></center>
+           </div>
+         </div>
+
+         <script type="text/javascript">
+         //Use the id of the form instead of #change
+         var id = "";
+         function select_onchange(a){
+           $('#change'+a).change(function(){
+             id = a;
+             //this is just getting the value that is selected
+             var title = $(this).val();
+             //alert(title);
+             if(title == 'Request'){
+               $('#modal1').modal('open');
+               //document.getElementById("request_unit").value = " ";
+             }
+             document.getElementById('unit_hidden'+id).value = title;
+           });
+         }
+
+          function addSelect(){
+            var unit = document.getElementById('request_unit').value;
+            //alert(a);
+            //alert(unit);
+            if(unit == '' || unit == ' '){
+              alert("Cannot be empty");
+            }
+            else{
+              var x = document.getElementById("change"+id);
+              var option = document.createElement("option");
+              option.text = unit;
+              x.add(option , x[1]);
+              document.getElementById("change"+id).value = unit;
+              document.getElementById('unit_hidden'+id).value = unit;
+              $('#modal1').modal('close');
+              // /alert(unit);
+            }
+          }
          </script>
       </div>
 
@@ -369,6 +402,7 @@
          ?>
          <script type="text/javascript">
          $(document).ready(function(){
+           $('.modal').modal();
            document.getElementById("button_step1").style.visibility = "hidden";
           });
          </script>
