@@ -68,6 +68,20 @@
   }
 
   try {
+
+    $sql_category = $conn->query("SELECT * FROM category");
+    $options = array();
+    $category = 0;
+    foreach ($sql_category as $row_category) {
+      $options[$category] = $row_category['name'];
+      $category++;
+    }
+    for($i = 0; $i < count($unit); $i++){
+      if(!in_array($unit[$i], $options)){
+        $sql_request = $conn->query("INSERT INTO request (name) VALUES ('$unit[$i]')");
+      }
+    }
+    
     $sql_first = ("INSERT INTO draft
       (username , name , simple_description , type , cover_img , rating , code , video) VALUES
       ('$username' , '$recipe_name' , '$simple_description' , '$type' , '$location_cover' , '0' , '$code' , '$location_video')");
