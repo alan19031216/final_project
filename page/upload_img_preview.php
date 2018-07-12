@@ -121,7 +121,8 @@
       </div>
 
       <div class="input-field col l12 m12 s12">
-        <select name="type">
+        <input type="hidden" name="type" value="<?php echo $type ?>">
+        <select>
           <option disabled>Choose your type</option>
           <?php
             $options = array();
@@ -520,7 +521,7 @@
         }
 
         var select = document.getElementsByTagName("select");
-          for (var i = 0; i < selectselect.length; i++) {
+          for (var i = 0; i < select.length; i++) {
             select[i].disabled = false;
             select[i].readOnly = true;
         }
@@ -541,6 +542,12 @@
           for (var i = 0; i < textarea.length; i++) {
             textarea[i].disabled = false;
             textarea[i].readOnly = true;
+        }
+
+        var select = document.getElementsByTagName("select");
+          for (var i = 0; i < select.length; i++) {
+            select[i].disabled = false;
+            select[i].readOnly = true;
         }
 
         document.getElementById('form_id').action = 'php/draft.php'
