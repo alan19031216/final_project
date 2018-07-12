@@ -160,8 +160,6 @@
         <label for="textarea1">Simple description</label>
       </div>
       <script type="text/javascript">
-        //var a_string = "";
-        //var b = a_string.replace(/['"]+/g, '');
         $('#textarea1').val("<?php echo $simple_description; ?>");
       </script>
 
@@ -254,25 +252,6 @@
                document.getElementById("button1").style.visibility = "hidden";
               });
              </script>
-           <!-- <table id="employee_table" align=center>
-            <tr id="row1">
-               <td><input type="text" name="name_ingredients[]" placeholder="Enter Iingredients" required></td>
-               <td><input type="number" name="num[]" placeholder="How many G/KG/ML/L...." required></td>
-               <td><input type="text" name="unit[]" class="autocomplete" placeholder="Unit" required></td>
-               <td></td>
-               <td>
-                 <button class="btn-floating waves-effect waves-light tooltipped move up blue" data-position="top" data-tooltip="Move up" type="button" value='move up' name="move up" onclick=get_id(1)>
-                   <i class="material-icons">arrow_drop_up</i>
-                 </button>
-               </td>
-               <td>
-                 <button class="btn-floating waves-effect waves-light tooltipped move down" data-position="bottom" data-tooltip="Move down" type="button" value='move down' name="move down" onclick=get_id(1)>
-                   <i class="material-icons">arrow_drop_down</i>
-                 </button>
-               </td> -->
-               <!-- <td><input class="btn-floating" type="button"  class="move up" onclick=get_id(1)></td> -->
-               <!-- <td><input class="btn-floating" type="button" value='move down' class='move down' onclick=get_id(1)></td> -->
-             <!-- </tr> -->
 
            </table>
            <input class="btn" type="button" onclick="add_row();" value="ADD ROW" id="add_row1">
@@ -284,11 +263,6 @@
          {
           $rowno=$("#employee_table tr").length;
           $rowno=$rowno+1;
-          //$("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' name='unit[]' class='autocomplete' placeholder='Unit' required></td><td><input type='button' value='DELETE' onclick=delete_row('row"+$rowno+"')></td><td><input type='button' value='move up' class='move up' onclick=move_up('row"+$rowno+"')></td><td><input type='button' value='move down' class='move down' onclick=move_down('row"+$rowno+"')></td></tr>");
-
-          // $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' name='unit[]' class='autocomplete' placeholder='Unit' required></td><td><input type='button' value='DELETE' onclick=delete_row('row"+$rowno+"')></td><td><input type='button' value='move up' class='move up' onclick=get_id('"+$rowno+"')></td><td><input class='btn' type='button' value='move down' class='move down' onclick=get_id('"+$rowno+"')></td></tr>");
-          // $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' name='unit[]' class='autocomplete' placeholder='Unit' required></td><td><button class='btn-floating waves-effect waves-light red' type='button' value='DELETE' name='button' onclick=delete_row('row"+$rowno+"')><i class='material-icons'>delete_forever</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move up blue' data-position='top' data-tooltip='Move up' type='button' value='move up' name='button'onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_up</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move down' data-position='bottom' data-tooltip='Move down' type='button' value='move down' name='button' onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_down</i></button></td></tr>");
-
           $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' hidden name='unit[]' id='unit_hidden"+$rowno+"' placeholder='Unit' required></td><td><select class='browser-default' id='change"+$rowno+"' onclick=select_onchange('"+$rowno+"')><option disabled selected>Choose your option</option><option value='KG(Kilogram)'>KG(Kilogram)</option><option value='L(Liters)'>L(Liters)</option><option value='ML(Milliliters)'>ML(Milliliters)</option><option value='Grain'>Grain</option><option value='Teaspoon'>Teaspoon</option><option value='Request'>Request</option></select></td><td><button class='btn-floating waves-effect waves-light red' type='button' value='DELETE' name='button' onclick=delete_row('row"+$rowno+"')><i class='material-icons'>delete_forever</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move up blue' data-position='top' data-tooltip='Move up' type='button' value='move up' name='button'onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_up</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move down' data-position='bottom' data-tooltip='Move down' type='button' value='move down' name='button' onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_down</i></button></td></tr>");
            $('select').material_select();
          }
@@ -406,43 +380,6 @@
            document.getElementById("button_step1").style.visibility = "hidden";
           });
          </script>
-        <!-- <div id="form_div">
-           <table id="employee_table_step3" align=center>
-            <tr id="row1"> -->
-              <!-- <td style='width:10px'></td> -->
-               <!-- <td>
-                 <br>
-                 <div class="file-field input-field">
-                   <div class="btn">
-                     <span>Image</span>
-                     <input type="file" name="pic[]">
-                   </div>
-                   <div class="file-path-wrapper">
-                     <input class="file-path validate"  type="text">
-                   </div>
-                 </div>
-               </td> -->
-               <!-- <td style="width:70%">
-                 <div class="input-field col s12">
-                   <textarea id="textarea1" class="materialize-textarea" name="description[]" required></textarea>
-                   <label for="textarea1">Description</label>
-                 </div>
-               </td>
-               <td style="width:10%"></td>
-               <td>
-                 <button class="btn-floating waves-effect waves-light tooltipped move up blue" data-position="top" data-tooltip="Move up" type="button" value='move up' name="move up" onclick=get_id_step3(1)>
-                   <i class="material-icons">arrow_drop_up</i>
-                 </button>
-               </td>
-               <td>
-                 <button class="btn-floating waves-effect waves-light tooltipped move down" data-position="bottom" data-tooltip="Move down" type="button" value='move down' name="move down" onclick=get_id_step3(1)>
-                   <i class="material-icons">arrow_drop_down</i>
-                 </button>
-               </td>
-             </tr>
-           </table>
-
-           <input class="btn" type="button" onclick="add_row_step3();" value="ADD ROW"> -->
 
            <br><br>
          </table>
@@ -634,16 +571,7 @@
           document.getElementById("pre_time").disabled = false;
           document.getElementById("player").style.visibility = "hidden";
           document.getElementById("video_video").style.visibility = "visible";
-          //document.getElementById("test5").disabled = false;
-          // document.getElementById("cooking_time").disabled = false;
-          // document.getElementById("number_of_serve").disabled = false;
-          // document.getElementById("recipe_name").disabled = false;
-          // document.getElementById("textarea1").disabled = false;
-          // for(var i = 0; i > count_ingredients; i++){
-          //   document.getElementById("name_ingredients"+1).disabled = false;
-          //   document.getElementById("num"+i).disabled = false;
-          //   document.getElementById("unit"+i).disabled = false;
-          // }
+
           var inputs = document.getElementsByTagName("input");
             for (var i = 0; i < inputs.length; i++) {
                 inputs[i].disabled = false;
