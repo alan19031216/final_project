@@ -203,10 +203,26 @@
                        $options['ML(Milliliters)'] = 'ML(Milliliters)';
                        $options['Grain'] = 'Grain';
                        $options['Teaspoon'] = 'Teaspoon';
+                       $select = "";
                        foreach ($options as $option) {
                      ?>
+                     <!-- <option value="<?php echo $option; ?>" <?php if($option==$unit) { echo "selected";} ?> ><?php echo $option;?></option> -->
+                     <?php
+                        if($option==$unit){
+                    ?>
+                      <option value="<?php echo $option; ?>" selected ><?php echo $option;?></option>
+                    <?php
+                        }
+                        elseif(!in_array($unit, $os)){
+                    ?>
+                      <option value="<?php echo $unit; ?>" selected ><?php echo $unit;?></option>
+                    <?php
+                        }
+                        else{
+                      ?>
                      <option value="<?php echo $option; ?>" <?php if($option==$unit) { echo "selected";} ?> ><?php echo $option;?></option>
                      <?php
+                          }
                         }
                       ?>
                     </select>
