@@ -29,6 +29,7 @@
   $pre_time = $_POST['pre_time'];
   $cooking_time = $_POST['cooking_time'];
   $number_of_serve = $_POST['number_of_serve'];
+  $type = $_POST['type'];
 
   // recipe detail
   $recipe_name = $_POST['recipe_name'];
@@ -68,8 +69,8 @@
 
   try {
     $sql_first = ("INSERT INTO draft
-      (username , name , simple_description , cover_img , rating , code , video) VALUES
-      ('$username' , '$recipe_name' , '$simple_description' , '$location_cover' , '0' , '$code' , '$location_video')");
+      (username , name , simple_description , type , cover_img , rating , code , video) VALUES
+      ('$username' , '$recipe_name' , '$simple_description' , '$type' , '$location_cover' , '0' , '$code' , '$location_video')");
 
     for($i = 0; $i < count($name_ingredients); $i++){
        if($name_ingredients[$i] != "" && $num[$i] != "" && $unit[$i] != ""){
