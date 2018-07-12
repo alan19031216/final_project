@@ -431,6 +431,7 @@
               document.getElementById("video_text").style.visibility = "visible";
               // document.getElementById("video_file").style.visibility = "hidden";
               document.getElementById("player").style.visibility = "hidden";
+              document.getElementById('video_path').value = " ";
             }
             else{
               document.getElementById("video_video").style.visibility = "hidden";
@@ -450,7 +451,7 @@
                 <input type="file" name="video" id="" onchange="videoCheck()">
               </div>
               <div class="file-path-wrapper">
-                <input class="file-path validate" type="text" name="video" value="<?php echo $location_video; ?>" >
+                <input class="file-path validate" type="text" id="video_path" value="<?php echo $location_video; ?>" >
               </div>
             </div>
             <input type="hidden" id="video_check" name="video_check" value="">
@@ -518,6 +519,12 @@
             textarea[i].readOnly = true;
         }
 
+        var select = document.getElementsByTagName("select");
+          for (var i = 0; i < selectselect.length; i++) {
+            select[i].disabled = false;
+            select[i].readOnly = true;
+        }
+
         document.getElementById('form_id').action = 'php/new_recipe.php'
         return true;
     }
@@ -553,6 +560,11 @@
         for (var i = 0; i < textarea.length; i++) {
           textarea[i].disabled = true;
       }
+
+      var select = document.getElementsByTagName("select");
+        for (var i = 0; i < select.length; i++) {
+            select[i].disabled = true;
+        }
   });
   // Confirm reset
   var count = 0;
@@ -580,6 +592,11 @@
             for (var i = 0; i < textarea.length; i++) {
               textarea[i].disabled = false;
           }
+
+          var select = document.getElementsByTagName("select");
+            for (var i = 0; i < select.length; i++) {
+                select[i].disabled = false;
+            }
         }
         else{
 
