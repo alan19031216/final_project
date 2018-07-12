@@ -141,9 +141,9 @@ include 'html_php/new_hearder.php';
                 <tr id="row1">
                    <td><input type="text" name="name_ingredients[]" placeholder="Enter Iingredients" required></td>
                    <td><input type="number" name="num[]" placeholder="How many G/KG/ML/L...." required></td>
-                   <!-- <td><input type="text" name="unit[]" id="autocomplete-input" class="autocomplete" placeholder="Unit" required></td> -->
+                   <td><input hidden type="text" name="unit[]" id="unit_hidden1" placeholder="Unit" required></td>
                    <td>
-                     <select class="browser-default" name="unit[]" id="change1" onclick="select_onchange('1');">
+                     <select class="browser-default" id="change1" onclick="select_onchange('1');">
                         <option disabled selected>Choose your option</option>
                         <option value="KG(Kilogram)">KG(Kilogram)</option>
                         <option value="L(Liters)">L(Liters)</option>
@@ -194,7 +194,7 @@ include 'html_php/new_hearder.php';
               // $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' name='unit[]' class='autocomplete' placeholder='Unit' required></td><td><input type='button' value='DELETE' onclick=delete_row('row"+$rowno+"')></td><td><input type='button' value='move up' class='move up' onclick=get_id('"+$rowno+"')></td><td><input class='btn' type='button' value='move down' class='move down' onclick=get_id('"+$rowno+"')></td></tr>");
               // $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' name='unit[]' class='autocomplete' placeholder='Unit' required></td><td><button class='btn-floating waves-effect waves-light red' type='button' value='DELETE' name='button' onclick=delete_row('row"+$rowno+"')><i class='material-icons'>delete_forever</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move up blue' data-position='top' data-tooltip='Move up' type='button' value='move up' name='button'onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_up</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move down' data-position='bottom' data-tooltip='Move down' type='button' value='move down' name='button' onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_down</i></button></td></tr>");
 
-              $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><select class='browser-default' name='unit[]' id='change"+$rowno+"' onclick=select_onchange('"+$rowno+"')><option disabled selected>Choose your option</option><option value='KG(Kilogram)'>KG(Kilogram)</option><option value='L(Liters)'>L(Liters)</option><option value='ML(Milliliters)'>ML(Milliliters)</option><option value='Grain'>Grain</option><option value='Teaspoon'>Teaspoon</option><option value='Request'>Request</option></select></td><td><button class='btn-floating waves-effect waves-light red' type='button' value='DELETE' name='button' onclick=delete_row('row"+$rowno+"')><i class='material-icons'>delete_forever</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move up blue' data-position='top' data-tooltip='Move up' type='button' value='move up' name='button'onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_up</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move down' data-position='bottom' data-tooltip='Move down' type='button' value='move down' name='button' onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_down</i></button></td></tr>");
+              $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' hidden name='unit[]' id='unit_hidden"+$rowno+"' placeholder='Unit' required></td><td><select class='browser-default' id='change"+$rowno+"' onclick=select_onchange('"+$rowno+"')><option disabled selected>Choose your option</option><option value='KG(Kilogram)'>KG(Kilogram)</option><option value='L(Liters)'>L(Liters)</option><option value='ML(Milliliters)'>ML(Milliliters)</option><option value='Grain'>Grain</option><option value='Teaspoon'>Teaspoon</option><option value='Request'>Request</option></select></td><td><button class='btn-floating waves-effect waves-light red' type='button' value='DELETE' name='button' onclick=delete_row('row"+$rowno+"')><i class='material-icons'>delete_forever</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move up blue' data-position='top' data-tooltip='Move up' type='button' value='move up' name='button'onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_up</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move down' data-position='bottom' data-tooltip='Move down' type='button' value='move down' name='button' onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_down</i></button></td></tr>");
                $('select').material_select();
              }
 
@@ -218,6 +218,11 @@ include 'html_php/new_hearder.php';
                $('select').material_select();
                $('.modal').modal();
              });
+
+             // function checkF(){
+             //   var va = document.getElementById('change2').value;
+             //   alert(va);
+             // }
              </script>
 
              <script type="text/javascript">
@@ -233,6 +238,7 @@ include 'html_php/new_hearder.php';
                    $('#modal1').modal('open');
                    //document.getElementById("request_unit").value = " ";
                  }
+                 document.getElementById('unit_hidden'+id).value = title;
                });
              }
 
@@ -249,12 +255,15 @@ include 'html_php/new_hearder.php';
                   option.text = unit;
                   x.add(option , x[1]);
                   document.getElementById("change"+id).value = unit;
+                  document.getElementById('unit_hidden'+id).value = unit;
                   $('#modal1').modal('close');
                   // /alert(unit);
                 }
               }
              </script>
           </div>
+
+          <!-- <button type="button" name="button" onclick="checkF()">c</button> -->
 
           <div class="col l12 m12 s12">
             <!-- **************************************step************************************************ -->
