@@ -16,7 +16,10 @@ try {
       $sql = $conn->query("INSERT INTO category (name , approve_admin) VALUES ('$check[$i]' , '$approver')");
       $sql_delete = $conn->query("DELETE FROM request WHERE name = '$check[$i]'");
     }
-    echo "1";
+    echo "<script>
+          alert('Approve success');
+          window.location.href='../home.php';
+          </script>";
   }
   else{
     $sql = $conn->query("SELECT * FROM request WHERE id = '$id'");

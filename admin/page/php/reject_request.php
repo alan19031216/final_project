@@ -15,7 +15,11 @@ try {
     for($i = 0; $i < count($check); $i++){
       $sql_delete = $conn->query("DELETE FROM request WHERE name = '$check[$i]'");
     }
-    echo "1";
+    echo "<script>
+          alert('Reject success');
+          window.location.href='../home.php';
+          </script>";
+    //echo "1";
   }
   else{
     $sql_delete = $conn->query("DELETE FROM request WHERE id = '$id'");
