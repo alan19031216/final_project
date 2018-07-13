@@ -90,7 +90,6 @@ if($username == '' || $username == ' '){
       }
     });
 
-
     $(document).on('click', '.pull_book', function(){
       $("#text_h1").text("Pull book");
       // hide create product button
