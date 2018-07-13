@@ -48,6 +48,7 @@ if($username == '' || $username == ' '){
       <li><a class="subheader">Management</a></li>
       <li><a href="#" class="add_admin_b"><i class="material-icons pink-item">person_add</i>Add Admin</a></li>
       <li><a href="#" class="pull_book"><i class="material-icons pink-item">file_upload</i>Pull book</a></li>
+      <li><a href="#" class="request"><i class="material-icons pink-item">gavel</i>Request</a></li>
       <li><a href="view_report.php" class="view_report"><i class="material-icons pink-item">report_problem</i>View report</a></li>
       <li><a href="logout.php"><i class="material-icons pink-item">remove_circle_outline</i>Logout</a></li>
     </ul>
@@ -99,6 +100,21 @@ if($username == '' || $username == ' '){
       // fade out effect first
       $('#page-content').fadeOut('slow', function(){
           $('#page-content').load('pull_book.php', function(){
+              // fade in effect
+              $('#page-content').fadeIn('slow');
+          });
+      });
+    });
+
+    $(document).on('click', '.request', function(){
+      $("#text_h1").text("User request");
+      // hide create product button
+      $('#content_up').hide();
+      $('#content_down').hide();
+
+      // fade out effect first
+      $('#page-content').fadeOut('slow', function(){
+          $('#page-content').load('request.php', function(){
               // fade in effect
               $('#page-content').fadeIn('slow');
           });
