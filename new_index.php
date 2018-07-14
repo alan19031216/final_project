@@ -67,7 +67,7 @@ include 'header.php';
 
       <div class="col l4 m4 s6">
         <br>
-          <nav class="blue">
+          <nav class="orange">
             <div class="nav-wrapper">
               <form>
                 <div class="input-field">
@@ -134,7 +134,7 @@ include 'header.php';
 
     <div class="" id="test">
       <nav>
-        <div class="nav-wrapper">
+        <div class="nav-wrapper orange">
           <a class="brand-logo hide-on-large-only" href="index.php" data-activates="mobile-demo" class="brand-logo">Let's Cook</a>
           <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="hide-on-med-and-down">
@@ -149,31 +149,31 @@ include 'header.php';
     <div class="slider">
       <ul class="slides">
         <li>
-          <img src="https://lorempixel.com/580/250/nature/1"> <!-- random image -->
+          <img src="img/slide 1.jpg"> <!-- random image -->
           <div class="caption center-align">
-            <h3>This is our big Tagline!</h3>
-            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            <h3>This is Let cook!</h3>
+            <h5 class="light grey-text text-lighten-3"></h5>
           </div>
         </li>
         <li>
-          <img src="https://lorempixel.com/580/250/nature/2"> <!-- random image -->
+          <img src="img/slide 2.jpg"> <!-- random image -->
           <div class="caption left-align">
-            <h3>Left Aligned Caption</h3>
-            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            <h3>Share recipe</h3>
+            <h5 class="light grey-text text-lighten-3"></h5>
           </div>
         </li>
         <li>
-          <img src="https://lorempixel.com/580/250/nature/3"> <!-- random image -->
+          <img src="img/slide 3.jpg"> <!-- random image -->
           <div class="caption right-align">
-            <h3>Right Aligned Caption</h3>
-            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            <h3></h3>
+            <h5 class="light grey-text text-lighten-3"></h5>
           </div>
         </li>
         <li>
-          <img src="https://lorempixel.com/580/250/nature/4"> <!-- random image -->
+          <img src="img/slide 4.jpg"> <!-- random image -->
           <div class="caption center-align">
-            <h3>This is our big Tagline!</h3>
-            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            <h3></h3>
+            <h5 class="light grey-text text-lighten-3"></h5>
           </div>
         </li>
       </ul>
@@ -188,14 +188,14 @@ include 'header.php';
     <div class="row">
       <div class="col l2 m6">
         <div class="">
-          <div class="card-panel grey lighten-5 z-depth-1">
+          <div class="card-panel grey lighten-5 z-depth-1" style="height:150px">
             <div class="row valign-wrapper">
               <div class="">
-                <img src="https://image.flaticon.com/teams/slug/freepik.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                <img src="img/1.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
               </div>
               <div class="">
-                <span class="black-text">
-                  This is a square image. .
+                <span class="black-text center" style="font-size:20px">
+                  Appetizers and Snacks
                 </span>
               </div>
             </div>
@@ -205,14 +205,14 @@ include 'header.php';
 
        <div class="col l2 m6">
          <div class="">
-           <div class="card-panel grey lighten-5 z-depth-1">
+           <div class="card-panel grey lighten-5 z-depth-1" style="height:150px">
              <div class="row valign-wrapper">
                <div class="">
-                 <img src="https://image.flaticon.com/teams/slug/freepik.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                 <img src="img/2.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
                </div>
                <div class="">
-                 <span class="black-text">
-                   This is a square image. .
+                 <span class="black-text center" style="font-size:20px">
+                   Breakfast and Brunch
                  </span>
                </div>
              </div>
@@ -222,14 +222,14 @@ include 'header.php';
 
         <div class="col l2 m6">
           <div class="">
-            <div class="card-panel grey lighten-5 z-depth-1">
+            <div class="card-panel grey lighten-5 z-depth-1" style="height:150px">
               <div class="row valign-wrapper">
                 <div class="">
-                  <img src="https://image.flaticon.com/teams/slug/freepik.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                  <img src="img/3.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
                 </div>
                 <div class="">
-                  <span class="black-text">
-                    This is a square image. .
+                  <span class="black-text center" style="font-size:20px">
+                    Desserts
                   </span>
                 </div>
               </div>
@@ -239,14 +239,14 @@ include 'header.php';
 
          <div class="col l2 m6">
            <div class="">
-             <div class="card-panel grey lighten-5 z-depth-1">
+             <div class="card-panel grey lighten-5 z-depth-1" style="height:150px">
                <div class="row valign-wrapper">
                  <div class="">
-                   <img src="https://image.flaticon.com/teams/slug/freepik.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                   <img src="img/4.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
                  </div>
                  <div class="">
-                   <span class="black-text">
-                     This is a square image. .
+                   <span class="black-text center" style="font-size:20px">
+                     Dinners
                    </span>
                  </div>
                </div>
@@ -256,14 +256,14 @@ include 'header.php';
 
           <div class="col l2 m6">
             <div class="">
-              <div class="card-panel grey lighten-5 z-depth-1">
+              <div class="card-panel grey lighten-5 z-depth-1" style="height:150px">
                 <div class="row valign-wrapper">
                   <div class="">
-                    <img src="https://image.flaticon.com/teams/slug/freepik.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                    <img src="img/5.jpg" alt="" class="circle responsive-img" style="width:80%"> <!-- notice the "circle" class -->
                   </div>
                   <div class="">
-                    <span class="black-text">
-                      This is a square image. .
+                    <span class="black-text center" style="font-size:20px">
+                      Drink
                     </span>
                   </div>
                 </div>
@@ -273,14 +273,14 @@ include 'header.php';
 
            <div class="col l2 m6">
              <div class="">
-               <div class="card-panel grey lighten-5 z-depth-1">
+               <div class="card-panel grey lighten-5 z-depth-1" style="height:150px">
                  <div class="row valign-wrapper">
                    <div class="">
-                     <img src="https://image.flaticon.com/teams/slug/freepik.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                     <img src="img/6.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
                    </div>
                    <div class="">
-                     <span class="black-text">
-                       This is a square image. .
+                     <span class="black-text center" style="font-size:20px">
+                       Lunch
                      </span>
                    </div>
                  </div>
@@ -288,8 +288,6 @@ include 'header.php';
              </div>
             </div>
         </div>
-
-        <h2>Recommend</h2>
 
         <div class="content">
           <?php
