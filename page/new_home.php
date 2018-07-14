@@ -129,8 +129,35 @@
      </script>
 
    </div>
-   <div class="col l9 m6 s12">
-
+   <div class="col l8 m6 s12 grey lighten-4">
+     <h2>Special for Today</h2>
+      <div class="card horizontal">
+        <div class="card-image">
+          <img src="img/8.jpg">
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <p>A special Chicken/Mutton curry for the special occasions or for a change?!!! You all would be bored with the routine recipes right!!! Then this is the recipe for a break.</p>
+          </div>
+          <div class="card-action">
+            <a href="#">This is a link</a>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <div class="card horizontal">
+        <div class="card-image">
+          <img src="img/7.jpg">
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <p>This is a great idea but 3-5 minutes for the eggs will be too long. Try this-spray pan with Pam, heat pan as suggested, put egg in the pan, salt and pepper, cover and cook for one minute-no peeking. Take the pan off the heat, leave covered for one more minute-still no peeking. You will have a perfect fried egg with nice runny yolk.</p>
+          </div>
+          <div class="card-action">
+            <a href="#">This is a link</a>
+          </div>
+        </div>
+      </div>
    </div>
  </div>
 
@@ -141,6 +168,7 @@
  <script type="text/javascript">
   $(document).ready(function(){
     $('.parallax').parallax();
+     $('.slider').slider();
   });
  </script>
 
