@@ -120,7 +120,7 @@ $(document).ready(function(){
 ?>
 
   <div class="col l4 m6 s12">
-    <div class="card sticky-action card-shake">
+    <div class="card sticky-action card-shake" style="height:500px">
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator" src="<?php echo $row_my_recipe['cover_img'];?>" style="width:100%;height:200px;%;">
       </div>
