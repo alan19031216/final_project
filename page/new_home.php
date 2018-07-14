@@ -135,7 +135,7 @@
  </div>
 
  <hr>
- <h2>Today recommendtation</h2>
+ <h2>Recommendation</h2>
  <br><br><br><br>
 
    </body>
