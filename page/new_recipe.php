@@ -89,6 +89,7 @@ $username = $_SESSION['username'];
         $count_row = $sql_make->rowCount();
         $sql_recipe = $conn->query("SELECT * FROM recipe WHERE code = '$code'");
         foreach ($sql_recipe as $row_recipe) {
+          $type = $row_recipe['type'];
           $pre_time = $row_recipe['pre_time'];
           $cooking_time = $row_recipe['cooking_time'];
           $number_of_serve = $row_recipe['number_of_serve'];
@@ -119,6 +120,7 @@ $username = $_SESSION['username'];
                   <?php
                     $select_rate = $conn->query("SELECT * FROM tutorial WHERE code = '$code'");
                     foreach ($select_rate as $tutorial) {
+
                   ?>
                   <tr>
                     <td valign="top">
@@ -330,8 +332,20 @@ $username = $_SESSION['username'];
                 <i class="large material-icons left">star</i>Rating
               </a>
             </div>
-            <div class="col l3 m6 s6"  style="height:50px;"> <br class="hide-on-large-only ">
-              <a style="width:100%;height:100%;" onclick="myFunctionPrint()" class="waves-effect waves-light btn orange darken-1">
+            <?php
+              $sql_count_i = $conn->query("SELECT * FROM ingredients WHERE code = '$code'");
+              $sql_count_ingredients = $sql_count_i->rowCount();
+              $sql_count_s = $conn->query("SELECT * FROM food_step WHERE code = '$code'");
+              $sql_count_step = $sql_count_s->rowCount();
+              $disable = "";
+              $hidden = "";
+              if($sql_count_ingredients == 0 || $sql_count_step == 0){
+                $disable = 'disabled';
+                $hidden = "hidden";
+              }
+             ?>
+            <div class="col l3 m6 s6"  style="height:50px;"> <br class="hide-on-large-only">
+              <a style="width:100%;height:100%;" onclick="myFunctionPrint()" class="waves-effect waves-light btn orange darken-1 <?php echo $disable; ?>">
                 <i class="large material-icons left">print</i>print
               </a>
             </div>
@@ -592,9 +606,9 @@ $username = $_SESSION['username'];
         </script>
 
         <div class="ingredients">
-          <h4>Ingredients</h4>
-          <hr>
-          <ul  style="list-style-type: none;margin: 0; padding: 0; overflow: hidden;">
+          <h4 <?php echo $hidden;?>>Ingredients</h4>
+          <hr <?php echo $hidden;?>>
+          <ul style="list-style-type: none;margin: 0; padding: 0; overflow: hidden;" <?php echo $hidden;?>>
             <li style=" display: inline;"><i class="material-icons">access_time</i> Prepaid time: <?php echo $pre_time?> minutes</li>
           </ul>
           <div class="row">
@@ -628,7 +642,6 @@ $username = $_SESSION['username'];
           }
             //echo $row_ingredients['id'];
           }
-
           ?>
           </div>
           </table>
@@ -644,12 +657,11 @@ $username = $_SESSION['username'];
                 document.getElementById("label_"+id).style.textDecoration = "none";
               }
             }
-
             </script>
         </div>
 
 
-        <div class="directions">
+        <div class="directions" <?php echo $hidden;?>>
           <ul  style="list-style-type: none;margin: 0; padding: 0; overflow: hidden;">
             <li style=" display: inline;font-size:40px">Direction</li>
             <li  style="display: inline;float:right;"><input class="waves-effect waves-light btn amber accent-1 black-text" type="button" id="btnct" value="Timer" onclick="count1()"></li>
@@ -701,7 +713,7 @@ $username = $_SESSION['username'];
           <br>
         </div>
 
-        <div class="row">
+        <div class="row" <?php echo $hidden;?>>
           <div class="col l8">
             <table>
             <?php
@@ -744,7 +756,7 @@ $username = $_SESSION['username'];
             </li>
           </div>
         </div>
-        <center>
+        <center <?php echo $hidden;?>>
           <div class="col l3 m3 s12">
             <a style="width:50%;" onclick="make_it()" class="waves-effect waves-light btn blue">
               <i class="large material-icons left">done</i>I make it
@@ -766,6 +778,96 @@ $username = $_SESSION['username'];
          ?>
          <hr>
          <h4>Same as this type's recipe</h4>
+         <div class="same">
+           <?php
+            $sql_same = $conn->query("SELECT * FROM recipe WHERE type = '$type' AND name != '$title' LIMIT 3");
+            $sql_count_same = $sql_same->rowCount();
+            if($sql_count_same == 0){
+           ?>
+           <div class="col l12 m12 s12">
+             <div class="card blue-grey darken-1">
+               <div class="card-content white-text">
+                 <span class="card-title">Dont has any related recipe</span>
+               </div>
+             </div>
+           </div>
+          <?php
+            }
+            else{
+          ?>
+          <div class="row">
+          <?php
+              foreach ($sql_same as $row_same) {
+          ?>
+          <div class="col l4 m6 s12">
+            <div class="card sticky-action card-shake hoverable" style="height:500px">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="../<?php echo $row_same['cover_img'];?>" style="width:100%;height:200px;%;">
+              </div>
+
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"><?php echo $row_same['name']; ?><i class="material-icons right">more_vert</i></span>
+
+                <table class="demo-table">
+                  <tbody>
+                  <?php
+                    $select_rate = $conn->query("SELECT * FROM tutorial WHERE code = '$code'");
+                    foreach ($select_rate as $tutorial) {
+                  ?>
+                  <tr>
+                    <td valign="top">
+                        <div>
+                          <ul >
+                            <?php
+                            for($i=1;$i<=5;$i++) {
+                            $selected = "";
+                            if(!empty($tutorial["rating"]) && $i<=$tutorial["rating"]) {
+                            $selected = "selected";
+                            }
+                            ?>
+                            <li class="<?php echo $selected; ?> hide-on-small-only" id="rate_view_<?php echo $i; ?>" style="font-size:20px">
+                               &#9733;
+                             </li>
+                             <li class="<?php echo $selected; ?> hide-on-med-and-up" id="rate_view_<?php echo $i; ?>" style="font-size:45px">
+                                &#9733;
+                              </li>
+                            <?php } // , <?php echo $tutorial['code'];  ?>
+                          </ul>
+                        </div>
+                      </td>
+                  </tr>
+                  <?php
+                    }
+                  ?>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card-action">
+                Type: <?php echo $row_same['type']; ?>
+                <a class="btn-floating waves-effect waves-light red right btn tooltipped a-view_recipe" data-position="right" data-tooltip="View Recipe" href="recipe/<?php echo $row_same['code']; ?>"><i class="material-icons">book</i></a>
+                <!-- <a id="<?php echo $row_same['code']; ?>" class="btn-floating waves-effect waves-light right tooltipped"  data-position="top" data-tooltip="Add to favorite" onclick="addFavorite('<?php echo $row_same['code']; ?>')"><i class="material-icons">stars</i></a> -->
+                <br><br>
+              </div>
+
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><?php echo $row_same['name']; ?><i class="material-icons right">close</i></span>
+                <?php
+                  $simple_description = $row_same['simple_description'];
+
+                  if($simple_description == '' || $simple_description == ' '){
+                    $simple_description = 'He/She is very lazy...Nothings to show';
+                  }
+                ?>
+                <p> <?php echo $simple_description ?> </p>
+              </div>
+            </div>
+            </div>
+          <?php
+              }
+            }//  same foreach
+          ?>
+         </div>
+         </div>
 
          <hr>
          <h4>Comment</h4>
