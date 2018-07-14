@@ -33,6 +33,7 @@
   // recipe detail
   $recipe_name = $_POST['recipe_name'];
   $simple_description = $_POST['simple_description'];
+  $type = $_POST['type'];
 
   $location_video;
   //echo $description[0];
@@ -59,8 +60,8 @@
 
   try {
     $sql_first = ("INSERT INTO recipe
-      (username , name , simple_description , cover_img , rating , code , video , recipe_type) VALUES
-      ('$username' , '$recipe_name' , '$simple_description' , '$location_cover' , '0' , '$code' , '$location_video' , '1')");
+      (username , name , simple_description , type , cover_img , rating , code , video , pre_time , cooking_time , number_of_serve  ) VALUES
+      ('$username' , '$recipe_name' , '$simple_description' , '$type' , '$location_cover' , '0' , '$code' , '$location_video' , '$pre_time' , '$cooking_time' , '$number_of_serve')");
 
     // rating
     $sql_rating = ("INSERT INTO tutorial (name , code)

@@ -17,6 +17,8 @@
   // recipe detail
   $recipe_name = $_POST['recipe_name'];
   $simple_description = $_POST['simple_description'];
+  //echo $simple_description;
+  $type = $_POST['type'];
 
   //video
   $target_dir = "php/video/";
@@ -109,6 +111,33 @@
         <input id="number_of_serve" type="number" class="validate" name="number_of_serve" value="<?php echo $number_of_serve; ?>" required>
         <label for="">Number of serve</label>
       </div>
+
+      <div class="input-field col l12 m12 s12">
+        <input type="hidden" name="type" value="<?php echo $type ?>">
+        <select>
+          <option disabled>Choose your type</option>
+          <?php
+            $options = array();
+            $options['Appetizers and Snacks'] = 'Appetizers and Snacks';
+            $options['Breakfast and Brunch'] = 'Breakfast and Brunch';
+            $options['Desserts'] = 'Desserts';
+            $options['Dinners'] = 'Dinners';
+            $options['Drink'] = 'Drink';
+            $options['Lunch'] = 'Lunch';
+
+            foreach ($options as $option) {
+          ?>
+          <option value="<?php echo $option; ?>" <?php if($option==$type) { echo "selected";} ?> ><?php echo $option;?></option>
+          <?php
+              }
+           ?>
+         </select>
+      </div>
+      <script type="text/javascript">
+      $(document).ready(function(){
+        $('select').material_select();
+      });
+      </script>
     </div>
   </div>
   <div class="col l8 m12 s12 ">
