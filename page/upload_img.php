@@ -102,7 +102,7 @@ include 'html_php/new_hearder.php';
                <option value="Breakfast and Brunch">Breakfast and Brunch</option>
                <option value="Desserts">Desserts</option>
                <option value="Dinners">Dinners</option>
-               <option value="Teaspoon">Drink</option>
+               <option value="Drink">Drink</option>
                <option value="Lunch">Lunch</option>
              </select>
           </div>
