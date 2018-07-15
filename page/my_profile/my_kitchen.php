@@ -120,7 +120,7 @@ $(document).ready(function(){
 ?>
 
   <div class="col l4 m6 s12">
-    <div class="card sticky-action card-shake" style="height:500px">
+    <div class="card sticky-action card-shake" style="height:550px">
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator" src="<?php echo $row_my_recipe['cover_img'];?>" style="width:100%;height:200px;%;">
       </div>
@@ -170,6 +170,7 @@ $(document).ready(function(){
       </div>
       <div class="card-action">
         Type: <?php echo $row_my_recipe['type']; ?>
+        <br><br>
         <a class="btn-floating waves-effect waves-light red right btn tooltipped a-view_recipe" data-position="right" data-tooltip="View Recipe" href="recipe/<?php echo $row_my_recipe['code']; ?>"><i class="material-icons">book</i></a>
         <!-- <a id="<?php echo $row_my_recipe['code']; ?>" class="btn-floating waves-effect waves-light right tooltipped"  data-position="top" data-tooltip="Add to favorite" onclick="addFavorite('<?php echo $row_my_recipe['code']; ?>')"><i class="material-icons">stars</i></a> -->
         <a id="draft_<?php echo $row_my_recipe['code']; ?>" class="btn-floating waves-effect waves-light yellow darken-3 right btn tooltipped a-save_to_draft" data-position="top" data-tooltip="Save to draft" onclick="save_to_draft('<?php echo $row_my_recipe['id']; ?>')"><i class="material-icons">file_download</i></a>

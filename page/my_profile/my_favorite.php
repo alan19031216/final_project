@@ -12,7 +12,7 @@
     $code = $row_my_favorite['code'];
 ?>
 <div class="col l4 m6 s12">
-  <div class="card sticky-action">
+  <div class="card sticky-action" style="height:550px">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" src="<?php echo $row_my_favorite['cover_img'];?>">
     </div>
