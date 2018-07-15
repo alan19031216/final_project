@@ -295,6 +295,8 @@ $city = $_GET['city'];
       });
       </script>
   </div> <!-- row -->
-    <br><br><br><br>  <br><br><br><br>  <br><br><br><br>  <br><br><br><br>  <br><br><br><br>
+  <?php
+    require 'html_php/footer.php';
+   ?>
   </body>
 </html>
