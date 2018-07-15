@@ -461,7 +461,7 @@
              </div><!-- <div class="col l8 m12 s12"> - recipe name, vide , step ....-->
            </div> <!-- recipe detail -- >
           </div><!-- card-content -->
-          <div class="card-action">
+          <div class="card-action center">
             <button class="btn" class="center" href="#" type="submit">Submit</button>
           </div>
           </form>
