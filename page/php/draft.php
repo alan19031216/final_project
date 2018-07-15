@@ -81,23 +81,23 @@
         $sql_request = $conn->query("INSERT INTO request (name) VALUES ('$unit[$i]')");
       }
     }
-    
-    $sql_first = ("INSERT INTO draft
+
+    $sql_first = $conn->query("INSERT INTO draft
       (username , name , simple_description , type , cover_img , rating , code , video) VALUES
       ('$username' , '$recipe_name' , '$simple_description' , '$type' , '$location_cover' , '0' , '$code' , '$location_video')");
 
     for($i = 0; $i < count($name_ingredients); $i++){
        if($name_ingredients[$i] != "" && $num[$i] != "" && $unit[$i] != ""){
-         $sql_step2 = "INSERT INTO ingredients (code , name , num, unit)
-         VALUES('$code' , '$name_ingredients[$i]', '$num[$i]', '$unit[$i]')";
+         $sql_step2 = $conn->query("INSERT INTO ingredients (code , name , num, unit)
+         VALUES('$code' , '$name_ingredients[$i]', '$num[$i]', '$unit[$i]')");
          //mysql_query("insert into employee_table values('$name[$i]','$age[$i]','$job[$i]')");
        }
      }// ingredients
 
     for($i = 0; $i < count($description); $i++){
       if($description[$i] != "")  {
-        $sql_step3 = "INSERT INTO food_step (code , description)
-        VALUES('$code' , '$description[$i]' )";
+        $sql_step3 = $conn->query("INSERT INTO food_step (code , description)
+        VALUES('$code' , '$description[$i]' )");
 
       }
     }// for step3
@@ -107,10 +107,11 @@
     VALUES ('$recipe_name' , '$code')");
 
     if($sql_first == true && $sql_step2 == true && $sql_step3 == true && $sql_rating == true){
-      $conn->query($sql_first);
-      $conn->query($sql_step2);
-      $conn->query($sql_step3);
       $conn->query($sql_rating);
+      echo '<script language="javascript">';
+      echo 'alert("Save draft successful!!")';
+      echo '</script>';
+      header( "refresh:0.1; url= ../recipe/$code" );
 
     }
   }// try
