@@ -10,7 +10,7 @@
     foreach ($sql_my_draft as $row_my_draft) {
 ?>
   <div class="col l4 m6 s12">
-    <div class="card sticky-action">
+    <div class="card sticky-action" style="550px">
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator" src="<?php echo $row_my_draft['cover_img'];?>" style="width:100%;height:200px;%;">
       </div>
@@ -22,6 +22,7 @@
 
       <div class="card-action">
         Type: <?php echo $row_my_draft['type']; ?>
+        <br><br>
         <a class="btn-floating waves-effect waves-light red right" href="recipe_draft/<?php echo $row_my_draft['code']; ?>"><i class="material-icons">book</i></a>
         <a id="post_<?php echo $row_my_draft['code']; ?>" class="btn-floating waves-effect waves-light yellow darken-3 right tooltipped"  data-position="top" data-tooltip="Post to pulic" onclick="post_to_public('<?php echo $row_my_draft['id']; ?>')"><i class="material-icons">file_upload</i></a>
         <br><br>
