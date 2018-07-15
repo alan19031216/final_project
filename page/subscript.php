@@ -324,6 +324,8 @@ include 'html_php/new_hearder.php';
     </div>
   </div>
 
-  <br><br><br><br><br><br><br><br><br><br><br>
+  <?php
+    require 'html_php/footer.php';
+   ?>
   </body>
 </html>
