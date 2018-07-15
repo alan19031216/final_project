@@ -4,7 +4,6 @@ $product_id=isset($_GET['product_id']) ? $_GET['product_id'] : die('ERROR: Produ
  ?>
  <div class="row" id="answer_comment_row">
    <div class="col l12 m12 s12" id="comment_row">
-
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
           <span class="card-title">You already write a comment</span>
