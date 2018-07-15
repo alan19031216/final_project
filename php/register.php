@@ -121,7 +121,7 @@ try {
   echo '<script language="javascript">';
   echo 'alert("Your Confirmation link Has Been Sent To Your Email Address")';
   echo '</script>';
-  header( "refresh:0.1; url= ../login_register.php" );
+  header( "refresh:0.1; url= ../login_register/" );
   }
   else {
   echo "Cannot send Confirmation link to your e-mail address";
