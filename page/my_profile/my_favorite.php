@@ -64,6 +64,7 @@
 
     <div class="card-action">
       Type: <?php echo $row_my_favorite['type']; ?>
+      <br><br>
       <input type="hidden" id="username" value="<?php echo $_SESSION['username'];?>">
       <a class="btn-floating waves-effect waves-light red right tooltipped" data-position="right" data-tooltip="View recipe" href="recipe/<?php echo $row_my_favorite['code']; ?>"><i class="material-icons">book</i></a>
       <a id="<?php echo $row_my_favorite['code']; ?>" class="btn-floating waves-effect waves-light right tooltipped"  data-position="top" data-tooltip="Unfavorite" onclick="Unfavorite('<?php echo $row_my_favorite['code']; ?>')"><i class="material-icons">stars</i></a>

@@ -304,7 +304,6 @@ $username = $_SESSION['username'];
             <script type="text/javascript">
             $(document).ready(function(){
               //$('#modal1').modal('open');
-
               var code = document.getElementById('code').value;
               var username = document.getElementById('username').value;
               $.post('../php/getChange.php' , {postcode:code , postusername:username} ,
@@ -800,7 +799,7 @@ $username = $_SESSION['username'];
               foreach ($sql_same as $row_same) {
           ?>
           <div class="col l4 m6 s12">
-            <div class="card sticky-action card-shake hoverable" style="height:500px">
+            <div class="card sticky-action card-shake hoverable" style="height:550px">
               <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="../<?php echo $row_same['cover_img'];?>" style="width:100%;height:200px;%;">
               </div>
@@ -844,6 +843,7 @@ $username = $_SESSION['username'];
               </div>
               <div class="card-action">
                 Type: <?php echo $row_same['type']; ?>
+                <br><br>
                 <a class="btn-floating waves-effect waves-light red right btn tooltipped a-view_recipe" data-position="right" data-tooltip="View Recipe" href="<?php echo $row_same['code']; ?>"><i class="material-icons">book</i></a>
                 <!-- <a id="<?php echo $row_same['code']; ?>" class="btn-floating waves-effect waves-light right tooltipped"  data-position="top" data-tooltip="Add to favorite" onclick="addFavorite('<?php echo $row_same['code']; ?>')"><i class="material-icons">stars</i></a> -->
                 <br><br>
@@ -1059,22 +1059,14 @@ $username = $_SESSION['username'];
                   <h2 class="center">Report a Comment</h2>
                   <hr>
                   <div class="row" style="padding:15px;">
-                    <div class="col l3 m3 s6">
+                    <div class="col l6 m6 s6">
                       <input type="hidden" id="modal2_question_username" value="<?php echo $_SESSION['username']; ?>">
                       <input type="checkbox" id="modal2_question_check1" value="Got a problems or garbled characters">
                       <label for="modal2_question_check1">Got a problems or garbled characters</label>
                     </div>
-                    <div class="col l3 m3 s6">
+                    <div class="col l6 m6 s6">
                       <input type="checkbox" id="modal2_question_check2" value="Use inappropriate publication and language"/>
                       <label for="modal2_question_check2">Use inappropriate publication and language</label>
-                    </div>
-                    <div class="col l3 m3 s6">
-                      <input type="checkbox" id="modal2_question_check3" value="3"/>
-                      <label for="modal2_question_check3">Red</label>
-                    </div>
-                    <div class="col l3 m3 s6">
-                      <input type="checkbox" id="modal2_question_check4" value="4"/>
-                      <label for="modal2_question_check4">Red</label>
                     </div>
 
                     <div class="input-field col s12">
