@@ -25,7 +25,7 @@
   <div class="modal-footer">
     <center>
       <button class="waves-effect waves-light btn" id="button_login" class="register">Login<i class="material-icons right">vpn_key</i></button>
-      <a href="forgot_password.php" class="waves-effect waves-light btn red">Forgot Password<i class="material-icons right">update</i></a>
+      <a href="../forgot_password.php" class="waves-effect waves-light btn red">Forgot Password<i class="material-icons right">update</i></a>
     </center>
   </div>
   </form>
