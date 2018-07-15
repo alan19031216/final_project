@@ -844,7 +844,7 @@ $username = $_SESSION['username'];
               </div>
               <div class="card-action">
                 Type: <?php echo $row_same['type']; ?>
-                <a class="btn-floating waves-effect waves-light red right btn tooltipped a-view_recipe" data-position="right" data-tooltip="View Recipe" href="recipe/<?php echo $row_same['code']; ?>"><i class="material-icons">book</i></a>
+                <a class="btn-floating waves-effect waves-light red right btn tooltipped a-view_recipe" data-position="right" data-tooltip="View Recipe" href="<?php echo $row_same['code']; ?>"><i class="material-icons">book</i></a>
                 <!-- <a id="<?php echo $row_same['code']; ?>" class="btn-floating waves-effect waves-light right tooltipped"  data-position="top" data-tooltip="Add to favorite" onclick="addFavorite('<?php echo $row_same['code']; ?>')"><i class="material-icons">stars</i></a> -->
                 <br><br>
               </div>
