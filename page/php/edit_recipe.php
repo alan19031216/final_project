@@ -26,6 +26,7 @@
   $pre_time = $_POST['pre_time'];
   $cooking_time = $_POST['cooking_time'];
   $number_of_serve = $_POST['number_of_serve'];
+  $type = $_POST['type'];
 
   // recipe detail
   $recipe_name = $_POST['recipe_name'];
@@ -89,7 +90,6 @@
      }// for step3
 
      if($sql_recipe == true && $sql_recipe_delete_ingredients == true && $sql_recipe_delete_step == true && $sql_step2 == true && $sql_step3 == true){
-
        echo '<script language="javascript">';
        echo 'alert("Update successful!!")';
        echo '</script>';
