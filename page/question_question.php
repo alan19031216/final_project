@@ -141,58 +141,57 @@
           });
         </script>
 
-        <div class="">
-          <h5>Answer</h5>
-          <hr>
-          <br>
+        <script type="text/javascript">
+          function submit_comment(){
+            var product_id_TA = document.getElementById("product_id_TA").value;
+            var username_comment = document.getElementById("username_comment").value;
+            var comment_TA = document.getElementById("comment_TA").value;
+            if(comment_TA.length < 5){
+              alert("At least five words");
+              return false;
+            }
+           else{
+             $.ajax({
+               type:"POST",
+               url:"php/comment.php",
+               data: 'username=' + username_comment +
+                     '&product_id=' + product_id_TA +
+                     '&comment=' + comment_TA,
+               success: function(data){
+                 if(data == 1){
+                   $('#answer_comment_row').hide();
+                   $('#reload_answer_comment_row').load('reload_answer_comment_row.php?product_id=' + product_id_TA, function(){
+                      // hide loader image
+                      //$('#loader-image').hide();
 
-          <div class="" id="reload_answer_comment_row"></div>
+                      // fade in effect
+                      $('#reload_answer_comment_row').fadeIn('slow');
+                  });
+                   //alert(data);
+                 }
+                 else{
+                   alert("Got some problem! Please try again");
+                   location.reload();
+                 }
+               }
+             });
+              //alert("A");
+            }
+          }
+        </script>
 
-          <div class="row" id="answer_comment_row">
+        <h5>Answer</h5>
+        <hr>
+        <br>
+        <div class="" id="reload_answer_comment_row"></div>
+
+        <div id="answer_comment_row">
+          <div class="row" id="">
             <input type="hidden" id="product_id_TA" value="<?php echo $_GET['product_id']; ?>">
             <input type="hidden" id="username_comment" name="" value="<?php echo $_GET['username']; ?>">
             <?php
               include 'html_php/comment_row.php';
              ?>
-
-          <script type="text/javascript">
-            function submit_comment(){
-              var product_id_TA = document.getElementById("product_id_TA").value;
-              var username_comment = document.getElementById("username_comment").value;
-              var comment_TA = document.getElementById("comment_TA").value;
-              if(comment_TA.length < 5){
-                alert("At least five words");
-                return false;
-              }
-             else{
-               $.ajax({
-                 type:"POST",
-                 url:"php/comment.php",
-                 data: 'username=' + username_comment +
-                       '&product_id=' + product_id_TA +
-                       '&comment=' + comment_TA,
-                 success: function(data){
-                   if(data == 1){
-                     $('#answer_comment_row').hide();
-                     $('#reload_answer_comment_row').load('reload_answer_comment_row.php?product_id=' + product_id_TA, function(){
-                        // hide loader image
-                        //$('#loader-image').hide();
-
-                        // fade in effect
-                        $('#reload_answer_comment_row').fadeIn('slow');
-                    });
-                     //alert(data);
-                   }
-                   else{
-                     alert("Got some problem! Please try again");
-                     location.reload();
-                   }
-                 }
-               });
-                //alert("A");
-              }
-            }
-          </script>
           </div>
 
           <div class="row">
