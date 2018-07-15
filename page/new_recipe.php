@@ -576,7 +576,7 @@ $username = $_SESSION['username'];
            $sql_food_step_print = $conn->query("SELECT * FROM food_step WHERE code = '$code'");
            $count = 1;
            foreach ($sql_food_step_print as $row_food_step_print) {
-             $img = $row_food_step_print['pic'];
+             //$img = $row_food_step_print['pic'];
              $description = $row_food_step_print['description'];
             ?>
            <tr align="">
