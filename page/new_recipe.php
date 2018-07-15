@@ -1129,5 +1129,9 @@ $username = $_SESSION['username'];
          </script>
 
       </div><!-- container -->
+    </div>
+      <?php
+        require 'html_php/footer.php';
+       ?>
     </body>
 </html>

@@ -295,6 +295,5 @@ include 'header.php';
             require 'html_php/footer.php';
            ?>
         </div> <!--content END-->
-
   </body>
 </html>

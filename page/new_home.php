@@ -297,6 +297,8 @@
          <input type="hidden" id="row" value="0">
          <input type="hidden" id="all" value="<?php echo $count_recipe; ?>">
     </div> <!-- row -->
-
+    <?php
+      require 'html_php/footer.php';
+     ?>
    </body>
  </html>
