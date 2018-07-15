@@ -717,7 +717,7 @@ $username = $_SESSION['username'];
           <div class="col l8">
             <table>
             <?php
-            $count_step = 0;
+            $count_step = 1;
               $sql_food_step = $conn->query("SELECT * FROM food_step WHERE code = '$code'");
               foreach ($sql_food_step as $row_food_step) {
                 $description = $row_food_step['description'];
