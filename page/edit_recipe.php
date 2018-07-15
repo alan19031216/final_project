@@ -46,6 +46,7 @@
                 $simple_description = $row_recipe['simple_description'];
                 $cover_image = $row_recipe['cover_img'];
                 $video = $row_recipe['video'];
+                $type = $row_recipe['type'];
               }
               //echo $recipe_code;
              ?>
@@ -97,6 +98,33 @@
                    Number of serve
                    <input id="number_of_serve" type="number" class="validate" name="number_of_serve" value="<?php echo $number_of_serve; ?>" required>
                  </div>
+
+                 <div class="input-field col l12 m12 s12">
+                   <input type="hidden" name="type" value="<?php echo $type ?>">
+                   <select>
+                     <option disabled>Choose your type</option>
+                     <?php
+                       $options = array();
+                       $options['Appetizers and Snacks'] = 'Appetizers and Snacks';
+                       $options['Breakfast and Brunch'] = 'Breakfast and Brunch';
+                       $options['Desserts'] = 'Desserts';
+                       $options['Dinners'] = 'Dinners';
+                       $options['Drink'] = 'Drink';
+                       $options['Lunch'] = 'Lunch';
+
+                       foreach ($options as $option) {
+                     ?>
+                     <option value="<?php echo $option; ?>" <?php if($option==$type) { echo "selected";} ?> ><?php echo $option;?></option>
+                     <?php
+                         }
+                      ?>
+                    </select>
+                 </div>
+                 <script type="text/javascript">
+                   $(document).ready(function(){
+                     $('select').material_select();
+                   });
+                 </script>
                </div>
              </div> <!-- <div class="col l4 m12 s12"> - recipe image , pre time ....-->
              <div class="col l8 m12 s12 ">
@@ -123,44 +151,87 @@
                  <br class="hide-on-med-and-up">
                  <br><br>
                  <!-- **************************************ingredients************************************************ -->
-
                  <div class="col l12 m12 s12">
                    <br>
                    <h4 class="center">Ingredients</h4>
-                   <table id="employee_table" align="center">
-                     <?php
-                     $count_ingredients = 0;
-                     $i = 0;
-                     $sql_ingredients = $conn->query("SELECT * FROM ingredients WHERE code = '$recipe_code'");
-                      foreach ($sql_ingredients as $row_ingredients) {
-                       $count_ingredients++;
-                       $i++;
-                     ?>
-                         <tr id="row<?php echo $i ?>">
-                            <td><input id="name_ingredients<?php echo $i; ?>" type="text" name="name_ingredients[]" value="<?php echo $row_ingredients['name']; ?>" placeholder="Enter Iingredients" required></td>
-                            <td><input id="num<?php echo $i; ?>" type="number" name="num[]" value="<?php echo $row_ingredients['num']; ?>" placeholder="How many G/KG/ML/L...." required></td>
-                            <td><input id="unit<?php echo $i; ?>" type="text" name="unit[]" class="autocomplete" value="<?php echo $row_ingredients['unit']; ?>"placeholder="Unit" required></td>
-                            <td>
-                              <button id="button<?php echo $i ?>" class='btn-floating waves-effect waves-light red' type='button' value='DELETE' name='button' onclick=delete_row('row"+$rowno+"')>
-                                <i class='material-icons'>delete_forever</i>
-                              </button>
-                            </td>
-                            <td>
-                              <button class="btn-floating waves-effect waves-light tooltipped move up blue" data-position="top" data-tooltip="Move up" type="button" value='move up' name="move up" onclick=get_id(1)>
-                                <i class="material-icons">arrow_drop_up</i>
-                              </button>
-                            </td>
-                            <td>
-                              <button class="btn-floating waves-effect waves-light tooltipped move down" data-position="bottom" data-tooltip="Move down" type="button" value='move down' name="move down" onclick=get_id(1)>
-                                <i class="material-icons">arrow_drop_down</i>
-                              </button>
-                            </td>
-                         </tr>
-                     <?php
-                       }// for
-                      ?>
-                    </table>
-                    <input class="btn" type="button" onclick="add_row();" value="ADD ROW" id="add_row1">
+                   <div id="form_div">
+                     <table id="employee_table" align=center>
+                       <?php
+                       $options_i = array();
+                       $options_i['KG(Kilogram)'] = 'KG(Kilogram)';
+                       $options_i['L(Liters)'] = 'L(Liters)';
+                       $options_i['ML(Milliliters)'] = 'ML(Milliliters)';
+                       $options_i['Grain'] = 'Grain';
+                       $options_i['Teaspoon'] = 'Teaspoon';
+                       $select = "";
+                       $count_ingredients = 0;
+                       $i = 0;
+                       $sql_ingredients = $conn->query("SELECT * FROM ingredients WHERE code = '$recipe_code'");
+                        foreach ($sql_ingredients as $row_ingredients) {
+                          $i++;
+                          $count_ingredients++;
+                       ?>
+                           <tr id="row<?php echo $i+1 ?>">
+                              <td><input  id="name_ingredients<?php echo $i; ?>" type="text" name="name_ingredients[]" value="<?php echo $row_ingredients['name']; ?>" placeholder="Enter Iingredients" required></td>
+                              <td><input  id="num<?php echo $i; ?>" type="number" name="num[]" value="<?php echo $row_ingredients['num']; ?>" placeholder="How many G/KG/ML/L...." required></td>
+                              <td><input hidden type="text" name="unit[]" id="unit_hidden<?php echo $i ?>" placeholder="Unit" value="<?php echo $unit[$i]; ?>" required></td>
+                              <td id="row<?php echo $i ?>">
+                                <select class="browser-default" id="change<?php echo $i ?>" onclick="select_onchange('<?php echo $i ?>');">
+                                  <option disabled>Choose your type</option>
+                                <?php
+                                  foreach ($options_i as $option_i) {
+                                ?>
+                                <?php
+                                   if($option_i == $row_ingredients['unit']){
+                               ?>
+                                 <option value="<?php echo $option_i; ?>" selected ><?php echo $option_i;?></option>
+                               <?php
+                                   }
+                                   elseif(!in_array($row_ingredients['unit'], $options_i)){
+                               ?>
+                                 <option value="<?php echo $row_ingredients['unit']; ?>" selected ><?php echo $row_ingredients['unit'];?></option>
+                               <?php
+                                   }
+                                   else{
+                                 ?>
+                                 <option value="<?php echo $option_i; ?>" ><?php echo $option_i;?></option>
+                                <?php
+                                     }
+                                   }
+                                 ?>
+                                 <option value="Request">Request</option>
+                               </select>
+                              </td>
+
+                              <td>
+                                <button id="button<?php echo $i+1 ?>" class='btn-floating waves-effect waves-light red' type='button' value='DELETE' name='button' onclick=delete_row('row"+$rowno+"')>
+                                  <i class='material-icons'>delete_forever</i>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="btn-floating waves-effect waves-light tooltipped move up blue" data-position="top" data-tooltip="Move up" type="button" value='move up' name="move up" onclick=get_id(1)>
+                                  <i class="material-icons">arrow_drop_up</i>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="btn-floating waves-effect waves-light tooltipped move down" data-position="bottom" data-tooltip="Move down" type="button" value='move down' name="move down" onclick=get_id(1)>
+                                  <i class="material-icons">arrow_drop_down</i>
+                                </button>
+                              </td>
+                           </tr>
+                       <?php
+
+                         }// for
+                        ?>
+                        <script type="text/javascript">
+                        $(document).ready(function(){
+                          document.getElementById("button1").style.visibility = "hidden";
+                         });
+                        </script>
+
+                      </table>
+                      <input class="btn" type="button" onclick="add_row();" value="ADD ROW" id="add_row1">
+                    </div>
 
                     <script type="text/javascript">
                     // step 2
@@ -168,10 +239,11 @@
                     {
                      $rowno=$("#employee_table tr").length;
                      $rowno=$rowno+1;
-                     //$("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' name='unit[]' class='autocomplete' placeholder='Unit' required></td><td><input type='button' value='DELETE' onclick=delete_row('row"+$rowno+"')></td><td><input type='button' value='move up' class='move up' onclick=move_up('row"+$rowno+"')></td><td><input type='button' value='move down' class='move down' onclick=move_down('row"+$rowno+"')></td></tr>");
+                     // $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' hidden name='unit[]' id='unit_hidden"+$rowno+"' placeholder='Unit' required></td><td><select class='browser-default' id='change"+$rowno+"' onclick=select_onchange('"+$rowno+"')><option disabled selected>Choose your option</option><option value='KG(Kilogram)'>KG(Kilogram)</option><option value='L(Liters)'>L(Liters)</option><option value='ML(Milliliters)'>ML(Milliliters)</option><option value='Grain'>Grain</option><option value='Teaspoon'>Teaspoon</option><option value='Request'>Request</option></select></td><td><button class='btn-floating waves-effect waves-light red' type='button' value='DELETE' name='button' onclick=delete_row('row"+$rowno+"')><i class='material-icons'>delete_forever</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move up blue' data-position='top' data-tooltip='Move up' type='button' value='move up' name='button'onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_up</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move down' data-position='bottom' data-tooltip='Move down' type='button' value='move down' name='button' onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_down</i></button></td></tr>");
 
-                     // $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' name='unit[]' class='autocomplete' placeholder='Unit' required></td><td><input type='button' value='DELETE' onclick=delete_row('row"+$rowno+"')></td><td><input type='button' value='move up' class='move up' onclick=get_id('"+$rowno+"')></td><td><input class='btn' type='button' value='move down' class='move down' onclick=get_id('"+$rowno+"')></td></tr>");
-                     $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' name='unit[]' class='autocomplete' placeholder='Unit' required></td><td><button class='btn-floating waves-effect waves-light red' type='button' value='DELETE' name='button' onclick=delete_row('row"+$rowno+"')><i class='material-icons'>delete_forever</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move up blue' data-position='top' data-tooltip='Move up' type='button' value='move up' name='button'onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_up</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move down' data-position='bottom' data-tooltip='Move down' type='button' value='move down' name='button' onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_down</i></button></td></tr>");
+                     $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input required type='text' name='name_ingredients[]' placeholder='Enter ingredients'></td><td><input type='number' name='num[]' placeholder='How many G/KG/ML/L....' required></td><td><input type='text' hidden name='unit[]' id='unit_hidden"+$rowno+"' placeholder='Unit' required></td><td><select class='browser-default' id='change"+$rowno+"' onclick=select_onchange('"+$rowno+"')> <option disabled selected>Choose your option</option> <?php require 'php/config.php'; $sql_category = $conn->query('SELECT * FROM category'); foreach ($sql_category as $row_category) { ?> <option value='<?php echo $row_category['name']; ?>'><?php echo $row_category['name']; ?></option> <?php }?><option value='Request'>Request</option></select></td><td><button class='btn-floating waves-effect waves-light red' type='button' value='DELETE' name='button' onclick=delete_row('row"+$rowno+"')><i class='material-icons'>delete_forever</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move up blue' data-position='top' data-tooltip='Move up' type='button' value='move up' name='button'onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_up</i></button></td><td><button class='btn-floating waves-effect waves-light tooltipped move down' data-position='bottom' data-tooltip='Move down' type='button' value='move down' name='button' onclick=get_id('"+$rowno+"')><i class='material-icons'>arrow_drop_down</i></button></td></tr>");
+
+                      $('select').material_select();
                     }
                     function delete_row(rowno)
                     {
@@ -190,7 +262,56 @@
                       });
                     }
                     </script>
+
+                    <div id="modal1" class="modal modal-fixed-footer">
+                      <h2 class="center">New request</h2>
+                      <div class="row">
+                        <div class="col l12 m12 s12" style="padding:40px;">
+                          <label>Unit</label>
+                          <input id="request_unit" name="request_unit" class="validate">
+                        </div>
+                        <center><button class="btn" type="button" name="button" onclick="addSelect()">Submit</button></center>
+                      </div>
+                    </div>
+
+                    <script type="text/javascript">
+                    //Use the id of the form instead of #change
+                    var id = "";
+                    function select_onchange(a){
+                      $('#change'+a).change(function(){
+                        id = a;
+                        //this is just getting the value that is selected
+                        var title = $(this).val();
+                        //alert(title);
+                        if(title == 'Request'){
+                          $('#modal1').modal('open');
+                          //document.getElementById("request_unit").value = " ";
+                        }
+                        document.getElementById('unit_hidden'+id).value = title;
+                      });
+                    }
+
+                     function addSelect(){
+                       var unit = document.getElementById('request_unit').value;
+                       //alert(a);
+                       //alert(unit);
+                       if(unit == '' || unit == ' '){
+                         alert("Cannot be empty");
+                       }
+                       else{
+                         var x = document.getElementById("change"+id);
+                         var option = document.createElement("option");
+                         option.text = unit;
+                         x.add(option , x[1]);
+                         document.getElementById("change"+id).value = unit;
+                         document.getElementById('unit_hidden'+id).value = unit;
+                         $('#modal1').modal('close');
+                         // /alert(unit);
+                       }
+                     }
+                    </script>
                  </div>
+
 
                  <div class="col l12 m12 s12">
                    <!-- **************************************step************************************************ -->
@@ -274,14 +395,11 @@
                </div>
 
                <h4 class="center">Video</h4>
-               <?php
-
-                ?>
                 <script type="text/javascript">
                 $(document).ready(function(){
                   var video = '<?php echo $video; ?>';
                   // alert (video);
-                  if(video == " " || video == ''){
+                  if(video == " " || video == '' || video == 'php/video/'){
                     //$video = ' ';
                     document.getElementById("video_video").style.visibility = "visible";
                     document.getElementById("video_text").style.visibility = "visible";
@@ -344,7 +462,7 @@
            </div> <!-- recipe detail -- >
           </div><!-- card-content -->
           <div class="card-action">
-            <button class="center" href="#" type="submit">Submit</button>
+            <button class="btn" class="center" href="#" type="submit">Submit</button>
           </div>
           </form>
         </div>
