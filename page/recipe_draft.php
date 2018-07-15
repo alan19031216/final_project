@@ -756,6 +756,96 @@ $username = $_SESSION['username'];
          ?>
          <hr>
          <h4>Same as this type's recipe</h4>
+         <div class="same">
+           <?php
+            $sql_same = $conn->query("SELECT * FROM recipe WHERE type = '$type' AND name != '$title' LIMIT 3");
+            $sql_count_same = $sql_same->rowCount();
+            if($sql_count_same == 0){
+           ?>
+           <div class="col l12 m12 s12">
+             <div class="card blue-grey darken-1">
+               <div class="card-content white-text">
+                 <span class="card-title">Dont has any related recipe</span>
+               </div>
+             </div>
+           </div>
+          <?php
+            }
+            else{
+          ?>
+          <div class="row">
+          <?php
+              foreach ($sql_same as $row_same) {
+          ?>
+          <div class="col l4 m6 s12">
+            <div class="card sticky-action card-shake hoverable" style="height:500px">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="../<?php echo $row_same['cover_img'];?>" style="width:100%;height:200px;%;">
+              </div>
+
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"><?php echo $row_same['name']; ?><i class="material-icons right">more_vert</i></span>
+
+                <table class="demo-table">
+                  <tbody>
+                  <?php
+                    $select_rate = $conn->query("SELECT * FROM tutorial WHERE code = '$code'");
+                    foreach ($select_rate as $tutorial) {
+                  ?>
+                  <tr>
+                    <td valign="top">
+                        <div>
+                          <ul >
+                            <?php
+                            for($i=1;$i<=5;$i++) {
+                            $selected = "";
+                            if(!empty($tutorial["rating"]) && $i<=$tutorial["rating"]) {
+                            $selected = "selected";
+                            }
+                            ?>
+                            <li class="<?php echo $selected; ?> hide-on-small-only" id="rate_view_<?php echo $i; ?>" style="font-size:20px">
+                               &#9733;
+                             </li>
+                             <li class="<?php echo $selected; ?> hide-on-med-and-up" id="rate_view_<?php echo $i; ?>" style="font-size:45px">
+                                &#9733;
+                              </li>
+                            <?php } // , <?php echo $tutorial['code'];  ?>
+                          </ul>
+                        </div>
+                      </td>
+                  </tr>
+                  <?php
+                    }
+                  ?>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card-action">
+                Type: <?php echo $row_same['type']; ?>
+                <a class="btn-floating waves-effect waves-light red right btn tooltipped a-view_recipe" data-position="right" data-tooltip="View Recipe" href="<?php echo $row_same['code']; ?>"><i class="material-icons">book</i></a>
+                <!-- <a id="<?php echo $row_same['code']; ?>" class="btn-floating waves-effect waves-light right tooltipped"  data-position="top" data-tooltip="Add to favorite" onclick="addFavorite('<?php echo $row_same['code']; ?>')"><i class="material-icons">stars</i></a> -->
+                <br><br>
+              </div>
+
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><?php echo $row_same['name']; ?><i class="material-icons right">close</i></span>
+                <?php
+                  $simple_description = $row_same['simple_description'];
+
+                  if($simple_description == '' || $simple_description == ' '){
+                    $simple_description = 'He/She is very lazy...Nothings to show';
+                  }
+                ?>
+                <p> <?php echo $simple_description ?> </p>
+              </div>
+            </div>
+            </div>
+          <?php
+              }
+            }//  same foreach
+          ?>
+         </div>
+         </div>
 
          <hr>
          <h4>Comment</h4>
@@ -764,9 +854,35 @@ $username = $_SESSION['username'];
            <div class="row">
              <input type="hidden" id="product_id_TA" value="<?php echo $_GET['code']; ?>">
              <input type="hidden" id="username_comment" name="" value="<?php echo $_SESSION['username']; ?>">
-             <?php
-               include 'html_php/comment_row.php';
-              ?>
+
+             <div class="" id="comment_row">
+               <?php
+                 //session_start();
+                 $username_comment = $_SESSION['username'];
+                 //echo $username_comment;
+                 $img_read = "";
+                 $sql_user = $conn->query("SELECT * FROM user WHERE username = '$username_comment'");
+                 foreach ($sql_user as $row) {
+                   $img_read = $row['img'];
+                 }
+                 //echo $img_read;
+                 if($img_read == "" || $img_read == " "){
+                   $img_read = "page/php/img/user_image/user_icon.png";
+                 }
+                ?>
+               <div class="col l3 m3 s12">
+                  <img src="../<?php echo $img_read; ?>" alt="" class="circle responsive-img hide-on-small-only right" width="50%">
+                  <center><img src="../<?php echo $img_read; ?>" alt="" class="circle responsive-img hide-on-med-and-up " width="30%"></center>
+               </div>
+
+               <div class="col l9 m9 s12">
+                 <form class="" method="post">
+                   <label for="textarea1">Comment</label>
+                   <textarea required class="browser-default" placeholder="Write your comment" name="description" id="comment_TA" class="materialize-textarea" style="width: 100%;height: 100px;padding: 12px 20px;margin: 8px 0;box-sizing: border-box;"></textarea>
+                   <a class="waves-effect waves-light btn" id="" onclick="submit_comment()">Comment</a>
+                 </form>
+               </div>
+             </div><!-- comment_row -->
 
               <script type="text/javascript">
                 function submit_comment(){
