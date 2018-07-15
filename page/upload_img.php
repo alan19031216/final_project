@@ -146,7 +146,6 @@ include 'html_php/new_hearder.php';
                      <?php
                         include 'html_php/category_select.php';
                       ?>
-
                    </td>
                    <td></td>
                    <td>
