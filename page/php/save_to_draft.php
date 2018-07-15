@@ -19,6 +19,7 @@ try {
       $code = $row_draft['code'];
       $video = $row_draft['video'];
       $recipe_type = $row_draft['recipe_type'];
+      $type = $row_draft['type'];
     }
     $sql_favorite = $conn->query("SELECT * FROM favorite WHERE code = '$code'");
     foreach ($sql_favorite as $sql_favorite) {
@@ -28,8 +29,8 @@ try {
     $sql_draft_delete = $conn->query("DELETE FROM recipe WHERE id = '$draft_id'");
     $sql_favorite_delete = $conn->query("DELETE FROM favorite WHERE code = '$code'");
     if($sql_draft_delete){
-      $sql_insert = $conn->query("INSERT INTO draft (username , name , simple_description , cover_img , rating , code , video , recipe_type , pre_time , cooking_time , number_of_serve ) VALUES
-      ('$username' , '$name' , '$simple_description' , '$cover_image' , '$rating' , '$code' , '$video' ,'$recipe_type' , '$pre_time' , '$cooking_time' , '$number_of_serve')");
+      $sql_insert = $conn->query("INSERT INTO draft (username , name , simple_description , type , cover_img , rating , code , video , recipe_type , pre_time , cooking_time , number_of_serve ) VALUES
+      ('$username' , '$name' , '$simple_description' , '$type' , '$cover_image' , '$rating' , '$code' , '$video' ,'$recipe_type' , '$pre_time' , '$cooking_time' , '$number_of_serve')");
       echo "1";
     }
     else{

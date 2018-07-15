@@ -20,12 +20,13 @@ try {
       $code = $row_draft['code'];
       $video = $row_draft['video'];
       $recipe_type = $row_draft['recipe_type'];
+      $type = $row_draft['type'];
     }
 
     $sql_draft_delete = $conn->query("DELETE FROM draft WHERE id = '$draft_id'");
     if($sql_draft_delete){
-      $sql_insert = $conn->query("INSERT INTO recipe (username , name , pre_time , cooking_time , number_of_serve , simple_description , cover_img , rating , code , video , recipe_type) VALUES
-      ('$username' , '$name' , '$pre_time' , '$cooking_time' , '$number_of_serve' , '$simple_description' , '$cover_image' , '$rating' , '$code' , '$video'  , '$recipe_type')");
+      $sql_insert = $conn->query("INSERT INTO recipe (username , name , pre_time , cooking_time , number_of_serve , simple_description , type , cover_img , rating , code , video , recipe_type) VALUES
+      ('$username' , '$name' , '$pre_time' , '$cooking_time' , '$number_of_serve' , '$simple_description' , '$type' , '$cover_image' , '$rating' , '$code' , '$video'  , '$recipe_type')");
 
       echo "1";
     }
