@@ -505,10 +505,10 @@
   <br><br>
   <hr>
   <button class="waves-effect waves-light btn" type="submit" id="submit" onclick="submit1()">
-    <i class="material-icons right">send</i>Upload
+    <i class="material-icons right">send</i>Upload to public
   </button>
   <button class="waves-effect waves-light btn indigo" type="submit" id="draft" onclick="submit2()">
-    <i class="material-icons right">send</i>Draft
+    <i class="material-icons right">dashboard</i>Save to draft
   </button>
   <script type="text/javascript">
     function submit1(){
