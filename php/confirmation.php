@@ -38,7 +38,7 @@ $sql4 = $conn->query("INSERT INTO user(username, email , img , join_time)VALUES(
 echo '<script language="javascript">';
 echo 'alert("Your account has been activated!!")';
 echo '</script>';
-header( "refresh:0.1; url= ../login_register.php" );
+header( "refresh:0.1; url= ../login_register/" );
 
 
 // Delete information of this user from table "temp_members_db" that has this passkey
