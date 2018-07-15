@@ -211,11 +211,10 @@ $username = $_SESSION['username'];
         });
     });
     </script>
-    <br><br>
-    <br><br><br>
-    <br><br>
-    <br><br><br>
+  
   </div><!-- container -->
-  <br><br><br><br><br><br><br><br>
+  <?php
+    require 'html_php/footer.php';
+   ?>
   </body>
 </html>
