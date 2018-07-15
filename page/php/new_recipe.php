@@ -106,7 +106,11 @@
 
     if($sql_first == true && $sql_step2 == true && $sql_step3 == true && $sql_rating == true){
       $conn->query($sql_rating);
-      echo "1";
+      echo '<script language="javascript">';
+      echo 'alert("Upload successful!!")';
+      echo '</script>';
+      header( "refresh:0.1; url= ../recipe/$code" );
+      //echo "1";
     }
   }// try
    catch (PDOException  $e) {
