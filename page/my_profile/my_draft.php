@@ -10,7 +10,7 @@
     foreach ($sql_my_draft as $row_my_draft) {
 ?>
   <div class="col l4 m6 s12">
-    <div class="card sticky-action" style="550px">
+    <div class="card sticky-action" style="height:500px">
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator" src="<?php echo $row_my_draft['cover_img'];?>" style="width:100%;height:200px;%;">
       </div>
