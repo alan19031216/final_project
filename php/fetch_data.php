@@ -4,11 +4,12 @@
 include 'config.php';
 
 $row = $_POST['row'];
+$count = $_POST['count'];
 $rowperpage = 6;
 
 try {
   // selecting posts
-  $query = $conn->query('SELECT * FROM recipe limit 6,'.$rowperpage);
+  $query = $conn->query('SELECT * FROM recipe limit '.$count.','.$rowperpage);
 
   //$result = mysqli_query($con,$query);
 

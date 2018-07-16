@@ -183,6 +183,7 @@
     <div class="container row">
       <h2 class="center">Recommendation</h2>
       <script>
+        var count = 0;
         $(document).ready(function(){
             $(window).scroll(function(){
                 var position = $(window).scrollTop();
@@ -195,6 +196,7 @@
                     var allcount = Number($('#all').val());
                     var rowperpage = 3;
                     row = row + rowperpage;
+                    count = count + 6;
                     //alert(row);
                     if(row <= allcount){
                       //alert(row);
@@ -202,7 +204,7 @@
                         $.ajax({
                             url: 'php/fetch_data.php',
                             type: 'post',
-                            data: {row:row},
+                            data: {row:row, count:count},
                             success: function(response){
                                 //alert(response);
                                 $('.parallax').parallax();

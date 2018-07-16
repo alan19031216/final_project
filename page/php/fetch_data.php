@@ -4,14 +4,15 @@
 include 'config.php';
 
 $row = $_POST['row'];
+$count = $_POST['count'];
 $rowperpage = 6;
 
 try {
   // selecting posts
-  $query = $conn->query('SELECT * FROM recipe limit 6,'.$rowperpage);
+  $query = $conn->query('SELECT * FROM recipe limit '.$count.','.$rowperpage);
 
   //$result = mysqli_query($con,$query);
-
+  //echo $count;
   $html = '';
   $html.= '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">';
   $html.= '<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>';
