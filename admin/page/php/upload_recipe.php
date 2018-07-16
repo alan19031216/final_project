@@ -24,7 +24,10 @@ $name = $_POST['name'];
 
 try {
   $sql = $conn->query("INSERT INTO book (name , img , path) VALUES ('$name' , '$image' , '$pdf')");
-  echo "1";
+  echo "<script>
+        alert('Add success');
+        window.location.href='../home.php';
+        </script>";
 }
 catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
