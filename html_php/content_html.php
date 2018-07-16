@@ -29,7 +29,7 @@
                     $.ajax({
                         url: 'php/fetch_data.php',
                         type: 'post',
-                        data: {row:row},
+                        data: {row:row , count:count},
                         success: function(response){
                             //alert(response);
                             $('.parallax').parallax();
