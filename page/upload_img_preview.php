@@ -431,7 +431,7 @@
             var video = '<?php echo $video; ?>';
             // alert (video);
             if(video == "not"){
-              document.getElementById("video_video").style.visibility = "visible";
+              document.getElementById("video_video").style.visibility = "hidden";
               document.getElementById("video_text").style.visibility = "visible";
               // document.getElementById("video_file").style.visibility = "hidden";
               document.getElementById("player").style.visibility = "hidden";
