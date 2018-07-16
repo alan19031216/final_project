@@ -444,6 +444,7 @@ $username = $_SESSION['username'];
                             type: "POST",
                           success: function(a){
                             alert("Rate success");
+                            $('#modal1').modal('close');
                             //alert(a);
                             //alert($('#code').val());
                           },
@@ -458,7 +459,8 @@ $username = $_SESSION['username'];
                   //alert(a);
                 }
                 else{
-                  alert(a);
+                  alert("Rate success");
+                  $('#modal1').modal('close');
                 }
                 //alert(a);
                 //alert($('#code').val());

@@ -1,6 +1,6 @@
 <?php
   include 'html_php/new_hearder.php';
-
+  //error_reporting(0);
   // image
   $target_dir = "php/img/";
   //echo $target_dir;
