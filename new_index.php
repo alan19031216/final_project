@@ -17,53 +17,6 @@ include 'header.php';
         <a href="new_index.php"><img src="img/logo.png" alt="" width="60%"></a>
       </div>
 
-      <style media="screen">
-      input[type="search"] {
-        height: 64px !important; /* or height of nav */
-        margin: 0;
-      }
-
-      #fixedBar {
-        position: fixed;
-        z-index: 900; //TODO: import from _colors and bind to variable, see cool webpack loader thing.
-        background: #ee6e73; // border: 2px solid green;
-        width: 30%;
-        // margin-left: -150px;
-        form {
-          //new
-          margin: 0;
-          padding: 0;
-          height: 100%;
-        }
-        .row {
-          //new
-          margin-bottom: 0px !important;
-          padding: 0px !important;
-        }
-        transition: box-shadow .5s;
-      }
-      .search-results {
-        display:none;
-        position: ;
-        width: 100%;
-        z-index: 30;
-      }
-
-        .search-results.show{
-        display:block;
-      }
-
-      .side-nav {
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .pp {
-        position: absolute;
-        left: 30px;
-        display: inline-block;
-        vertical-align: middle;
-      }
-      </style>
 
       <div class="col l4 m4 s6">
         <br>
@@ -78,31 +31,7 @@ include 'header.php';
               </form>
             </div>
           </nav>
-          <div id="search-results" class="search-results">
-              <div class="row">
-                <div class=""> <div class="card ">
-                  <div class="collection">
-                    <a class="collection-item" href="#">Ali Baba</a>
-                    <a class="collection-item" href="#">JamesWS</a>
-                    <a class="collection-item" href="#">ChuckEngine</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
-
-      <script type="text/javascript">
-      $('#search')
-        .focus(function() {
-            //$('#search-results').addClass('show');
-        })
-        .blur(function() {
-            //$('#search-results').removeClass('show');
-        });
-      //TODO: turn search box into an expanding button on mobile
-      </script>
+        </div>
 
       <script>
         window.onscroll = function() {myFunction()};
