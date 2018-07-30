@@ -50,11 +50,11 @@ if (session_id() == '') {
               if (event.keyCode === 13) {
                   //alert(code);
                   if(code != ''){
-                      window.location.href = "search.php?code="+code;
+                      window.location.href = "search.php?code="+code+"&num=0";
                   }
                   else{
                       //alert(second);
-                      window.location.href = "search.php?search="+second;
+                      window.location.href = "search.php?search="+second+"&num=1";
                   }
               }
           });
