@@ -27,4 +27,5 @@ try {
 catch (PDOException  $e) {
  echo $e->getMessage();
 }// catch\
+$conn = null;
  ?>
