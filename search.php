@@ -144,7 +144,24 @@ if (session_id() == '') {
 
    <div class="container">
      <h3>Search result: <?php echo $name;?></h3>
-
+     <i class="material-icons grid">grid_on</i>
+     <i class="material-icons list">view_list</i>
+     <hr>
+     <script type="text/javascript">
+       $(document).ready(function() {
+         //alert($('[id=search_result]').length);
+       //$('#search_result').addClass('col s12 m6');
+       $('i').click(function(e) {
+         if ($(this).hasClass('grid')) {
+           $('div .div').removeClass('col l12').addClass('col l4 m6 s12');
+           // $('div div .card').removeClass('card horizontal').addClass('card');
+         } else if ($(this).hasClass('list')) {
+           $('div .div').removeClass('col l4 m6 s12').addClass('col l12');
+           // $('div div div div .card').removeClass('card').addClass('card horizontal');
+         }
+       });
+       })
+     </script>
    <?php
     if($count == '0'){
    ?>
@@ -153,11 +170,12 @@ if (session_id() == '') {
       }//if
       else{
     ?>
+
     <div class="row">
       <?php foreach ($sql_search as $row) {
         $code = $row['code'];
     ?>
-      <div class="col l4 m6 s12">
+      <div class="div col l4 m6 s12">
         <style>
           .demo-table {width: 100%;border-spacing: initial;margin: 10px 0px;word-break: break-word;table-layout: auto;line-height:4.8em;color:#333;}
           .demo-table td {border-bottom: #f0f0f0 1px solid;background-color: #ffffff;padding: 5px;}
