@@ -7,9 +7,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://js.leapmotion.com/leap-0.6.4.js"></script>
-    <script src="js/leapcursor-with-dependencies.min.js?gestureColor=#6DCC44"></script>
+    <script src="../js/leapcursor-with-dependencies.min.js?gestureColor=#6DCC44"></script>
     <!--rating-->
-    <script src="page/js/rate.js"></script>
+    <script src="../page/js/rate.js"></script>
     <script type="text/javascript" src="../page/extras/modernizr.2.5.3.min.js"></script>
     <script type="text/javascript" src="../new_recipe.js"></script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>
@@ -51,7 +51,7 @@
         <div class="top">
           <div class="row">
             <div class="col l4 m6 s12 center">
-              <img src="page/<?php echo $cover_img; ?>" style="height:50%;width:100%">
+              <img src="../page/<?php echo $cover_img; ?>" style="height:50%;width:100%">
               <div class="col l6">
                 <style>
                   .demo-table {width: 100%;border-spacing: initial;margin: 10px 0px;word-break: break-word;table-layout: auto;line-height:4.8em;color:#333;}
@@ -233,7 +233,7 @@
 
           <!--timer sound-->
           <audio id="myAudio">
-            <source src="mp3/alarm.mp3" type="audio/mp3">
+            <source src="../mp3/alarm.mp3" type="audio/mp3">
           </audio>
           <style media="screen">
           .numberCircle {
