@@ -5,6 +5,9 @@
   $sender = $_GET['sender'];
  ?>
 <div class="chatbox" style="">
+  <script type="text/javascript">
+    $('.chatbox').scrollTop($('.chatbox')[0].scrollHeight);
+  </script>
   <?php
     $username_message = $_SESSION['username'];
     //echo $username_message;
