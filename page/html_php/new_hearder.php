@@ -137,7 +137,7 @@ include 'html_php/header.php';
        <a class="brand-logo hide-on-large-only" href="new_home.php" class="brand-logo">Let's Cook</a>
        <ul id="nav-mobile" class="hide-on-med-and-down">
          <li><a href="#">Recipe</a></li>
-         <li><a href="#">Live video</a></li>
+         <li><a href="live.php">Live video</a></li>
          <li><a href="#">Online chat</a></li>
          <li><a href="subscript.php">Subscription</a></li>
          <li><a href="question.php">Question</a></li>
