@@ -10,15 +10,17 @@
     header( "refresh:0.1; url= ../login_register.php" );
   }
  ?>
-<!DOCTYPE html>
-<html>
+ <!DOCTYPE html>
+ <html lang="en">
   <head>
     <meta charset="utf-8">
 
     <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> -->
     <link type="text/css" rel="stylesheet" href="css/style_bookshelf.css"  media="screen,projection"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
     <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
     <script type="text/javascript" src="js/home.js"></script>
     <!-- Compiled and minified CSS -->
