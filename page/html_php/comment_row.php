@@ -26,6 +26,19 @@
       <?php
         include 'test.php';
        ?>
+      <!-- <div id="load_comment"></div>
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $('#load_comment').load('test.php', function(){
+             // hide loader image
+             //$('#loader-image').hide();
+             // fade in effect
+             $('#load_comment').fadeIn('slow');
+         });
+        });
+
+      </script> -->
+      <br>
       <a class="waves-effect waves-light btn" id="" onclick="submit_comment()">Comment</a>
     </form>
   </div>
