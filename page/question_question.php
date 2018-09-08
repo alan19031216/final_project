@@ -163,7 +163,6 @@
                    $('#reload_answer_comment_row').load('reload_answer_comment_row.php?product_id=' + product_id_TA, function(){
                       // hide loader image
                       //$('#loader-image').hide();
-
                       // fade in effect
                       $('#reload_answer_comment_row').fadeIn('slow');
                   });
