@@ -48,7 +48,7 @@
 
  </style>
  <div class="row">
-   <div class="col l3 m6 s12 card" style="margin:10px">
+   <div class="col l3 m4 s12 card" style="margin:10px">
      <table class="centered striped" border="1">
        <thead>
          <tr>
@@ -129,7 +129,7 @@
      </script>
 
    </div>
-   <div class="col l8 m6 s12 grey lighten-4">
+   <div class="col l8 m7 s12 grey lighten-4">
      <h2>Special for Today</h2>
       <div class="card horizontal">
         <div class="card-image">
