@@ -1,5 +1,6 @@
 <div class="" id="comment_row">
   <?php
+    include 'php/config.php';
     //session_start();
     $username_comment = $_GET['username'];
     //echo $username_comment;
@@ -21,7 +22,10 @@
   <div class="col l9 m9 s12">
     <form class="" method="post">
       <label for="textarea1">Comment</label>
-      <textarea required class="browser-default" placeholder="Write your comment" name="description" id="comment_TA" class="materialize-textarea" style="width: 100%;height: 100px;padding: 12px 20px;margin: 8px 0;box-sizing: border-box;"></textarea>
+      <!-- <textarea required class="browser-default" placeholder="Write your comment" name="description" id="comment_TA" class="materialize-textarea" style="width: 100%;height: 100px;padding: 12px 20px;margin: 8px 0;box-sizing: border-box;"></textarea> -->
+      <?php
+        include 'test.php';
+       ?>
       <a class="waves-effect waves-light btn" id="" onclick="submit_comment()">Comment</a>
     </form>
   </div>
