@@ -157,7 +157,7 @@ $username = $_SESSION['username'];
           <script type="text/javascript">
             function length1(){
               var value = document.getElementById('title').value;
-              if(value.length < 12){
+              if(value.length < 5){
                 //alert("a");
                 document.getElementById("length").innerHTML = "Title lenght must more than 5 word!";
                 return false;
@@ -211,7 +211,7 @@ $username = $_SESSION['username'];
         });
     });
     </script>
-  
+
   </div><!-- container -->
   <?php
     require 'html_php/footer.php';
