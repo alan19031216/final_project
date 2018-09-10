@@ -145,7 +145,10 @@
           function submit_comment(){
             var product_id_TA = document.getElementById("product_id_TA").value;
             var username_comment = document.getElementById("username_comment").value;
-            var comment_TA = document.getElementById("comment_TA").value;
+            document.getElementById("summernote").value = encodeURIComponent($('$summernote').summernote('code'));
+            //alert(comment_TA);
+            // content = encodeURIComponent($('$summernote').summernote('code'));
+
             if(comment_TA.length < 5){
               alert("At least five words");
               return false;
@@ -173,9 +176,9 @@
                    location.reload();
                  }
                }
-             });
+             }); // ajax
               //alert("A");
-            }
+            } // else
           }
         </script>
 
