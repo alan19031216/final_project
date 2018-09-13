@@ -46,7 +46,6 @@
             var id = a;
             $('#modal1_question').modal('open');
           }
-
           $(document).on('click', '.modal1_question_submit', function(){
             var modal1_question_check1 = document.getElementById('modal1_question_check1').checked;
             var modal1_question_check2 = document.getElementById('modal1_question_check2').checked;
@@ -73,7 +72,6 @@
               if(modal1_question_check4 == true){
                 check[count_check++] = document.getElementById('modal1_question_check4').value;
               }
-
               $.ajax({
                 type:"POST",
                 url:"php/modal1_report.php",
@@ -145,10 +143,9 @@
           function submit_comment(){
             var product_id_TA = document.getElementById("product_id_TA").value;
             var username_comment = document.getElementById("username_comment").value;
-            document.getElementById("summernote").value = encodeURIComponent($('$summernote').summernote('code'));
+            var comment_TA = document.getElementById("comment_TA").value;
             //alert(comment_TA);
             // content = encodeURIComponent($('$summernote').summernote('code'));
-
             if(comment_TA.length < 5){
               alert("At least five words");
               return false;
@@ -203,13 +200,11 @@
                   //echo $username ;
                   $img = "";
                   $sql_comment= $conn->query("SELECT a.* , b.* FROM user as a LEFT JOIN comment as b ON a.username = b.username WHERE b.question_id = '$product_id' ORDER BY comment_date DESC");
-
                   foreach ($sql_comment as $row_comment) {
                     $id = $row_comment['id'];
                     $img = $row_comment['img'];
                     if($img == "" || $img == " " || $img == "img/"){
                       $img = "img/user_icon.png";
-
                     }
                     $sql_lik = $conn->query("SELECT * FROM liked WHERE comment_id = '$id'")->rowCount();
                     $like = '';
@@ -282,7 +277,6 @@
                   //alert(a);
                   $('#modal2_question').modal('open');
                 }
-
                 $(document).on('click', '.modal2_question_submit', function(){
                   var modal2_question_check1 = document.getElementById('modal2_question_check1').checked;
                   var modal2_question_check2 = document.getElementById('modal2_question_check2').checked;
@@ -308,7 +302,6 @@
                     if(modal2_question_check4 == true){
                       modal2_check[modal2_count_check++] = document.getElementById('modal2_question_check4').value;
                     }
-
                     $.ajax({
                       type:"POST",
                       url:"php/modal2_report.php",

@@ -1,6 +1,5 @@
 <div class="" id="comment_row">
   <?php
-    include 'php/config.php';
     //session_start();
     $username_comment = $_GET['username'];
     //echo $username_comment;
@@ -22,24 +21,9 @@
   <div class="col l9 m9 s12">
     <form class="" method="post">
       <label for="textarea1">Comment</label>
-      <!-- <textarea required class="browser-default" placeholder="Write your comment" name="description" id="comment_TA" class="materialize-textarea" style="width: 100%;height: 100px;padding: 12px 20px;margin: 8px 0;box-sizing: border-box;"></textarea> -->
-      <?php
-        include 'test.php';
-       ?>
-      <!-- <div id="load_comment"></div>
-      <script type="text/javascript">
-        $(document).ready(function(){
-          $('#load_comment').load('test.php', function(){
-             // hide loader image
-             //$('#loader-image').hide();
-             // fade in effect
-             $('#load_comment').fadeIn('slow');
-         });
-        });
-
-      </script> -->
-      <br>
-      <a class="waves-effect waves-light btn" id="" onclick="submit_comment()">Comment</a>
+      <textarea required class="browser-default" placeholder="Write your comment" name="description" id="comment_TA" class="materialize-textarea" style="width: 100%;height: 100px;padding: 12px 20px;margin: 8px 0;box-sizing: border-box;"></textarea>
+      <a href="text_editor.php?product_id='<?php echo $product_id; ?>'&username='<?php echo $_GET['username']; ?>'">Insert picture or video?</a>
+      <a class="waves-effect waves-light btn right" id="" onclick="submit_comment()">Comment</a>
     </form>
   </div>
 </div><!-- comment_row -->
