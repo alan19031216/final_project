@@ -58,38 +58,38 @@ foreach ($sql as $row) {
         </div>
 
         <script>
-        $(document).ready(function() {
-          $("#summernote").summernote({
-            placeholder: 'Your comment',
-                  height: 300,
-                   callbacks: {
-                  onImageUpload : function(files, editor, welEditable) {
-                       for(var i = files.length - 1; i >= 0; i--) {
-                               sendFile(files[i], this);
-                      }
-                  }
-              }
-            });
-        });
-        function sendFile(file, el) {
-          var form_data = new FormData();
-          form_data.append('file', file);
-          $.ajax({
-              data: form_data,
-              type: "POST",
-              url: 'php/editor-upload.php',
-              cache: false,
-              contentType: false,
-              processData: false,
-              success: function(url) {
-                  $(el).summernote('editor.insertImage', 'php/'+url);
-              }
+          $(document).ready(function() {
+            $("#summernote").summernote({
+              placeholder: 'Your comment',
+                    height: 300,
+                     callbacks: {
+                    onImageUpload : function(files, editor, welEditable) {
+                         for(var i = files.length - 1; i >= 0; i--) {
+                                 sendFile(files[i], this);
+                        }
+                    }
+                }
+              });
           });
-        }
+          function sendFile(file, el) {
+            var form_data = new FormData();
+            form_data.append('file', file);
+            $.ajax({
+                data: form_data,
+                type: "POST",
+                url: 'php/editor-upload.php',
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(url) {
+                    $(el).summernote('editor.insertImage', 'php/'+url);
+                }
+            });
+          }
 
-        function postForm() {
-          $('textarea[name="comment"]').html($('#summernote').code());
-        }
+          function postForm() {
+            $('textarea[name="comment"]').html($('#summernote').code());
+          }
         </script>
       </div>
     </div>
