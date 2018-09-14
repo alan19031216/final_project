@@ -36,6 +36,7 @@
         $page = 1;
         $sql_recipe = $conn->query("SELECT * FROM recipe WHERE code = '$code'");
         foreach ($sql_recipe as $row_recipe) {
+          $type = $row_recipe['type'];
           $pre_time = $row_recipe['pre_time'];
           $cooking_time = $row_recipe['cooking_time'];
           $number_of_serve = $row_recipe['number_of_serve'];
@@ -319,6 +320,97 @@
          ?>
         <hr>
         <h4>Same as this type's recipe</h4>
+        <div class="same">
+          <?php
+           $sql_same = $conn->query("SELECT * FROM recipe WHERE type = '$type' AND name != '$title' LIMIT 3");
+           $sql_count_same = $sql_same->rowCount();
+           if($sql_count_same == 0){
+          ?>
+          <div class="col l12 m12 s12">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">Dont has any related recipe</span>
+              </div>
+            </div>
+          </div>
+         <?php
+           }
+           else{
+         ?>
+         <div class="row">
+         <?php
+             foreach ($sql_same as $row_same) {
+         ?>
+         <div class="col l4 m6 s12">
+           <div class="card sticky-action card-shake hoverable" style="height:550px">
+             <div class="card-image waves-effect waves-block waves-light">
+               <img class="activator" src="../page/<?php echo $row_same['cover_img'];?>" style="width:100%;height:200px;%;">
+             </div>
+
+             <div class="card-content">
+               <span class="card-title activator grey-text text-darken-4"><?php echo $row_same['name']; ?><i class="material-icons right">more_vert</i></span>
+
+               <table class="demo-table">
+                 <tbody>
+                 <?php
+                   $select_rate = $conn->query("SELECT * FROM tutorial WHERE code = '$code'");
+                   foreach ($select_rate as $tutorial) {
+                 ?>
+                 <tr>
+                   <td valign="top">
+                       <div>
+                         <ul >
+                           <?php
+                           for($i=1;$i<=5;$i++) {
+                           $selected = "";
+                           if(!empty($tutorial["rating"]) && $i<=$tutorial["rating"]) {
+                           $selected = "selected";
+                           }
+                           ?>
+                           <li class="<?php echo $selected; ?> hide-on-small-only" id="rate_view_<?php echo $i; ?>" style="font-size:20px">
+                              &#9733;
+                            </li>
+                            <li class="<?php echo $selected; ?> hide-on-med-and-up" id="rate_view_<?php echo $i; ?>" style="font-size:45px">
+                               &#9733;
+                             </li>
+                           <?php } // , <?php echo $tutorial['code'];  ?>
+                         </ul>
+                       </div>
+                     </td>
+                 </tr>
+                 <?php
+                   }
+                 ?>
+                 </tbody>
+               </table>
+             </div>
+             <div class="card-action">
+               Type: <?php echo $row_same['type']; ?>
+               <br><br>
+               <a class="btn-floating waves-effect waves-light red right btn tooltipped a-view_recipe" data-position="right" data-tooltip="View Recipe" href="<?php echo $row_same['code']; ?>"><i class="material-icons">book</i></a>
+               <!-- <a id="<?php echo $row_same['code']; ?>" class="btn-floating waves-effect waves-light right tooltipped"  data-position="top" data-tooltip="Add to favorite" onclick="addFavorite('<?php echo $row_same['code']; ?>')"><i class="material-icons">stars</i></a> -->
+               <br><br>
+             </div>
+
+             <div class="card-reveal">
+               <span class="card-title grey-text text-darken-4"><?php echo $row_same['name']; ?><i class="material-icons right">close</i></span>
+               <?php
+                 $simple_description = $row_same['simple_description'];
+
+                 if($simple_description == '' || $simple_description == ' '){
+                   $simple_description = 'He/She is very lazy...Nothings to show';
+                 }
+               ?>
+               <p> <?php echo $simple_description ?> </p>
+             </div>
+           </div>
+           </div>
+         <?php
+             }
+           }//  same foreach
+         ?>
+        </div>
+        </div>
 
         <hr>
         <h4>Comment</h4>
@@ -330,26 +422,36 @@
                 //echo $username ;
                 $img = "";
                 $sql_comment= $conn->query("SELECT a.* , b.* FROM user as a LEFT JOIN comment_recipe as b ON a.username = b.username WHERE b.recipe_code = '$code' ORDER BY comment_date DESC");
-
-                foreach ($sql_comment as $row_comment) {
-                  $id = $row_comment['id'];
-                  $img = $row_comment['img'];
-                  if($img == "" || $img == " " || $img == "img/"){
-                    $img = "img/user_icon.png";
-
-                  }
-                  $sql_lik = $conn->query("SELECT * FROM liked WHERE comment_id = '$id'")->rowCount();
-                  $like = '';
-                  if($sql_lik == 0){
-                    $like = 'Like';
-                    $like_color = 'white';
-                  }
-                  else{
-                    $like = 'Liked';
-                    $like_color = 'black';
-                  }
-              ?>
-
+                $sql_count_comment = $sql_comment->rowCount();
+                if($sql_count_comment == 0){
+               ?>
+               <div class="col l12 m12 s12">
+                 <div class="card blue-grey darken-1">
+                   <div class="card-content white-text">
+                     <span class="card-title">Dont has any related recipe</span>
+                   </div>
+                 </div>
+               </div>
+               <?php
+                }
+                else{
+                  foreach ($sql_comment as $row_comment) {
+                    $id = $row_comment['id'];
+                    $img = $row_comment['img'];
+                    if($img == "" || $img == " " || $img == "img/"){
+                      $img = "img/user_icon.png";
+                    }
+                    $sql_lik = $conn->query("SELECT * FROM liked WHERE comment_id = '$id'")->rowCount();
+                    $like = '';
+                    if($sql_lik == 0){
+                      $like = 'Like';
+                      $like_color = 'white';
+                    }
+                    else{
+                      $like = 'Liked';
+                      $like_color = 'black';
+                    }
+                ?>
                <div class="card">
                  <div class="card-content">
                    <div class="row">
@@ -372,7 +474,8 @@
                  </div>
                </div>
                <?php
-               }
+                    }
+                  } // foreach
                ?>
              </div><!-- comment_row -->
              <script type="text/javascript">
@@ -491,6 +594,8 @@
              </script>
            </div> <!-- all user comment-->
          </div>
-      </div> <!-- container -->
-    </body>
-</html>
+      </div>
+    </div><!-- container -->
+    <?php
+      include 'html_php/footer.php';
+     ?>
