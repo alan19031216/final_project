@@ -23,8 +23,8 @@
           <a href="../new_index.php" class="brand-logo">Let's Cook</a>
           <a href="index.php" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="login_register.php">Login/Register</a></li>
-            <li><a href="badges.html">Components</a></li>
+            <li><a href="../login_register/">Login/Register</a></li>
+            <!-- <li><a href="badges.html">Components</a></li> -->
           </ul>
         </div>
       </nav>
@@ -108,22 +108,22 @@
         <div class="taps">
           <div class="row">
             <div class="col l3" style="height:50px;">
-              <a id="favorite" onclick="addFavorite()" href="login_register.php" style="width:100%;height:100%;" class="waves-effect waves-light btn red">
+              <a id="favorite" onclick="addFavorite()" href="../login_register/" style="width:100%;height:100%;" class="waves-effect waves-light btn red">
                 <i class="large material-icons left">favorite</i>add favorite
               </a>
             </div>
             <div class="col l3 "  style="height:50px;">
-              <a style="width:100%;height:100%;" onclick="make_it()" href="login_register.php" class="waves-effect waves-light btn blue">
+              <a style="width:100%;height:100%;" onclick="make_it()" href="../login_register/" class="waves-effect waves-light btn blue">
                 <i class="large material-icons left">done</i>I make it
               </a>
             </div>
             <div class="col l3 "  style="height:50px;">
-              <a style="width:100%;height:100%;" onclick="rating()" href="login_register.php" class="waves-effect waves-light btn green">
+              <a style="width:100%;height:100%;" onclick="rating()" href="../login_register/" class="waves-effect waves-light btn green">
                 <i class="large material-icons left">star</i>Rating
               </a>
             </div>
             <div class="col l3 "  style="height:50px;">
-              <a style="width:100%;height:100%;" onclick="myFunctionPrint()" href="login_register.php"class="waves-effect waves-light btn prink">
+              <a style="width:100%;height:100%;" onclick="myFunctionPrint()" href="../login_register/"class="waves-effect waves-light btn prink">
                 <i class="large material-icons left">print</i>print
               </a>
             </div>
@@ -300,7 +300,7 @@
 
         <center>
           <div class="col l3 "  style="height:50px;">
-            <a style="width:50%;height:100%;" onclick="make_it()" href="login_register.php" class="waves-effect waves-light btn blue">
+            <a style="width:50%;height:100%;" onclick="make_it()" href="../login_register/" class="waves-effect waves-light btn blue">
               <i class="large material-icons left">done</i>I make it
             </a>
           </div>
