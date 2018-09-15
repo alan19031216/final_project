@@ -25,8 +25,8 @@
       <!--<a href="index.php"><img class="responsive-img brand-logo hide-on-small-only" src="img/logo.jpg" alt="" width="13%"></a>-->
       <a href="index.php" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="sell.php">Book of recipe</a></li>
-          <li><a href="login_register.php">Login/Register</a></li>
+          <!-- <li><a href="sell.php">Book of recipe</a></li> -->
+          <li><a href="login_register/">Login/Register</a></li>
         </ul>
       </div>
     </nav>
