@@ -12,10 +12,10 @@ if (session_id() == '') {
     session_start();
 }
 
-    $handler = new Handler();
-    $handler->getJavascriptAntiBot();
+$handler = new Handler();
+$handler->getJavascriptAntiBot();
  ?>
- <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121742810-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -30,7 +30,6 @@ if (session_id() == '') {
         <br>
         <a href="new_index.php"><img src="img/logo.png" alt="" width="60%"></a>
       </div>
-
 
       <div class="col l4 m4 s6">
         <br>
@@ -123,9 +122,10 @@ if (session_id() == '') {
           <a class="brand-logo hide-on-large-only" href="index.php" data-activates="mobile-demo" class="brand-logo">Let's Cook</a>
           <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="hide-on-med-and-down">
-            <li><a href="#">Recipe</a></li>
+            <li><a href="#">Category</a></li>
             <li><a href="#">Live video</a></li>
-            <li><a href="#">Online chat</a></li>
+            <li><a href="question.php">Question</a></li>
+            <!-- <li><a href="#">Online chat</a></li> -->
           </ul>
         </div>
       </nav>
@@ -170,111 +170,159 @@ if (session_id() == '') {
       });
     </script>
 
-    <div class="row">
+    <style media="screen">
+    @import url(https://fonts.googleapis.com/css?family=Raleway);
+
+    .main-title{
+    color: #2d2d2d;
+    text-align: center;
+    text-transform: capitalize;
+    padding: 0.7em 0;
+    }
+
+    .content {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+    overflow: hidden;
+    }
+
+    .content .content-overlay {
+    background: rgba(0,0,0,0.7);
+    position: absolute;
+    height: 99%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
+    }
+
+    .content:hover .content-overlay{
+    opacity: 1;
+    }
+
+    .content-image{
+    width: 100%;
+    }
+
+    .content-details {
+    position: absolute;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+    }
+
+    .content:hover .content-details{
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+    }
+
+    .content-details h4{
+    color: #fff;
+    font-weight: 200;
+    letter-spacing: 0.15em;
+    /* margin-bottom: 0.5em; */
+    text-transform: uppercase;
+    font-size: 23px;
+    }
+
+    .fadeIn-bottom{
+    top: 80%;
+    }
+
+    .fadeIn-top{
+    top: 20%;
+    }
+    </style>
+
+    <div class="row hide-on-med-and-down">
       <div class="col l2 m6">
-        <div class="">
-          <div class="card-panel grey lighten-5 z-depth-1" style="height:150px">
-            <div class="row valign-wrapper">
-              <div class="">
-                <img src="img/1.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-              </div>
-              <div class="">
-                <span class="black-text center" style="font-size:20px">
-                  Appetizers and Snacks
-                </span>
-              </div>
+        <div class="content">
+          <!-- <a href="https://unsplash.com/photos/HkTMcmlMOUQ" target="_blank"> -->
+            <div class="content-overlay"></div>
+            <img src="img/1.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+            <div class="content-details fadeIn-bottom">
+              <h4 class="content-title">Appetizers and Snacks</h4>
             </div>
-          </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col l2 m6">
+        <div class="content">
+          <!-- <a href="https://unsplash.com/photos/HkTMcmlMOUQ" target="_blank"> -->
+            <div class="content-overlay"></div>
+            <img src="img/2.jpg" alt="" class="circle responsive-img content-image"> <!-- notice the "circle" class -->
+            <div class="content-details fadeIn-top">
+              <h4 class="content-title">Breakfast and Brunch</h4>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col l2 m6">
+        <div class="content">
+            <div class="content-overlay"></div>
+            <img src="img/3.jpg" alt="" class="circle responsive-img content-image"> <!-- notice the "circle" class -->
+            <div class="content-details fadeIn-left">
+              <h4>Desserts</h4>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col l2 m6">
+        <div class="content">
+            <div class="content-overlay"></div>
+            <img src="img/4.jpg" alt="" class="circle responsive-img content-image"> <!-- notice the "circle" class -->
+            <div class="content-details fadeIn-right">
+              <h4>Dinners</h4>
+            </div>
+          </a>
+        </div>
+      </div>
+
+       <div class="col l2 m6">
+         <div class="content">
+            <div class="content-overlay"></div>
+            <img src="img/5.jpg" alt="" class="circle responsive-img content-image"> <!-- notice the "circle" class -->
+            <div class="content-details fadeIn-top fadeIn-left">
+              <h4>Drink</h4>
+            </div>
+          </a>
         </div>
        </div>
 
        <div class="col l2 m6">
-         <div class="">
-           <div class="card-panel grey lighten-5 z-depth-1" style="height:150px">
-             <div class="row valign-wrapper">
-               <div class="">
-                 <img src="img/2.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-               </div>
-               <div class="">
-                 <span class="black-text center" style="font-size:20px">
-                   Breakfast and Brunch
-                 </span>
-               </div>
-             </div>
-           </div>
-         </div>
+         <div class="content">
+            <div class="content-overlay"></div>
+            <img src="img/6.jpg" alt="" class="circle responsive-img content-image"> <!-- notice the "circle" class -->
+            <div class="content-details fadeIn-top">
+              <h4>Lunch</h4>
+            </div>
+          </a>
         </div>
-
-        <div class="col l2 m6">
-          <div class="">
-            <div class="card-panel grey lighten-5 z-depth-1" style="height:150px">
-              <div class="row valign-wrapper">
-                <div class="">
-                  <img src="img/3.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-                </div>
-                <div class="">
-                  <span class="black-text center" style="font-size:20px">
-                    Desserts
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-         </div>
-
-         <div class="col l2 m6">
-           <div class="">
-             <div class="card-panel grey lighten-5 z-depth-1" style="height:150px">
-               <div class="row valign-wrapper">
-                 <div class="">
-                   <img src="img/4.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-                 </div>
-                 <div class="">
-                   <span class="black-text center" style="font-size:20px">
-                     Dinners
-                   </span>
-                 </div>
-               </div>
-             </div>
-           </div>
-          </div>
-
-          <div class="col l2 m6">
-            <div class="">
-              <div class="card-panel grey lighten-5 z-depth-1" style="height:150px">
-                <div class="row valign-wrapper">
-                  <div class="">
-                    <img src="img/5.jpg" alt="" class="circle responsive-img" style="width:80%"> <!-- notice the "circle" class -->
-                  </div>
-                  <div class="">
-                    <span class="black-text center" style="font-size:20px">
-                      Drink
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-           </div>
-
-           <div class="col l2 m6">
-             <div class="">
-               <div class="card-panel grey lighten-5 z-depth-1" style="height:150px">
-                 <div class="row valign-wrapper">
-                   <div class="">
-                     <img src="img/6.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-                   </div>
-                   <div class="">
-                     <span class="black-text center" style="font-size:20px">
-                       Lunch
-                     </span>
-                   </div>
-                 </div>
-               </div>
-             </div>
-            </div>
         </div>
+      </div>
 
-        <div class="content">
+        <div class="contents">
           <?php
             require 'html_php/content_html.php';
             require 'html_php/footer.php';
