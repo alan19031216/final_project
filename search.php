@@ -21,7 +21,6 @@ if (session_id() == '') {
      <a href="new_index.php"><img src="img/logo.png" alt="" width="60%"></a>
    </div>
 
-
    <div class="col l4 m4 s6">
      <br>
      <div class="input-field" style="clear: both">
