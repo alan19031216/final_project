@@ -428,7 +428,7 @@
                <div class="col l12 m12 s12">
                  <div class="card blue-grey darken-1">
                    <div class="card-content white-text">
-                     <span class="card-title">Dont has any related recipe</span>
+                     <span class="card-title">Dont has any comment</span>
                    </div>
                  </div>
                </div>
