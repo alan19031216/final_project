@@ -126,7 +126,7 @@ include 'html_php/header.php';
    <!-- Dropdown Structure -->
   <ul id='dropdown1' class='dropdown-content'>
     <!-- <li class="divider" tabindex="-1"></li> -->
-    <li><a href="php/logout.php"><i class="material-icons">beach_access</i>Logut</a></li>
+    <li><a href="php/logout.php"><i class="material-icons">beach_access</i>Logout</a></li>
     <!-- <li><a href="#!"><i class="material-icons">cloud</i>five</a></li> -->
   </ul>
 
@@ -138,7 +138,7 @@ include 'html_php/header.php';
        <ul id="nav-mobile" class="hide-on-med-and-down">
          <li><a href="#">Recipe</a></li>
          <li><a href="live.php">Live video</a></li>
-         <li><a href="#">Online chat</a></li>
+         <li><a href="category.php">Category</a></li>
          <li><a href="subscript.php">Subscription</a></li>
          <li><a href="question.php">Question</a></li>
        </ul>
