@@ -21,7 +21,7 @@
                 var allcount = Number($('#all').val());
                 var rowperpage = 3;
                 row = row + rowperpage;
-                count = count + 6;
+                count = count + 7;
                 //alert(row);
                 if(row <= allcount){
                   //alert(row);
