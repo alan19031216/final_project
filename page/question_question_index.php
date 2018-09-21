@@ -7,7 +7,6 @@
   //   $product_id = "Product ID not found";
   // }
   //echo $product_id;
-  include '../html_php/header.php';
   include 'php/config.php';
   $sql_count = $conn->query("SELECT * FROM comment WHERE question_id like '$product_id'");
   $number_of_rows = $sql_count->rowCount();
@@ -18,6 +17,45 @@
     $ask_user = $row['username'];
   }
  ?>
+ <!DOCTYPE html>
+ <html>
+   <head>
+     <meta charset="utf-8">
+     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+     <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
+     <link type="text/css" rel="stylesheet" href="css/style_bookshelf.css"  media="screen,projection"/>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://js.leapmotion.com/leap-0.6.4.js"></script>
+     <!--rating-->
+     <script src="js/rate.js"></script>
+     <script type="text/javascript" src="js/modernizr.2.5.3.min.js"></script>
+     <script type="text/javascript" src="js/materialize.min.js"></script>
+
+     <script type="text/javascript" src="../script.js"></script>
+
+   </head>
+   <body>
+
+     <nav>
+       <div class="navbar-fixed orange">
+       <!--  <a href="#!" class="brand-logo">Logo</a> -->
+       <a href="new_index.php" class="brand-logo">Let's Cook</a>
+       <!--<a href="index.php"><img class="responsive-img brand-logo hide-on-small-only" src="img/logo.jpg" alt="" width="13%"></a>-->
+       <a href="index.php" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+         <ul class="right hide-on-med-and-down">
+           <!-- <li><a href="sell.php">Book of recipe</a></li> -->
+           <li><a href="login_register/">Login/Register</a></li>
+         </ul>
+       </div>
+     </nav>
+
+     <!--Moblie slide bar-->
+     <ul class="side-nav" id="mobile-demo">
+       <center> <li><a style="pointer-events: none;cursor: default;"><b style="color:red;font-size:30px">Lest's Cook</b></a></li> </center>
+       <li><a href="sell.php">Book of recipe</a></li>
+       <li><a href="login_register.php">Login/Register</a></li>
+     </ul>
 
  <br>
   <div class="container row">
@@ -54,12 +92,25 @@
                   //echo $username ;
                   $img = "";
                   $sql_comment= $conn->query("SELECT a.* , b.* FROM user as a LEFT JOIN comment as b ON a.username = b.username WHERE b.question_id = '$product_id' ORDER BY comment_date DESC");
-                  foreach ($sql_comment as $row_comment) {
-                    $id = $row_comment['id'];
-                    $img = $row_comment['img'];
-                    if($img == "" || $img == " " || $img == "img/"){
-                      $img = "img/user_icon.png";
-                    }
+                  $number_of_rows = $sql_comment->rowCount();
+                  if($number_of_rows == 0){
+                  ?>
+                  <div class="col l12 m12 s12">
+                    <div class="card blue-grey darken-1">
+                      <div class="card-content white-text">
+                        <span class="card-title">Dont has any related recipe</span>
+                      </div>
+                    </div>
+                  </div>
+                  <?php
+                    }// if ($number_of_rows == 0)
+                    else{
+                      foreach ($sql_comment as $row_comment) {
+                        $id = $row_comment['id'];
+                        $img = $row_comment['img'];
+                        if($img == "" || $img == " " || $img == "img/"){
+                          $img = "img/user_icon.png";
+                        }
                 ?>
 
                 <div class="card">
@@ -79,6 +130,7 @@
                 </div>
               </div>
                 <?php
+                  }
                   }
                  ?>
               </div><!-- comment_row -->
