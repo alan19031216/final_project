@@ -31,8 +31,8 @@
           <div class="col l3 m3 s3">
             <a class="waves-effect waves-light btn"><i class="material-icons left">people</i>Ask by: <?php echo $ask_user;?></a>
           </div>
-          <div class="col l3 m3 s3">
-            <a class="waves-effect waves-light btn"><i class="material-icons left">question_answer</i><?php echo $number_of_rows ?> answer(s)</a>
+          <div class="col l4 m4 s4 ">
+            <a class="waves-effect waves-light btn" width="200px"><i class="material-icons left">question_answer</i>respoand(s) <?php echo $number_of_rows ?> </a>
           </div>
           <div class="col l3 m3 s3 right">
             <a class="waves-effect waves-light btn right red" onclick="report_question(<?php echo $product_id; ?>)"><i class="material-icons left">report_problem</i>Report</a>
@@ -179,7 +179,7 @@
           }
         </script>
 
-        <h5>Answer</h5>
+        <h5>Responds</h5>
         <hr>
         <br>
         <div class="" id="reload_answer_comment_row"></div>
