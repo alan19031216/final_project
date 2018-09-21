@@ -8,18 +8,18 @@ try {
   $sql = $conn->query("INSERT INTO comment (question_id , username , comment)
   VALUES ('$id' , '$username' , '$comment')");
   if($sql){
-    // echo "1";
-    echo '<script language="javascript">';
-    echo 'alert("Thank for your answer")';
-    echo '</script>';
-    header( "refresh:0.1; url= ../question.php" );
+    echo "1";
+    // echo '<script language="javascript">';
+    // echo 'alert("Thank for your answer")';
+    // echo '</script>';
+    // header( "refresh:0.1; url= ../question.php" );
   }
   else{
-    // echo "2";
-    echo '<script language="javascript">';
-    echo 'alert("Got some problem! Please try again")';
-    echo '</script>';
-    header( "refresh:0.1; url= ../question.php" );
+    echo "2";
+    // echo '<script language="javascript">';
+    // echo 'alert("Got some problem! Please try again")';
+    // echo '</script>';
+    // header( "refresh:0.1; url= ../question.php" );
   }
 }
 catch (PDOException  $e) {
