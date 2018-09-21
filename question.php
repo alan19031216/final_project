@@ -24,8 +24,6 @@ include 'php/config.php';
       border-radius: .25em;
     }
     </style>
-    <div id='page-content'></div>
-
     <br>
     <div class="row card" id="row_card">
       <div class="row">
@@ -36,68 +34,105 @@ include 'php/config.php';
           </ul>
         </div>
         <div id="test1" class="col s12">
-          <h1 class="center">Question</h1>
+        <table class="centered highlight">
           <?php
-            include 'php/config.php';
-            $sql = $conn->query("SELECT * FROM question");
-            foreach ($sql as $row) {
-              $id = $row['id'];
-              // echo $id;
-              $sql_count = $conn->query("SELECT * FROM comment WHERE question_id like '$id'");
-              $number_of_rows = $sql_count->rowCount();
-              // if($number_of_rows == '' || $number_of_rows ==' ' ){
-              //   $number_of_rows = 0;
-              // }
-              $date = strtotime("now");
-              $ask_time = $row['ask_time'];
-              $date1 = strtotime("$ask_time");
-              $t = floor(($date-$date1)/86400);
-              //echo $t;
-              if($t == -1 || $t == 0){
-                $t = "Today";
-              }
-              else if($t == 1){
-                $t = $t."day ago";
-              }
-              else if($t == 2){
-                $t = $t."days ago";
-              }
-              else if( $t > 31){
-                $t = date('d-m-y h:i', $date1);
-              }
-              else{
-                $t = $t . " days";
-              }
+          $record_per_page = 3; // show how many row
+          $page = '';
+          if(isset($_GET["page"]))
+          {
+           $page = $_GET["page"];
+          }
+          else
+          {
+           $page = 1;
+          }
 
-          ?>
-          <a class="edit-btn" href="page/question_question_index.php?product_id=<?php echo $row['id']; ?>">
-            <div class="col l12 m12 s12">
-              <div class="card-panel">
-                <h3 class="center"><?php echo $row['title']; ?></h3>
-                <td >
-                <div class='product-id display-none' hidden><?php echo $row['id']; ?></div>
-                </td>
-                <span class="more" style="font-size:18px;color:black">
-                  <?php echo $row['description']; ?>
-                </span>
-                <br><br>
-                <div class="row">
-                  <div class="col l4 m4 s4">
-                  Ask by: <?php echo $row['username']; ?>
-                  </div>
-                  <div class="col l4 m4 s4">
-                  <?php echo $number_of_rows; ?> answer(s)
-                  </div>
-                  <div class="col l4 m4 s4 right-align">
-                  Date: <?php echo $t; ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-          <?php
+          $start_from = ($page - 1) * $record_per_page;
+
+          $question = $conn->query("SELECT * FROM question order by ask_time DESC LIMIT $start_from, $record_per_page");
+          foreach ($question as $row) {
+            $id = $row['id'];
+            $sql_count = $conn->query("SELECT * FROM comment WHERE question_id like '$id'");
+            $number_of_rows = $sql_count->rowCount();
+
+            $date = strtotime("now");
+            $ask_time = $row['ask_time'];
+            $date1 = strtotime("$ask_time");
+            $t = floor(($date-$date1)/86400);
+            //echo $t;
+            if($t == -1 || $t == 0){
+              $t = "Today";
             }
-           ?>
+            else if($t == 1){
+              $t = $t."day ago";
+            }
+            else if($t == 2){
+              $t = $t."days ago";
+            }
+            else if( $t > 31){
+              $t = date('d-m-y h:i', $date1);
+            }
+          ?>
+          <tr class="card">
+           <td onclick="window.location.href = 'page/question_question_index.php?product_id=<?php echo $row['id']; ?>';">
+             <div class="">
+               <h3 class="center"><?php echo $row['title']; ?></h3>
+             </div>
+             <div class='product-id display-none' hidden><?php echo $row['id']; ?></div>
+             <span class="more" style="font-size:18px;color:black">
+               <?php echo $row['description']; ?>
+             </span>
+             <br><br>
+             <div class="row">
+               <div class="col l4 m4 s4">
+               Ask by: <?php echo $row['username']; ?>
+               </div>
+               <div class="col l4 m4 s4">
+               <?php echo $number_of_rows; ?> answer(s)
+               </div>
+               <div class="col l4 m4 s4 right-align">
+               Date: <?php echo $t; ?>
+               </div>
+             </div>
+           </td>
+          </tr>
+          <?php
+          } // foreach
+          ?>
+          </table>
+          <div align="center">
+            <ul class="pagination">
+          <br />
+          <?php
+          $page_query = $conn->query("SELECT * FROM question ORDER BY id DESC");
+          $total_records = $page_query->rowCount();
+          $total_pages = ceil($total_records / $record_per_page);
+          // echo $total_pages;
+          $start_loop = $page;
+          $difference = $total_pages - $page;
+          if($difference <= 3)
+          {
+           $start_loop = $total_pages - 1;
+          }
+          $end_loop = $start_loop;
+          // echo $page;
+          if($page > 1)
+          {
+           echo "<li><a href='question.php?page=1'>First</a></li>";
+           echo "<li><a href='question.php?page=".($page - 1)."'> <i class='material-icons'>chevron_left</i> </a></li>";
+          }
+          for($i = $start_loop; $i <= $end_loop; $i++)
+          {
+           echo "<li><a href='question.php?page=".$i."'>".$i."</a></li>";
+          }
+          if($page <= $end_loop)
+          {
+           echo "<li><a href='question.php?page=".($page + 1)."'> <i class='material-icons'>chevron_right</i></a></li>";
+           echo "<li><a href='question.php?page=".$total_pages."'>Last</a></li>";
+          }
+          ?>
+            </ul>
+          </div>
         </div><!-- text 1 -question -->
       </div><!-- row -->
     </div><!-- row card  -->
