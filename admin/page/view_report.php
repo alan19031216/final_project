@@ -85,6 +85,20 @@ if($username == '' || $username == ' '){
           });
       });
     });
+    $(document).on('click', '.request', function(){
+      $("#text_h1").text("User request");
+      // hide create product button
+      $('#content_up').hide();
+      $('#content_down').hide();
+
+      // fade out effect first
+      $('#page-content').fadeOut('slow', function(){
+          $('#page-content').load('request.php', function(){
+              // fade in effect
+              $('#page-content').fadeIn('slow');
+          });
+      });
+    });
     </script>
     <main>
       <section class="content">
