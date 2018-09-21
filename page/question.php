@@ -38,18 +38,27 @@ $username = $_SESSION['username'];
           </ul>
         </div>
         <div id="test1" class="col s12">
-          <h1 class="center">Question</h1>
-          <?php
-            include 'php/config.php';
-            $sql = $conn->query("SELECT * FROM question");
-            foreach ($sql as $row) {
+          <table class="centered highlight">
+            <?php
+            $record_per_page = 5; // show how many row
+            $page = '';
+            if(isset($_GET["page"]))
+            {
+             $page = $_GET["page"];
+            }
+            else
+            {
+             $page = 1;
+            }
+
+            $start_from = ($page - 1) * $record_per_page;
+
+            $question = $conn->query("SELECT * FROM question order by ask_time DESC LIMIT $start_from, $record_per_page");
+            foreach ($question as $row) {
               $id = $row['id'];
-              // echo $id;
               $sql_count = $conn->query("SELECT * FROM comment WHERE question_id like '$id'");
               $number_of_rows = $sql_count->rowCount();
-              // if($number_of_rows == '' || $number_of_rows ==' ' ){
-              //   $number_of_rows = 0;
-              // }
+
               $date = strtotime("now");
               $ask_time = $row['ask_time'];
               $date1 = strtotime("$ask_time");
@@ -67,39 +76,71 @@ $username = $_SESSION['username'];
               else if( $t > 31){
                 $t = date('d-m-y h:i', $date1);
               }
-              else{
-                $t = $t . " days";
-              }
-
-          ?>
-          <a class="edit-btn">
-            <div class="col l12 m12 s12">
-              <div class="card-panel">
-                <h3 class="center"><?php echo $row['title']; ?></h3>
-                <td >
-                <div class='product-id display-none' hidden><?php echo $row['id']; ?></div>
-                </td>
-                <span class="more">
-                <?php echo $row['description']; ?>
-                </span>
-                <br><br>
-                <div class="row">
-                  <div class="col l4 m4 s4">
-                  Ask by: <?php echo $row['username']; ?>
-                  </div>
-                  <div class="col l4 m4 s4">
-                  <?php echo $number_of_rows; ?> answer(s)
-                  </div>
-                  <div class="col l4 m4 s4 right-align">
-                  Date: <?php echo $t; ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-          <?php
+            ?>
+            <tr class="card">
+             <td>
+               <a class="edit-btn">
+                 <div class="press">
+                   <div class="">
+                     <h3 class="center"><?php echo $row['title']; ?></h3>
+                   </div>
+                   <div class='product-id display-none' hidden><?php echo $row['id']; ?></div>
+                   <span class="more" style="font-size:18px;color:black">
+                     <?php echo $row['description']; ?>
+                   </span>
+                   <br><br>
+                   <div class="row">
+                     <div class="col l4 m4 s4">
+                     Ask by: <?php echo $row['username']; ?>
+                     </div>
+                     <div class="col l4 m4 s4">
+                     <?php echo $number_of_rows; ?> respond(s)
+                     </div>
+                     <div class="col l4 m4 s4 right-align">
+                     Date: <?php echo $t; ?>
+                     </div>
+                   </div>
+                 </div>
+               </a>
+             </td>
+            </tr>
+            <?php
+            } // foreach
+            ?>
+            </table>
+            <div align="center">
+              <ul class="pagination">
+            <br />
+            <?php
+            $page_query = $conn->query("SELECT * FROM question ORDER BY id DESC");
+            $total_records = $page_query->rowCount();
+            $total_pages = ceil($total_records / $record_per_page);
+            // echo $total_pages;
+            $start_loop = $page;
+            $difference = $total_pages - $page;
+            if($difference <= 5)
+            {
+             $start_loop = $total_pages - 5;
             }
-           ?>
+            $end_loop = $start_loop + 4;
+            // echo $page;
+            if($page > 1)
+            {
+             echo "<li><a href='question.php?page=1'>First</a></li>";
+             echo "<li><a href='question.php?page=".($page - 1)."'> <i class='material-icons'>chevron_left</i> </a></li>";
+            }
+            for($i = $start_loop; $i <= $end_loop; $i++)
+            {
+             echo "<li><a href='question.php?page=".$i."'>".$i."</a></li>";
+            }
+            if($page <= $end_loop)
+            {
+             echo "<li><a href='question.php?page=".($page + 1)."'> <i class='material-icons'>chevron_right</i></a></li>";
+             echo "<li><a href='question.php?page=".$total_pages."'>Last</a></li>";
+            }
+            ?>
+              </ul>
+            </div>
         </div><!-- text 1 -question -->
 
         <script type="text/javascript">
@@ -136,7 +177,7 @@ $username = $_SESSION['username'];
         <div id="test2" class="col s12">
           <h3 class="center">Ask a question</h3>
           <form class="" method="post" action="php/question.php">
-            <div class="input-field col l12 ">
+            <div class="input-field col l12 m12 s12">
               <input type="hidden" name="username" value="<?php echo $_SESSION['username']; ?>">
               <label for="first_name" >Question title</label>
               <input class="browser-default" placeholder="Title" name="title" id="title" type="text" class="validate" style="width: 100%;padding: 12px 20px;margin: 8px 0;box-sizing: border-box;" required>
