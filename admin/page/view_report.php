@@ -51,6 +51,7 @@ if($username == '' || $username == ' '){
       <li><a href="#" class="pull_book"><i class="material-icons pink-item">file_upload</i>Pull book</a></li>
       <li><a href="#" class="request"><i class="material-icons pink-item">gavel</i>Request</a></li>
       <li><a href="view_report.php" class="view_report"><i class="material-icons pink-item">report_problem</i>View report</a></li>
+      <li><a href="../../page/new_home.php" class=""><i class="material-icons pink-item">pageview</i>Page view</a></li>
       <li><a href="logout.php"><i class="material-icons pink-item">remove_circle_outline</i>Logout</a></li>
     </ul>
     <script type="text/javascript">
