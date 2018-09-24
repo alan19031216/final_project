@@ -17,10 +17,11 @@ try {
   if($sql){
     $_SESSION['username'] = $username;
     echo "1";
-    // header('Location: ../ajax-chat.php?username='.$username);
+    header('Location: ../ajax-chat.php?username='.$username);
   }
   else{
-    echo "2";
+    echo "Something wrong";
+    header('Location: ../ajax-chat.php?username='.$username);
   }
 }
 catch (PDOException  $e) {
