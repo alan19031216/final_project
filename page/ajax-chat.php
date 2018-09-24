@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php
+  include 'html_php/new_hearder.php';
+ ?>
 <title>Live chat</title>
 
 <link rel="stylesheet" type="text/css" href="js/jScrollPane/jScrollPane.css" />
@@ -34,9 +33,7 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-</head>
 
-<body>
 <script src="http://webrtc.github.io/adapter/adapter-latest.js"></script>
 <div class="row">
   <div class="col l7 m12 s12">
@@ -105,7 +102,7 @@
            ?>
 
             <form id="loginForm" method="post" action="">
-                <input id="name" name="name" class="rounded" maxlength="16" />
+                <input id="name" name="name" value="<?php echo $username ?>" class="rounded" maxlength="16" />
                 <input id="email" name="email" class="rounded" />
                 <input type="submit" id="clickButton" class="blueButton" value="Submit" />
             </form>
@@ -116,7 +113,7 @@
 
              var email = '<?php echo $email; ?>';
              document.getElementById('email').value = email;
-             alert("a");
+             // alert("a");
              // var count = 0;
              // if(count == 1){
              //   var button = document.getElementById('clickButton');
@@ -138,16 +135,13 @@
              }
 
              if(window.name == 0){
-
-                 var button = document.getElementById('clickButton');
-                  setInterval(function(){
-                    //location.reload();
-                      button.click();
-                      window.location.href = window.location.pathname + window.location.search + window.location.hash;
-                  },1000);
-
-
-             }
+                 // var button = document.getElementById('clickButton');
+                 //  setInterval(function(){
+                 //    //location.reload();
+                 //      button.click();
+                 //      window.location.href = window.location.pathname + window.location.search + window.location.hash;
+                 //  },1000);
+                }
              }
             </script>
 
@@ -170,5 +164,6 @@
 <script src="js/jScrollPane/jquery.mousewheel.js"></script>
 <script src="js/jScrollPane/jScrollPane.min.js"></script>
 <script src="js/script.js"></script>
-</body>
-</html>
+<?php
+  include 'html_php/footer.php';
+ ?>
