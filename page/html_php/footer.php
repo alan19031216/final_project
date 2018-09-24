@@ -12,6 +12,28 @@
          <li><a class="grey-text text-lighten-3" href="#!">Privacy Policy</a></li>
          <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
          <li><a class="grey-text text-lighten-3" href="#!">Follow Us</a></li>
+         <li><a class="grey-text text-lighten-3" href="#!" onclick="check_admin()">Admin</a></li>
+         <script type="text/javascript">
+           function check_admin(){
+             var admin = '<?php echo $_SESSION['username'] ?>';
+             $.ajax({
+               type:"POST",
+               url:"php/check_admin.php",
+               data:'&admin=' + admin,
+               success: function(data){
+                 if(data == 1){
+                   // alert('Report successful');
+                   window.location.href = '../admin/page/home.php';
+                 }
+                 else {
+                   // alert(data);
+                   // alert("Got some problem");
+                   // location.reload();
+                 }
+               }
+             });
+           }
+         </script>
          <li>
            <a class="grey-text text-lighten-3" href="#!">
              <i class="fa fa-facebook-square" style="font-size:36px"></i>
