@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php
+  include 'html_php/new_hearder.php';
+?>
+<br>
 <title>Live chat</title>
 
 <link rel="stylesheet" type="text/css" href="js/jScrollPane/jScrollPane.css" />
@@ -34,9 +34,7 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-</head>
 
-<body>
   <!-- Recommended shim for cross-browser WebRTC support. -->
   <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
   <!-- Default Red5 Pro Playback Control styles. -->
@@ -47,7 +45,7 @@
   <div class="col l7 m12 s12">
     <video id="red5pro-subscriber"
            class="red5pro-media red5pro-media-background"
-           autoplay controls>
+           autoplay controls height="500px">
     </video>
     <!-- Exposes `red5prosdk` on the window global. -->
     <script src="lib/red5pro/red5pro-sdk.min.js"></script>
@@ -91,7 +89,7 @@
       })(window.red5prosdk);
     </script>
   </div>
-  <div class="col l7 m12 s12">
+  <div class="col l4 m12 s12">
     <div id="chatContainer">
         <!-- <div id="chatTopBar" class="rounded"></div> -->
         <div> <br><br><br> </div>
@@ -102,14 +100,14 @@
         	<div class="tip"></div>
 
           <?php
-            session_start();
             // $username = '123';
-            $username = $_SESSION['username'];
+            // $username = $_SESSION['username'];
+            $username = $_GET['username'];
             $email = "example@exp.com";
            ?>
 
             <form id="loginForm" method="post" action="">
-                <input id="name" name="name" class="rounded" maxlength="16" />
+                <input id="name" name="name" value="<?php echo $username; ?>" class="rounded" maxlength="16" />
                 <input id="email" name="email" class="rounded" />
                 <input type="submit" id="clickButton" class="blueButton" value="Submit" />
             </form>
@@ -162,7 +160,7 @@
 
             <script type="text/javascript">
               $(document).ready(function() {
-                $("#chatText").emojioneArea();
+                // $("#chatText").emojioneArea();
                 //$("#chatText").val(" ");
               });
             </script>
@@ -174,5 +172,7 @@
 <script src="js/jScrollPane/jquery.mousewheel.js"></script>
 <script src="js/jScrollPane/jScrollPane.min.js"></script>
 <script src="js/script.js"></script>
-</body>
-</html>
+
+<?php
+  include 'html_php/footer.php';
+ ?>
