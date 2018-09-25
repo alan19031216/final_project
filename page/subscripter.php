@@ -30,17 +30,17 @@
 <script src="//twemoji.maxcdn.com/2/twemoji.min.js?11.0"></script>
 
 <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
-  <!-- Recommended shim for cross-browser WebRTC support. -->
-  <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
-  <!-- Default Red5 Pro Playback Control styles. -->
-  <link href="lib/red5pro/red5pro-media.css" rel="stylesheet">
-  <!-- Fullscreen shim. -->
-  <script src="lib/screenfull/screenfull.min.js"></script>
+<!-- Recommended shim for cross-browser WebRTC support. -->
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<!-- Default Red5 Pro Playback Control styles. -->
+<link href="lib/red5pro/red5pro-media.css" rel="stylesheet">
+<!-- Fullscreen shim. -->
+<script src="lib/screenfull/screenfull.min.js"></script>
 <div class="row">
   <div class="col l7 m12 s12">
     <video id="red5pro-subscriber"
