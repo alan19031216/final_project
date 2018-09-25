@@ -15,6 +15,8 @@ if (session_id() == '') {
 $handler = new Handler();
 $handler->getJavascriptAntiBot();
  ?>
+ <script src="js/leapcursor-with-dependencies.min.js?gestureColor=#6DCC44"></script>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121742810-1"></script>
     <script>
