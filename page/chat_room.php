@@ -26,6 +26,20 @@ $receiver=isset($_GET['receiver']) ? $_GET['receiver'] : die('ERROR: receiver no
      padding-right:10px; */
      overflow: scroll;
  }
+
+ .containers {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/* Darker chat container */
+.darker {
+    border-color: #ccc;
+    background-color: #ddd;
+}
  </style>
 <div class="container row">
   <div class="new_chatbox" id="new_chatbox"></div>
@@ -42,10 +56,12 @@ $receiver=isset($_GET['receiver']) ? $_GET['receiver'] : die('ERROR: receiver no
       foreach ($sql as $row) {
         $right = '';
         $color = '';
+        $css = '';
         if($row['sender'] == $username_message){
           $right = 'right-align';
           $name = $row['sender'];
           $color = 'green';
+          $css = 'darker';
         }
         else{
           $name = $row['sender'];
@@ -53,7 +69,7 @@ $receiver=isset($_GET['receiver']) ? $_GET['receiver'] : die('ERROR: receiver no
         }
     ?>
 
-    <div class="col l12 <?php echo  $right?>">
+    <div class="col l12 m12 s12 <?php echo  $right?> containers <?php echo $css; ?>">
       <h5 style="color:<?php echo $color; ?>"><?php echo $name ?></h5>
       <?php echo $row['textarea_message']; ?> <br>
       <?php echo $row['chat_date']; ?>
@@ -73,7 +89,7 @@ $receiver=isset($_GET['receiver']) ? $_GET['receiver'] : die('ERROR: receiver no
 <input type="hidden" id="sender" value="<?php echo $receiver; ?>">
 <input type="hidden" id="receiver" value="<?php echo $sender; ?>">
 <div class="row">
-  <div class="col l12">
+  <div class="col l12 m12 s12">
     <div class="card blue-grey darken-1">
       <div class="card-content white-text">
         <span class="card-title">Send message</span>
@@ -140,4 +156,20 @@ $receiver=isset($_GET['receiver']) ? $_GET['receiver'] : die('ERROR: receiver no
       });
     }
   }
+
+  function refreshData()
+  {
+      x = 5;  // 5 Seconds
+      var message_code = document.getElementById('message_code').value;
+      var sender = document.getElementById('sender').value;
+      var receiver = document.getElementById('receiver').value;
+      $("#chatbox").hide();
+      $('#new_chatbox').load('chat_box.php?message_code=' + message_code + '&sender=' + sender + '&receiver=' + receiver, function(){
+          $('#new_chatbox').fadeIn('slow');
+      });
+
+      setTimeout(refreshData, x*1000);
+  }
+
+  refreshData(); // execute function
 </script>
