@@ -250,6 +250,14 @@ $handler->getJavascriptAntiBot();
     .fadeIn-top{
     top: 20%;
     }
+
+    .fadeIn-left{
+      left: 20%;
+    }
+
+    .fadeIn-right{
+      left: 80%;
+    }
     </style>
 
     <div class="row hide-on-med-and-down">
