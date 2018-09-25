@@ -135,12 +135,12 @@
              }
 
              if(window.name == 0){
-                 // var button = document.getElementById('clickButton');
-                 //  setInterval(function(){
-                 //    //location.reload();
-                 //      button.click();
-                 //      window.location.href = window.location.pathname + window.location.search + window.location.hash;
-                 //  },1000);
+                 var button = document.getElementById('clickButton');
+                  setInterval(function(){
+                    //location.reload();
+                      button.click();
+                      window.location.href = window.location.pathname + window.location.search + window.location.hash;
+                  },1000);
                 }
              }
             </script>
