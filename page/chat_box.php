@@ -17,10 +17,12 @@
     foreach ($sql as $row) {
       $right = '';
       $color = '';
+      $css = '';
       if($row['sender'] == $username_message){
         $right = 'right-align';
         $name = $row['sender'];
         $color = 'green';
+        $css = 'darker';
       }
       else{
         $name = $row['sender'];
@@ -28,7 +30,7 @@
       }
   ?>
 
-  <div class="col l12 <?php echo  $right?>">
+  <div class="col l12 m12 s12 <?php echo  $right?> containers <?php echo $css; ?>">
     <h5 style="color:<?php echo $color; ?>"><?php echo $name ?></h5>
     <?php echo $row['textarea_message']; ?> <br>
     <?php echo $row['chat_date']; ?>
