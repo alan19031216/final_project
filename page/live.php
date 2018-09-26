@@ -98,6 +98,7 @@
     <div class="l12 m12 s12">
       <?php
         include 'php/config.php';
+        $user = $_SESSION['username'];
         $sql_live = $conn->query("SELECT * FROM live");
         $count_live = $sql_live->rowCount();
         if($count_live == 0){
@@ -121,7 +122,6 @@
           <th>Open time</th>
         </thead>
       <?php
-        $user = $_SESSION['username'];
         foreach ($sql_live as $row_live) {
        ?>
 
