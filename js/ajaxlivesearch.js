@@ -369,7 +369,7 @@
                     '</i>' +
                     '</div>' +
                     '<div class="col ' + ls.navigation_class + ' ' + ls.pagination_class + '">' +
-                    '<label class="' + ls.current_page_lbl_class + '">1</label> / ' +
+                    '<label class="' + ls.current_page_lbl_class + '"></label> ' +
                     '<label class="' + ls.last_page_lbl_class + '"></label>' +
                     '</div>' +
                     '<div class="col ' + ls.navigation_class + '">' +
