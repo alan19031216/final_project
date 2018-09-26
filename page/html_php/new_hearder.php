@@ -73,7 +73,7 @@ $handler->getJavascriptAntiBot();
       </div>
     </div>
 
-   <script type="text/javascript" src="js/ajaxlivesearch.min.js"></script>
+   <script type="text/javascript" src="js/ajaxlivesearch.js"></script>
    <script>
        var code = '';
        var input = document.getElementById("ls_query");
