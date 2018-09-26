@@ -1,5 +1,15 @@
 <?php
 include 'html_php/header.php';
+
+$DS = DIRECTORY_SEPARATOR;
+file_exists(__DIR__ . $DS . 'core' . $DS . 'Handler.php') ? require_once __DIR__ . $DS . 'core' . $DS . 'Handler.php' : die('Handler.php not found');
+file_exists(__DIR__ . $DS . 'core' . $DS . 'Config.php') ? require_once __DIR__ . $DS . 'core' . $DS . 'Config.php' : die('Config.php not found');
+
+use AjaxLiveSearch\core\Config;
+use AjaxLiveSearch\core\Handler;
+
+$handler = new Handler();
+$handler->getJavascriptAntiBot();
  ?>
 <body>
  <div class="row hide-on-med-and-down" id="narbar">
@@ -56,43 +66,61 @@ include 'html_php/header.php';
    }
    </style>
 
-   <div class="col l4 m4 s6">
-     <br>
-       <nav class="orange">
-         <div class="nav-wrapper">
-           <form>
-             <div class="input-field">
-               <input id="search" type="search" required>
-               <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-               <i class="material-icons">close</i>
-             </div>
-           </form>
-         </div>
-       </nav>
-       <div id="search-results" class="search-results">
-           <div class="row">
-             <div class=""> <div class="card ">
-               <div class="collection">
-                 <a class="collection-item" href="#">Ali Baba</a>
-                 <a class="collection-item" href="#">JamesWS</a>
-                 <a class="collection-item" href="#">ChuckEngine</a>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-     </nav>
-   </div>
+    <div class="col l4 m4 s6">
+      <br>
+      <div class="input-field" style="clear: both">
+          <input type="text" class='mySearch' id="ls_query" placeholder="Type to start searching ...">
+      </div>
+    </div>
 
-   <script type="text/javascript">
-   $('#search')
-     .focus(function() {
-         //$('#search-results').addClass('show');
-     })
-     .blur(function() {
-         //$('#search-results').removeClass('show');
-     });
-   //TODO: turn search box into an expanding button on mobile
+   <script type="text/javascript" src="js/ajaxlivesearch.min.js"></script>
+   <script>
+       var code = '';
+       var input = document.getElementById("ls_query");
+       var second  = '';
+       input.addEventListener("keyup", function(event) {
+           event.preventDefault();
+           if (event.keyCode === 13) {
+               //alert(code);
+               if(code != ''){
+                   window.location.href = "search.php?code="+code+"&num=0";
+               }
+               else{
+                   //alert(second);
+                   window.location.href = "search.php?search="+second+"&num=1";
+               }
+           }
+       });
+
+       $("input#ls_query").keyup(function(e){
+         var val = $(this).val();
+         val = val.replace(/[^\w]+/g, "");
+         second = val;
+       });
+
+   jQuery(".mySearch").ajaxlivesearch({
+       loaded_at: <?php echo time(); ?>,
+       token: <?php echo "'" . $handler->getToken() . "'"; ?>,
+       max_input: <?php echo Config::getConfig('maxInputLength'); ?>,
+       onResultClick: function(e, data) {
+           // get the index 1 (second column) value
+           code = jQuery(data.selected).find('td').eq('0').text();
+           var selectedOne = jQuery(data.selected).find('td').eq('1').text();
+
+           // set the input value
+           jQuery('#ls_query').val(selectedOne);
+
+           // hide the result
+           jQuery("#ls_query").trigger('ajaxlivesearch:hide_result');
+       },
+       onResultEnter: function(e, data) {
+           // do whatever you want
+           // jQuery("#ls_query").trigger('ajaxlivesearch:search', {query: 'test'});
+       },
+       onAjaxComplete: function(e, data) {
+
+       }
+   });
    </script>
 
    <script>
