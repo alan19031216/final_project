@@ -35,6 +35,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
 <script src="http://webrtc.github.io/adapter/adapter-latest.js"></script>
+<br>
 <div class="row">
   <div class="col l7 m12 s12">
     <div>
@@ -151,16 +152,44 @@
             </form>
 
             <script type="text/javascript">
-              $(document).ready(function() {
-                // $("#chatText").emojioneArea();
-                //$("#chatText").val(" ");
-              });
+              // $(document).ready(function() {
+              //   $("#chatText").emojioneArea();
+              //   $("#chatText").val(" ");
+              // });
             </script>
         </div>
     </div>
   </div>
 </div>
 
+<div class="row">
+  <div class="col l12 m12 s12 center">
+    <br>
+    <a class="waves-effect waves-light btn" id="close">Close live video</a>
+  </div>
+</div>
+<script type="text/javascript">
+  document.getElementById("close").addEventListener("click", close);
+  function close() {
+    var username = '<?php echo $_SESSION['username']; ?>';
+    alert("Please wait a while");
+    $.ajax({
+      type:"POST",
+      url:"php/close_live.php",
+      data: 'username=' + username,
+      success: function(data){
+        if(data == 1){
+          alert('Close success');
+          window.history.back();
+        }
+        else {
+          alert("Got some problem");
+          location.reload();
+        }
+      }
+    });
+  }
+</script>
 <script src="js/jScrollPane/jquery.mousewheel.js"></script>
 <script src="js/jScrollPane/jScrollPane.min.js"></script>
 <script src="js/script.js"></script>
