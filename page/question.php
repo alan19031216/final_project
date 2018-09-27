@@ -68,13 +68,16 @@ $username = $_SESSION['username'];
                 $t = "Today";
               }
               else if($t == 1){
-                $t = $t."day ago";
+                $t = $t." day ago";
               }
               else if($t == 2){
-                $t = $t."days ago";
+                $t = $t." days ago";
               }
               else if( $t > 31){
                 $t = date('d-m-y h:i', $date1);
+              }
+              else{
+                $t = $t." days ago";
               }
             ?>
             <tr class="card">
