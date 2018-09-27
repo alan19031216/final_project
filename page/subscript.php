@@ -60,7 +60,7 @@ include 'html_php/new_hearder.php';
            </td>
            <td>
              <a onClick="changeColour('a')"><h4>RM235</h4>
-             <p>1 year of the book of recipe(1 month 1 book)</p>
+             <p>1 year of the book of recipe</p>
              <p></p></a>
            </td>
          </tr>
@@ -73,7 +73,7 @@ include 'html_php/new_hearder.php';
            </td>
            <td>
              <a onClick="changeColour('b')"><h4>RM115</h4>
-             <p>6 month of the book of recipe(1 month 1 book)</p>
+             <p>6 month of the book of recipe</p>
              <p></p>
            </td></a>
          </tr>
@@ -86,7 +86,7 @@ include 'html_php/new_hearder.php';
            </td>
            <td>
              <a onClick="changeColour('c')"><h4>RM55</h4>
-             <p>3 month of the book of recipe(1 month 1 book)</p>
+             <p>3 month of the book of recipe</p>
              <p></p></a>
            </td>
          </tr>
@@ -99,7 +99,7 @@ include 'html_php/new_hearder.php';
            </td>
            <td>
              <a onClick="changeColour('d')"> <h4>RM15</h4>
-             <p>1 month of the book of recipe(1 month 1 book)</p>
+             <p>1 month of the book of recipe</p>
              <p></p></a>
            </td>
          </tr>
