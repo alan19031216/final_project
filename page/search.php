@@ -1,19 +1,6 @@
 <?php
 include 'html_php/new_hearder.php';
 
-$DS = DIRECTORY_SEPARATOR;
-file_exists(__DIR__ . $DS . 'core' . $DS . 'Handler.php') ? require_once __DIR__ . $DS . 'core' . $DS . 'Handler.php' : die('Handler.php not found');
-file_exists(__DIR__ . $DS . 'core' . $DS . 'Config.php') ? require_once __DIR__ . $DS . 'core' . $DS . 'Config.php' : die('Config.php not found');
-
-use AjaxLiveSearch\core\Config;
-use AjaxLiveSearch\core\Handler;
-
-if (session_id() == '') {
-    session_start();
-}
-
-    $handler = new Handler();
-    $handler->getJavascriptAntiBot();
  ?>
 
   <?php
