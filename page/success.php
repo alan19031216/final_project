@@ -9,6 +9,19 @@ if($count_row == 0){
   $time = $_SESSION['times'] ;
   $current_time = $_SESSION['current_time'];
   $expired_date = $_SESSION['expired_date'];
+  $fee = '';
+  if($time == '12 months'){
+    $fee = 235;
+  }
+  elseif ($time == '9 months') {
+    $fee = 115;
+  }
+  elseif ($time == '6 months') {
+    $fee = 55;
+  }
+  elseif ($time == '3 months') {
+    $fee = 15;
+  }
   //echo $time;
   //echo $expired_date;
   try {
@@ -16,8 +29,8 @@ if($count_row == 0){
   	VALUES ('$username' , '$time' , '$current_time' , '$expired_date')");
 
   	$sql_history = $conn->query("INSERT INTO subs_history
-  		(username , times , subscript_date , expired_date ,status) VALUES
-  		('$username' , '$time', '$current_time' , '$expired_date' , 'active')");
+  		(username , times , subscript_date , expired_date ,status , Fee) VALUES
+  		('$username' , '$time', '$current_time' , '$expired_date' , 'active' , '$fee')");
       //echo "Success";
   }
   catch(PDOException $e) {
