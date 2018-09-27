@@ -240,7 +240,7 @@ $(document).ready(function(){
 });
 </script>
   <br><br>
-    <a class="waves-effect waves-light btn right" onclick="history()">View history</a>
+    <a class="waves-effect waves btn right" onclick="history()">View history</a>
 
 
 <br><br>
