@@ -23,7 +23,7 @@
       <div class="card-action">
         Type: <?php echo $row_my_draft['type']; ?>
         <br><br>
-        <a class="btn-floating waves-effect waves-light red right" href="recipe_draft/<?php echo $row_my_draft['code']; ?>"><i class="material-icons">book</i></a>
+        <a class="btn-floating waves-effect waves-light red right tooltipped" data-position="right" data-tooltip="View recipe" href="recipe_draft/<?php echo $row_my_draft['code']; ?>"><i class="material-icons">book</i></a>
         <a id="post_<?php echo $row_my_draft['code']; ?>" class="btn-floating waves-effect waves-light yellow darken-3 right tooltipped"  data-position="top" data-tooltip="Post to pulic" onclick="post_to_public('<?php echo $row_my_draft['id']; ?>')"><i class="material-icons">file_upload</i></a>
         <br><br>
       </div>
