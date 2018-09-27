@@ -164,7 +164,6 @@ $handler->getJavascriptAntiBot();
        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
        <a class="brand-logo hide-on-large-only" href="new_home.php" class="brand-logo">Let's Cook</a>
        <ul id="nav-mobile" class="hide-on-med-and-down">
-         <li><a href="#">Recipe</a></li>
          <li><a href="live.php">Live video</a></li>
          <li><a href="category.php">Category</a></li>
          <li><a href="subscript.php">Subscription</a></li>
