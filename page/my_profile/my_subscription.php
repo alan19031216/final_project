@@ -255,6 +255,7 @@ $(document).ready(function(){
         <th>Expired date</th>
         <th>Cancel date</th>
         <th>Status</th>
+        <th>Fee</th>
       </tr>
     </thead>
     <tbody>
@@ -279,6 +280,7 @@ $(document).ready(function(){
         <td><?php echo $row_history['expired_date']; ?></td>
         <td><?php echo $cancel_date; ?></td>
         <td><?php echo $row_history['status']; ?></td>
+        <td>RM <?php echo $row_history['Fee']; ?></td>
       </tr>
      <?php
         } // foreach $sql_history
