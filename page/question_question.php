@@ -216,12 +216,6 @@
                       $like = 'Liked';
                       $like_color = 'black';
                     }
-
-                    $how_many_like = $row_comment['liked'];
-                    $show_like = '';
-                    if($how_many_like > 0){
-                      $show_like = $row_comment['liked'];
-                    }
                 ?>
 
                 <div class="card">
