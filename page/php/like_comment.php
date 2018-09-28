@@ -12,11 +12,16 @@ try {
     $sql_like_insert = $conn->query("INSERT INTO liked (username , comment_id) VALUES ('$username' , '$id')");
 
     $sql_comment = $conn->query("UPDATE comment SET liked = liked + 1 WHERE id = '$id'");
+
+    $sql_like_search_count = $conn->query("SELECT * FROM liked WHERE username = '$username' AND comment_id = '$id'");
+    $count_coment = $sql_like_search_count->rowCount();
+
     if($sql_like_insert == true && $sql_comment == true){
-      echo "1";
+      echo "1 ";
+      echo $count_coment;
     }
     else {
-      echo "2";
+      echo "error1";
     }
   }
   else{
@@ -24,11 +29,14 @@ try {
 
     $sql_comment_unlike = $conn->query("UPDATE comment SET liked = liked - 1 WHERE id = '$id'");
 
+    $sql_unlike_search_count = $conn->query("SELECT * FROM liked WHERE username = '$username' AND comment_id = '$id'");
+    $count_coment = $sql_unlike_search_count->rowCount();
     if($sql_unlike == true && $sql_comment_unlike == true){
-      echo "3";
+      echo "3 ";
+      echo $count_coment;
     }
     else {
-      echo "4";
+      echo "error2";
     }
 
   }

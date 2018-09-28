@@ -216,6 +216,12 @@
                       $like = 'Liked';
                       $like_color = 'black';
                     }
+
+                    $how_many_like = $row_comment['liked'];
+                    $show_like = '';
+                    if($how_many_like > 0){
+                      $show_like = $row_comment['liked'];
+                    }
                 ?>
 
                 <div class="card">
@@ -253,17 +259,19 @@
                     data: 'username=' + username +
                           '&id=' + a,
                     success: function(data){
-                      if(data == 1){
-                        document.getElementById("like_comment_"+a).innerHTML = "<i class='material-icons left' style='color:black'>thumb_up</i>Liked";
-                        //alert(data);
+                      if(data[0] == 1){
+                        document.getElementById("like_comment_"+a).innerHTML = "<i class='material-icons left' style='color:black'>thumb_up</i> Liked";
                       }
-                      else if (data == 3) {
-                        document.getElementById("like_comment_"+a).innerHTML = "<i class='material-icons left'>thumb_up</i>Like";
+                      else if (data[0] == 3) {
+                        document.getElementById("like_comment_"+a).innerHTML = "<i class='material-icons left'>thumb_up</i> Like";
                       }
-                      else {
-                        //alert(data);
+                      else if (data == 'error'){
+                        // alert(data);
                         alert("Got some problem");
                         location.reload();
+                      }
+                      else{
+                        alert(data);
                       }
                     }
                   });
