@@ -148,5 +148,6 @@ include 'html_php/new_hearder.php';
     </div>
 
    </div>
-  </body>
-</html>
+<?php
+  require 'html_php/footer.php';
+ ?>
