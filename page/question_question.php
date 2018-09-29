@@ -199,7 +199,7 @@
                 <?php
                   //echo $username ;
                   $img = "";
-                  $sql_comment= $conn->query("SELECT a.* , b.* FROM user as a LEFT JOIN comment as b ON a.username = b.username WHERE b.question_id = '$product_id' ORDER BY comment_date DESC");
+                  $sql_comment= $conn->query("SELECT a.* , b.* FROM user as a LEFT JOIN comment as b ON a.username = b.username WHERE b.question_id = '$product_id' ORDER BY liked DESC");
                   foreach ($sql_comment as $row_comment) {
                     $id = $row_comment['id'];
                     $img = $row_comment['img'];
@@ -207,10 +207,13 @@
                       $img = "img/user_icon.png";
                     }
                     $sql_lik = $conn->query("SELECT * FROM liked WHERE comment_id = '$id'")->rowCount();
+                    // $count_like = $sql_lik->rowCount();
                     $like = '';
+                    $hidden = '';
                     if($sql_lik == 0){
                       $like = 'Like';
                       $like_color = 'white';
+                      $hidden = 'hide';
                     }
                     else{
                       $like = 'Liked';
@@ -232,7 +235,8 @@
                         <p class="right"><?php echo $row_comment['comment_date']; ?></p>
                       </div>
                       <div class="col l12 m12 s12">
-                        <a class="waves-effect waves-light btn red right" onclick="report_comment('<?php echo $row_comment['id']; ?>')"><i class="material-icons left">flag</i>Report</a>
+                        <a class="waves-effect waves-light btn red right <?php echo $hidden; ?>"><?php echo $sql_lik ?></a>
+                        <!-- <a class="waves-effect waves-light btn red right" onclick="report_comment('<?php echo $row_comment['id']; ?>')"><i class="material-icons left">flag</i>Report</a> -->
                         <a class="right" href="#" style="visibility:hidden">daas</a>
                         <a class="waves-effect waves-light btn right" id="like_comment_<?php echo $row_comment['id']; ?>" onclick="like_comment('<?php echo $row_comment['id']; ?>')" >  <i class="material-icons left" style='color:<?php echo $like_color; ?>'>thumb_up</i><?php echo $like; ?></a>
                       </div>
