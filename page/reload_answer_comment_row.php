@@ -31,6 +31,16 @@ $product_id=isset($_GET['product_id']) ? $_GET['product_id'] : die('ERROR: Produ
          if($img == "" || $img == " " || $img == "img/"){
            $img = "img/user_icon.png";
          }
+         $sql_lik = $conn->query("SELECT * FROM liked WHERE comment_id = '$product_id'")->rowCount();
+         $like = '';
+         if($sql_lik == 0){
+           $like = 'Like';
+           $like_color = 'white';
+         }
+         else{
+           $like = 'Liked';
+           $like_color = 'black';
+         }
      ?>
        <div class="card">
          <div class="card-content">
@@ -47,10 +57,10 @@ $product_id=isset($_GET['product_id']) ? $_GET['product_id'] : die('ERROR: Produ
                <p class="right"><?php echo $row_sql_show_all_comment['comment_date']; ?></p>
              </div>
              <div class="col l12 m12 s12">
-               <a class="waves-effect waves-light btn red right" onclick="report_comment1('<?php echo $row_comment['id']; ?>')"><i class="material-icons left">flag</i>Report</a>
+               <a class="waves-effect waves-light btn red right" onclick="report_comment1('<?php echo $row_sql_show_all_comment['id']; ?>')"><i class="material-icons left">flag</i>Report</a>
                <a class="right" href="#" style="visibility:hidden">daas</a>
-               <a class="waves-effect waves-light btn right">  <i class="material-icons left">thumb_up</i>Like</a>
-             </div>
+               <a class="waves-effect waves-light btn right" id="like_comment_<?php echo $row_sql_show_all_comment['id']; ?>" onclick="like_comment('<?php echo $row_sql_show_all_comment['id']; ?>')" >  <i class="material-icons left" style='color:<?php echo $like_color; ?>'>thumb_up</i><?php echo $like; ?></a>
+              </div>
            </div>
          </div>
        </div>
