@@ -19,14 +19,31 @@
         <div class="navbar-fixed orange">
         <!--  <a href="#!" class="brand-logo">Logo</a> -->
           <!--<a href="index.php"><img class="responsive-img brand-logo hide-on-small-only" src="img/logo.jpg" alt="" width="13%"></a>-->
-          <a href="../new_index.php" class="brand-logo">Let's Cook</a>
-          <a href="index.php" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <a href="../../final/" class="brand-logo">Let's Cook</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="../login_register/">Login/Register</a></li>
             <!-- <li><a href="badges.html">Components</a></li> -->
           </ul>
         </div>
       </nav>
+
+      <!--Moblie slide bar-->
+      <ul class="side-nav" id="mobile-demo">
+        <center><li><a href="../final/" style="pointer-events: none;cursor: default;"><b style="color:red;font-size:30px">Lest's Cook</b></a></li> </center>
+        <li><a href="category.php"><i class="material-icons">featured_play_list</i>Category</a></li>
+        <li><a href="question.php"><i class="material-icons">question_answer</i>Question</a></li>
+        <li><a href="login_register/"><i class="material-icons">account_circle</i>Login/Register</a></li>
+      </ul>
+
+      <script type="text/javascript">
+        $(document).ready(function(){
+          // mobile slide
+          $(".button-collapse").sideNav();
+          // button dropdown
+          $('.dropdown-trigger').dropdown();
+        });
+      </script>
 
       <br>
       <?php

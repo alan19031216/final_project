@@ -192,7 +192,6 @@ $handler->getJavascriptAntiBot();
            </ul>
          </div>
        </li>
-
      </ul>
    </li>
  </ul>
