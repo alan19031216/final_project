@@ -175,7 +175,6 @@ $handler->getJavascriptAntiBot();
  <!--Moblie slide bar-->
  <ul class="side-nav" id="mobile-demo">
    <center> <li><a href="home.php" style="pointer-events: none;cursor: default;"><b style="color:red;font-size:30px">Lest's Cook</b></a></li> </center>
-   <li><a href="sell.php">Book of recipe</a></li>
    <li>
      <ul class="collapsible collapsible-accordion">
        <li>
@@ -187,11 +186,15 @@ $handler->getJavascriptAntiBot();
            <ul>
              <li class="divider"></li>
              <li><a href="user_profile.php"><i class="material-icons">account_box</i>User profile</a></li>
-             <li><a href="php/logout.php">Logout</a></li>
              <li class="divider"></li>
            </ul>
          </div>
        </li>
+       <li><a href="live.php"><i class="material-icons">featured_play_list</i>Live video</a></li>
+       <li><a href="category.php"><i class="material-icons">account_box</i>Category</a></li>
+       <li><a href="subscript.php"><i class="material-icons">subscriptions</i>Subscription</a></li>
+       <li><a href="question.php"><i class="material-icons">question_answer</i>Question</a></li>
+       <li><a href="php/logout.php"><i class="material-icons">vpn_key</i>Logout</a></li>
      </ul>
    </li>
  </ul>
