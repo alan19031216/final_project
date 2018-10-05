@@ -13,28 +13,28 @@
 <!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/emojione/1.5.2/assets/sprites/emojione.sprites.css" media="screen">-->
 <!-- <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen"> -->
 
-<link rel="stylesheet" type="text/css" href="dist/emojionearea.min.css" media="screen">
+<!-- <link rel="stylesheet" type="text/css" href="dist/emojionearea.min.css" media="screen">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" media="screen">
 <link rel="stylesheet" type="text/css" href="http://mervick.github.io/lib/google-code-prettify/skins/tomorrow.css" media="screen">
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
 <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/1.5.2/lib/js/emojione.min.js"></script>-->
 <!--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emojione@3.1.2/lib/js/emojione.min.js"></script>-->
 <!--<script type="text/javascript" src="../node_modules/emojione/lib/js/emojione.js"></script>-->
-<script type="text/javascript" src="http://mervick.github.io/lib/google-code-prettify/prettify.js"></script>
+<!-- <script type="text/javascript" src="http://mervick.github.io/lib/google-code-prettify/prettify.js"></script> -->
 <!--<script>
   window.emojioneVersion = "3.1";
 </script>-->
-<script type="text/javascript" src="dist/emojionearea.js"></script>
+<!-- <script type="text/javascript" src="dist/emojionearea.js"></script>
 <script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.2"></script>
-<script src="//twemoji.maxcdn.com/2/twemoji.min.js?11.0"></script>
+<script src="//twemoji.maxcdn.com/2/twemoji.min.js?11.0"></script> -->
 
 <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
-<script src="http://webrtc.github.io/adapter/adapter-latest.js"></script>
+<!-- <script src="http://webrtc.github.io/adapter/adapter-latest.js"></script> -->
 <br>
 <div class="row">
   <div class="col l7 m12 s12">
