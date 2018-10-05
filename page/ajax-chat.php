@@ -87,7 +87,7 @@
     </script>
   </div>
   <div class="col l5 m12 s12">
-    <center><div id="chatContainer">
+    <div id="chatContainer">
         <!-- <div id="chatTopBar" class="rounded"></div> -->
         <div> <br><br><br> </div>
         <div id="chatLineHolder"></div>
@@ -158,7 +158,7 @@
               // });
             </script>
         </div>
-    </div></center>
+    </div>
   </div>
 </div>
 
