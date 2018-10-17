@@ -262,7 +262,7 @@ $username = $_SESSION['username'];
                   //alert("Data1: " + data);
                   //change = data;
                   if (confirm("Do want to unfavorite it??")) {
-                    $.post('php/getUNFavorite.php' , {postcode:code , postusername:username} ,
+                    $.post('../php/getUNFavorite.php' , {postcode:code , postusername:username} ,
                     function(data){
                       if(data == "1"){
                         alert("Remove successfully");
@@ -276,7 +276,6 @@ $username = $_SESSION['username'];
                       }
                     });
                   }else {
-
                     }
                 }
                 else {
@@ -300,7 +299,6 @@ $username = $_SESSION['username'];
                   });
                 }
               });
-
               }
             </script>
 
