@@ -42,7 +42,7 @@
  <div id="other_notification" hidden>
    <?php
       //$username_notification = $_SESSION['username'];
-      $sql_notification = $conn->query("SELECT * FROM notification WHERE username = '$username_notification'");
+      $sql_notification = $conn->query("SELECT * FROM notification WHERE username = '$username_notification' ORDER BY notice_date DESC");
       $count_notification = $sql_notification->rowCount();
       if($count_notification == 0){
         echo "You don't have receive any notification";
@@ -56,6 +56,7 @@
           <div class="card-content">
             <span class="card-title"><?php echo $row_notification['title'];?></span>
             <p><?php echo $row_notification['reason']; ?></p>
+            <p class="right"><?php echo $row_notification['notice_date']; ?></p>
           </div>
         </div>
       </div>
