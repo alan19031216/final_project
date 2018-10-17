@@ -37,29 +37,15 @@ if($count_row == 0){
 	// $current_time = date('y-m-d', time());
 	$expired_date = strtotime("+".$times, strtotime($current_time));
 	$expired_date = date("y-m-d", $expired_date);
-	//echo $expired_date;
+	// echo $expired_date;
 	//echo $times;
 
 	$_SESSION['username'] = $username;
 	$_SESSION['times'] = $times;
 	$_SESSION['current_time'] = $current_time;
 	$_SESSION['expired_date'] = $expired_date;
-// 	//echo $times;
-//
-//
-// 	//echo $username;
-// 	// try {
-// 	// 	$sql = $conn->query("INSERT INTO subscript(username , times , subscript_date , expired_date)
-// 	// 	VALUES ('$username' , '$times' , '$current_time' , '$expired_date')");
-// 	//
-// 	// 	$sql_history = $conn->query("INSERT INTO subs_history
-// 	// 		(username , times , subscript_date , expired_date) VALUES
-// 	// 		('$username' , '$times', '$current_time' , '$expired_date')");
-// 	// }
-// 	// catch(PDOException $e) {
-// 	// 		echo "Error: " . $e->getMessage();
-// 	// }
-//
+	//echo $times;
+
 	$item_name = 'Subscript book of recipe fee';
 	$item_amount = $price;
 
