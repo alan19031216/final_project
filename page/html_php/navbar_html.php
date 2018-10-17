@@ -2,7 +2,7 @@
 <ul id="dropdown1" class="dropdown-content">
   <li class="divider"></li>
   <li><a href="user_profile.php"><i class="material-icons">account_box</i>User profile</a></li>
-  <li><a href="php/logout.php">Logout</a></li>
+  <li><a href="php/logout.php"><i class="material-icons">beach_access</i>Logout</a></li>
   <li class="divider"></li>
 </ul>
 
@@ -41,7 +41,7 @@
           <ul>
             <li class="divider"></li>
             <li><a href="user_profile.php"><i class="material-icons">account_box</i>User profile</a></li>
-            <li><a href="php/logout.php">Logout</a></li>
+            <li><a href="php/logout.php"><i class="material-icons">beach_access</i>Logout</a></li>
             <li class="divider"></li>
           </ul>
         </div>
