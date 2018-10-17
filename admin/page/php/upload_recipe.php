@@ -24,6 +24,14 @@ $name = $_POST['name'];
 
 try {
   $sql = $conn->query("INSERT INTO book (name , img , path) VALUES ('$name' , '$image' , '$pdf')");
+  $sql_subscript = $conn->query("SELECT * FROM subscript");
+  $count = 0;
+  foreach ($sql_subscript as $row_subscript) {
+    $user[$count++] = $row_subscript['username'];
+  }
+  for($i = 0; $i < count($user); $i++){
+    $sql_notification = $conn->query("INSERT INTO notification (username , title , reason) VALUES ('$user[$i]' , 'New book' , 'New book has arrived!')");
+  }
   echo "<script>
         alert('Add success');
         window.location.href='../home.php';
