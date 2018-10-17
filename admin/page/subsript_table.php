@@ -99,6 +99,7 @@ if($username == '' || $username == ' '){
                  <tr>
                      <th>No</th>
                      <th>Username</th>
+                     <th>Live time</th>
                      <th>Order date</th>
                      <th>Expried date</th>
                  </tr>
@@ -113,6 +114,7 @@ if($username == '' || $username == ' '){
                  <tr>
                      <td><?php echo $count++; ?></td>
                      <td><?php echo $row_subscript['username']; ?></td>
+                     <td><?php echo $row_subscript['times']; ?></td>
                      <td><?php echo $row_subscript['subscript_date']; ?></td>
                      <td><?php echo $row_subscript['expired_date']; ?></td>
                  </tr>
