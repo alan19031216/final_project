@@ -22,7 +22,7 @@ $username = $_SESSION['username'];
    <ul id="dropdown1" class="dropdown-content">
      <li class="divider"></li>
      <li><a href="user_profile.php"><i class="material-icons">account_box</i>User profile</a></li>
-     <li><a href="../php/logout.php">Logout</a></li>
+     <li><a href="../php/logout.php"><i class="material-icons">lock</i>Logout</a></li>
      <li class="divider"></li>
    </ul>
 
@@ -35,7 +35,6 @@ $username = $_SESSION['username'];
        </a>-->
        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
        <ul class="right hide-on-med-and-down">
-         <li><a href="sell.php">Book of recipe</a></li>
          <li>
            <a class="dropdown-button" href="#!" data-activates="dropdown1">
              Welcome back, <b><?php echo $_SESSION['username']; ?></b>
