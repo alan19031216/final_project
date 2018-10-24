@@ -607,7 +607,7 @@ $username = $_SESSION['username'];
         </script>
 
         <div class="ingredients">
-          <h4 <?php echo $hidden;?>>Ingredients</h4>
+          <h4>Ingredients <span class="right"> <a class="waves-effect waves-light btn" href="../map.php" target="_blank"><i class="material-icons right">store</i>nearest market</a> </span></h4>
           <hr <?php echo $hidden;?>>
           <ul style="list-style-type: none;margin: 0; padding: 0; overflow: hidden;" <?php echo $hidden;?>>
             <li style=" display: inline;"><i class="material-icons">access_time</i> Prepaid time: <?php echo $pre_time?> minutes</li>
