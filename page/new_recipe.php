@@ -606,7 +606,7 @@ $username = $_SESSION['username'];
            }
         </script>
 
-        <div class="ingredients">
+        <div class="ingredients" id="ingredients">
           <h4>Ingredients <span class="right"> <a class="waves-effect waves-light btn" href="../map.php" target="_blank"><i class="material-icons right">store</i>nearest market</a> </span></h4>
           <hr <?php echo $hidden;?>>
           <ul style="list-style-type: none;margin: 0; padding: 0; overflow: hidden;" <?php echo $hidden;?>>
@@ -649,16 +649,22 @@ $username = $_SESSION['username'];
           </form>
 
             <script type="text/javascript">
-            function check(id){
-              var lfckv = document.getElementById(id).checked;
-              if(lfckv == true){
-                document.getElementById("label_"+id).style.textDecoration = "line-through";
+              function check(id){
+                var lfckv = document.getElementById(id).checked;
+                if(lfckv == true){
+                  document.getElementById("label_"+id).style.textDecoration = "line-through";
+                }
+                else{
+                  document.getElementById("label_"+id).style.textDecoration = "none";
+                }
               }
-              else{
-                document.getElementById("label_"+id).style.textDecoration = "none";
+
+              var check = '<?php echo $number_of_rows ?>';
+              if(check == 0){
+                document.getElementById('ingredients').style.visibility = 'hidden';
               }
-            }
             </script>
+        </div>
         </div>
 
 
