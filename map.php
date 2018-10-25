@@ -192,20 +192,20 @@
               lng: position.coords.longitude
             };
             //marker
-            // console.log(pos);
-                infowindow = new google.maps.InfoWindow();
-                var service = new google.maps.places.PlacesService(map);
-                // service.nearbySearch({
-                //   location: pos,
-                //   radius: 500,
-                //   type: ['school']
-                // }, schoolCallback);
+            console.log(pos);
+            infowindow = new google.maps.InfoWindow();
+            var service = new google.maps.places.PlacesService(map);
+            // service.nearbySearch({
+            //   location: pos,
+            //   radius: 500,
+            //   type: ['school']
+            // }, schoolCallback);
 
             service.nearbySearch({
-                  location: pos,
-                  radius: 500,
-                  type: ['store']
-                }, storeCallback);
+              location: pos,
+              radius: 500,
+              type: ['store']
+            }, storeCallback);
             // var value_1 = position.coords.latitude;
             // var value_2 = position.coords.longitude;
             // getLocotion(value_1 , value_2);
