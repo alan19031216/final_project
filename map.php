@@ -230,7 +230,7 @@
             function createSchoolMarker(place) {
               var placeLoc = place.geometry.location;
               var marker = new google.maps.Marker({
-      icon:"http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/24/Categories-applications-education-school-icon.png",
+                icon:"http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/24/Categories-applications-education-school-icon.png",
                 map: map,
                 position: place.geometry.location
               });
@@ -246,7 +246,7 @@
            function createStoreMarker(place) {
               var placeLoc = place.geometry.location;
               var marker = new google.maps.Marker({
-      icon:"http://icons.iconarchive.com/icons/paomedia/small-n-flat/24/shop-icon.png",
+                icon:"http://icons.iconarchive.com/icons/paomedia/small-n-flat/24/shop-icon.png",
                 map: map,
                 position: place.geometry.location
               });
