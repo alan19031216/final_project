@@ -69,7 +69,7 @@
           <div class="row">
             <div class="col l4 m6 s12 center">
               <img src="../page/<?php echo $cover_img; ?>" style="height:50%;width:100%">
-              <div class="col l6">
+              <div class="col l12 m12 s12">
                 <style>
                   .demo-table {width: 100%;border-spacing: initial;margin: 10px 0px;word-break: break-word;table-layout: auto;line-height:4.8em;color:#333;}
                   .demo-table td {border-bottom: #f0f0f0 1px solid;background-color: #ffffff;padding: 5px;}
@@ -110,9 +110,9 @@
                   </tbody>
                 </table>
               </div>
-              <div class="col l6">
+              <!-- <div class="col l6">
                 <h4>made it | review</h4>
-              </div>
+              </div> -->
             </div>
             <div class="col l8 m6 s12 center">
               <h3><?php echo $title; ?></h3>
@@ -163,7 +163,7 @@
         </script>
 
         <div class="ingredients">
-          <h4>Ingredients <span class="right"> <a class="waves-effect waves-light btn" href="../map.php" target="_blank"><i class="material-icons right">store</i>nearest market</a> </span></h4> 
+          <h4>Ingredients <span class="right"> <a class="waves-effect waves-light btn" href="../map.php" target="_blank"><i class="material-icons right">store</i>nearest market</a> </span></h4>
           <hr>
           <ul  style="list-style-type: none;margin: 0; padding: 0; overflow: hidden;">
             <li style=" display: inline;"><i class="material-icons">access_time</i> Prepaid time: <?php echo $pre_time?> minutes</li>
