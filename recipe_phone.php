@@ -143,7 +143,7 @@
                       $img = $row_food_step['pic'];
                       $description = $row_food_step['description'];
                       print '<tr>';
-                      print '<td><img src="page/php/'.$img.'" style="width:100%;height:40%;"></td>';
+                      print '<td><img src="'.$img.'" style="width:100%;height:40%;"></td>';
                       print '<td><h5>'.$description.'</h5></td>';
                       print '</tr>';
                     }
