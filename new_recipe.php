@@ -161,9 +161,19 @@
              alert("Please login");
            }
         </script>
-
+        <?php
+          $sql_step = $conn->query("SELECT * FROM food_step WHERE code = '$code'");
+          $img = '';
+          $hide = '';
+          foreach ($sql_step as $row_step) {
+            $img = $row_step['pic'];
+          }
+          if($img == ''){
+            $hide = 'hide';
+          }
+         ?>
         <div class="ingredients">
-          <h4>Ingredients <span class="right"> <a class="waves-effect waves-light btn" href="../map.php" target="_blank"><i class="material-icons right">store</i>nearest market</a> </span></h4>
+          <h4>Ingredients <span class="right"> <a class="waves-effect waves-light btn" href="../map.php" target="_blank"><i class="material-icons right">store</i>nearest market</a> <a class="waves-effect waves-light btn <?php echo $hide; ?>" href="../recipe.php?code=<?php echo $code ?>" target="_blank"><i class="material-icons right">gesture</i>Gesture</a> </span> </h4>
           <hr>
           <ul  style="list-style-type: none;margin: 0; padding: 0; overflow: hidden;">
             <li style=" display: inline;"><i class="material-icons">access_time</i> Prepaid time: <?php echo $pre_time?> minutes</li>
