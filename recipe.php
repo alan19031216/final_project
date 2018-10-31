@@ -20,12 +20,12 @@
           <a href="index.php" class="brand-logo">Let's Cook</a>
           <a href="index.php" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="login_register.php">Login/Register</a></li>
-            <li><a href="badges.html">Components</a></li>
+            <li><a href="login_register/">Login/Register</a></li>
           </ul>
         </div>
       </nav>
 
+      <br><br>
       <div class="hide-on-med-and-down">
         <div class="flipbook-viewport">
         	<div class="container">
@@ -45,12 +45,12 @@
                   $video = $row_recipe['video'];
                 }
                ?>
-              <div class="hard next-button" style="background-color:gray">
+              <div class="hard next-button amber lighten-4" style="">
                 <h1 class="center-align" style="position: absolute;top:30%"><?php echo $title; ?></h1>
                 <p class="center-align" align="center" style="position: absolute;bottom:0%;color:white;right:3%"><?php echo $page++; ?></p>
               </div>
         		  <div>
-                <img src="page/php/<?php echo $cover_img; ?>" style="height:40%;width:100%">
+                <img src="page/<?php echo $cover_img; ?>" style="height:40%;width:100%">
                 <br>
                 <h4>Author: <b><?php echo $author; ?></b></h4>
                 <h4>Recipe code: <?php echo $product_code; ?></h4>
@@ -94,7 +94,7 @@
                   $img = $row_food_step['pic'];
                   $description = $row_food_step['description'];
                   print '<div>';
-                  print '<img src="page/php/'.$img.'" style="width:100%;height:40%;">';
+                  print '<img src="'.$img.'" style="width:100%;height:40%;">';
                   print '<h5 align="center">'.$description.'</h5>';
                   print '<p class="center-align" style="position: absolute;bottom:0%;right:3%">'.$page++.'</p>';
                   print '</div>';
@@ -102,9 +102,12 @@
                ?>
 
                <?php
-                if($video != ''){
+                if($video == 'php/video/'){
+
+                }
+                else{
                   print '<div>';
-                  print '<video src="page/php/'.$video.'" height="70%" width = "100%" controls></video>';
+                  print '<video src="page/'.$video.'" height="70%" width = "100%" controls></video>';
                   print '</div>';
                 }
                 ?>
@@ -114,7 +117,7 @@
                </div>
 
 
-               <div class="hard" style="background-color:gray"00></div>
+               <div class="hard light-blue lighten-3" style="background-color:gray"00></div>
         		</div>
         	</div>
         </div>
