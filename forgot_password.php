@@ -44,7 +44,7 @@
       <div class="row">
         <div class="col l3 m3"></div>
         <div class="col l6 m6">
-          <div class="card">
+          <div class="card hoverable">
             <div class="card-image">
               <center><i class="material-icons" style="font-size:150px">lock</i></center>
               <!--<span class="card-title">Card Title</span>-->
