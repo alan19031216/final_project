@@ -492,7 +492,7 @@
                        <p class="right"><?php echo $row_comment['comment_date']; ?></p>
                      </div>
                      <div class="col l12 m12 s12">
-                       <a class="waves-effect waves-light btn red right" onclick="report_comment('<?php echo $row_comment['id']; ?>')"><i class="material-icons left">flag</i>Report</a>
+                       <!-- <a class="waves-effect waves-light btn red right" onclick="report_comment('<?php echo $row_comment['id']; ?>')"><i class="material-icons left">flag</i>Report</a> -->
                        <a class="right" href="#" style="visibility:hidden">daas</a>
                        <a class="waves-effect waves-light btn right orange" id="like_comment_<?php echo $row_comment['id']; ?>" onclick="like_comment('<?php echo $row_comment['id']; ?>')" >  <i class="material-icons left" style='color:<?php echo $like_color; ?>'>thumb_up</i><?php echo $like; ?></a>
                      </div>
