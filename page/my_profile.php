@@ -139,7 +139,7 @@ $city = $_GET['city'];
           <?php
             date_default_timezone_set("Asia/Kuala_Lumpur");
             $message_user = $_SESSION['username'];
-            $sql_message_user = $conn->query("SELECT a.* , b.* FROM user as a LEFT JOIN message_sender as b on a.username = b.sender WHERE b.receiver = '$message_user'");
+            $sql_message_user = $conn->query("SELECT a.* , b.* FROM user as a LEFT JOIN message_sender as b on a.username = b.sender WHERE b.receiver = '$message_user' or b.sender = '$message_user'");
             foreach ($sql_message_user as $row_message_user) {
               $date = strtotime("now");
               $time = $row_message_user['send_date'];
