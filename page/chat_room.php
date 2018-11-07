@@ -86,8 +86,8 @@ $receiver=isset($_GET['receiver']) ? $_GET['receiver'] : die('ERROR: receiver no
 </style>
 
 <input type="hidden" id="message_code" value="<?php echo $message_code; ?>">
-<input type="hidden" id="sender" value="<?php echo $receiver; ?>">
-<input type="hidden" id="receiver" value="<?php echo $sender; ?>">
+<input type="hidden" id="receiver" value="<?php echo $receiver; ?>">
+<input type="hidden" id="sender" value="<?php echo $username_message; ?>">
 <div class="row">
   <div class="col l12 m12 s12">
     <div class="card blue-grey darken-1">
