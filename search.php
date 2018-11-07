@@ -154,7 +154,8 @@ if (session_id() == '') {
     } // if
     else{
       $name = $_GET['search'];
-      $sql_search = $conn->query("SELECT name , code FROM recipe WHERE name LIKE '%$name%' UNION SELECT name , code FROM ingredients WHERE name LIKE '%$name%'");
+      // $sql_search = $conn->query("SELECT name , code FROM recipe WHERE name LIKE '%$name%' UNION SELECT name , code FROM ingredients WHERE name LIKE '%$name%'");
+      $sql_search = $conn->query("SELECT name , code FROM recipe WHERE name LIKE '%$name%'");
       $count = $sql_search->rowCount();
     }
    ?>
