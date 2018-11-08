@@ -284,7 +284,7 @@ if($username == '' || $username == ' '){
 
               function delete1(a){
                 var username = document.getElementById('username').value;
-                var r = confirm("Delete you want to delete this task!");
+                var r = confirm("Do you want to remove this task?");
                   if (r == true) {
                     $.ajax({
                       type:"POST",
