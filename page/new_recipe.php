@@ -460,6 +460,7 @@ $username = $_SESSION['username'];
                 }
                 else{
                   alert("Rate success");
+                  // alert(a);
                   $('#modal1').modal('close');
                 }
                 //alert(a);
