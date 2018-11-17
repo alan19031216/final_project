@@ -236,25 +236,9 @@ $city = $_GET['city'];
 
       <div id="My_book" class="tabcontent">
         <h4 class="center">Your bookshelf </h4>
-
-        <div id="bookshelf">
-          <?php
-            require 'php/config.php';
-            $username = $_SESSION['username'];
-            $sql_user_subscript = $conn->query("SELECT * FROM subs_history WHERE username = '$username'");
-            $count_sub = $sql_user_subscript->rowCount();
-            if($count_sub > 0){}
-            $top = $conn->query("SELECT * FROM book");
-            foreach ($top as $row_top) {
-           ?>
-          <a href="../book/<?php echo $row_top['path']; ?>#toolbar=0&navpanes=0&scrollbar=0" target="_blank">
-            <p><?php echo $row_top['name']; ?></p>
-            <img src="../book/img/<?php echo $row_top['img']; ?>" height="200px">
-          </a>
-          <?php
-            }
-           ?>
-        </div>
+        <?php
+          include 'my_profile/my_bookshelf.php';
+        ?>
       </div> <!-- My_book-->
 
       <div id="My_draft" class="tabcontent">
