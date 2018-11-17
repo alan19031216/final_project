@@ -12,10 +12,11 @@
   $sql_count = $conn->query("SELECT * FROM subscript WHERE username = '$username'");
   $number_of_rows = $sql_count->fetchColumn();
   if($number_of_rows > 0){
-    $subscript_date = date("d-m-y", strtotime($subscript_date));
+    $subscript_date = date("Y-m-d", strtotime($subscript_date));
     date_default_timezone_set("Asia/Kuala_Lumpur");
         //echo date('d-m-Y H:i:s'); //Returns IST
     $current_time = date('y/m/d', time());
+    $sub_date = strtotime($subscript_date);
     //$expired_date = date("y/m/d", strtotime($expired_date));
     $date = strtotime("now");
     $date1 = strtotime("$expired_date");
