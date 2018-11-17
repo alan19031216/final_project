@@ -59,55 +59,55 @@ $city = $_GET['city'];
     <div class="col l2 m4 s12 tab">
       <br>
       <a href="#" onclick="openCity(event, 'My Favorite')">
-        <div class="col l12 m12 s12 waves-effect waves-light btn">
+        <div class="col l12 m12 s12 btn">
           My Favorite
         </div>
       </a>
       <br><br>
       <a href="#" onclick="openCity(event, 'My_kitchen')">
-        <div class="col l12 m12 s12 waves-effect waves-light btn">
+        <div class="col l12 m12 s12 btn">
             My kitchen
         </div>
       </a>
       <br><br>
       <a href="#" onclick="openCity(event, 'My_question')">
-        <div class="col l12 m12 s12 waves-effect waves-light btn">
+        <div class="col l12 m12 s12 btn">
           My question
         </div>
       </a>
       <br><br>
       <a href="#" onclick="openCity(event, 'message')">
-        <div class="col l12 m12 s12 waves-effect waves-light btn">
+        <div class="col l12 m12 s12 btn">
           Message
         </div>
       </a>
       <br><br>
       <a href="#" onclick="openCity(event, 'notification')">
-        <div class="col l12 m12 s12 waves-effect waves-light btn">
+        <div class="col l12 m12 s12 btn">
           Notification
         </div>
       </a>
       <br><br>
       <a href="#" onclick="openCity(event, 'My_draft')">
-        <div class="col l12 m12 s12 waves-effect waves-light btn">
+        <div class="col l12 m12 s12 btn">
           My draft
         </div>
       </a>
       <br><br>
       <a href="#" onclick="openCity(event, 'My_subscription')">
-        <div class="col l12 m12 s12 waves-effect waves-light btn">
+        <div class="col l12 m12 s12 btn">
           My subscription
         </div>
       </a>
       <br><br>
       <a href="#" onclick="openCity(event, 'My_book')">
-        <div class="col l12 m12 s12 waves-effect waves-light btn">
+        <div class="col l12 m12 s12 btn">
           My book
         </div>
       </a>
       <br><br>
       <a href="#" onclick="openCity(event, 'My_profile')">
-        <div class="col l12 m12 s12 waves-effect waves-light btn">
+        <div class="col l12 m12 s12 btn">
           My profile
         </div>
       </a>
