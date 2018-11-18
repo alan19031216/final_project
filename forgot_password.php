@@ -26,8 +26,7 @@
       <!--<a href="index.php"><img class="responsive-img brand-logo hide-on-small-only" src="img/logo.jpg" alt="" width="13%"></a>-->
       <a href="new_index.php" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="sell.php">Sell Recipe</a></li>
-          <li><a href="login_register.php">Login/Register</a></li>
+          <li><a href="login_register/">Login/Register</a></li>
         </ul>
       </div>
     </nav>
@@ -35,8 +34,7 @@
     <!--Moblie slide bar-->
     <ul class="side-nav" id="mobile-demo">
       <center> <li><a style="pointer-events: none;cursor: default;"><b style="color:red;font-size:30px">Lest's Cook</b></a></li> </center>
-      <li><a href="sell.php">Sell Recipe</a></li>
-      <li><a href="login_register.php">Login/Register</a></li>
+      <li><a href="login_register/">Login/Register</a></li>
     </ul>
 
     <div class="container">
