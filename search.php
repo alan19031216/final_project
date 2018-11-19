@@ -1,19 +1,19 @@
 <?php
-include 'header.php';
+  include 'header.php';
 
-$DS = DIRECTORY_SEPARATOR;
-file_exists(__DIR__ . $DS . 'core' . $DS . 'Handler.php') ? require_once __DIR__ . $DS . 'core' . $DS . 'Handler.php' : die('Handler.php not found');
-file_exists(__DIR__ . $DS . 'core' . $DS . 'Config.php') ? require_once __DIR__ . $DS . 'core' . $DS . 'Config.php' : die('Config.php not found');
+  $DS = DIRECTORY_SEPARATOR;
+  file_exists(__DIR__ . $DS . 'core' . $DS . 'Handler.php') ? require_once __DIR__ . $DS . 'core' . $DS . 'Handler.php' : die('Handler.php not found');
+  file_exists(__DIR__ . $DS . 'core' . $DS . 'Config.php') ? require_once __DIR__ . $DS . 'core' . $DS . 'Config.php' : die('Config.php not found');
 
-use AjaxLiveSearch\core\Config;
-use AjaxLiveSearch\core\Handler;
+  use AjaxLiveSearch\core\Config;
+  use AjaxLiveSearch\core\Handler;
 
-if (session_id() == '') {
-    session_start();
-}
+  if (session_id() == '') {
+      session_start();
+  }
 
-    $handler = new Handler();
-    $handler->getJavascriptAntiBot();
+  $handler = new Handler();
+  $handler->getJavascriptAntiBot();
  ?>
  <div class="row hide-on-med-and-down" id="narbar">
    <div class="col l4 m4 s6">

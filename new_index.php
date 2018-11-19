@@ -8,9 +8,9 @@ file_exists(__DIR__ . $DS . 'core' . $DS . 'Config.php') ? require_once __DIR__ 
 use AjaxLiveSearch\core\Config;
 use AjaxLiveSearch\core\Handler;
 
-// if (session_id() == '') {
-//     session_start();
-// }
+if (session_id() == '') {
+    session_start();
+}
 
 $handler = new Handler();
 $handler->getJavascriptAntiBot();
