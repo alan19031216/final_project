@@ -23,7 +23,7 @@ foreach ($sql as $row) {
     <div class="row">
       <div class="col l12 m12 s12">
         <div class="card-panel">
-          <a href="question.php">back to question</a>
+          <a href="question.php">Back to question</a>
           <h3><?php echo $title; ?></h3>
           <p><?php echo $description; ?></p>
           <br><br><br>

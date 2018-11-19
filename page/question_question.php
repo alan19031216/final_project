@@ -23,7 +23,7 @@
   <div class="row">
     <div class="col l12">
       <div class="card-panel">
-        <a href="<?php echo $a; ?>">back to question</a>
+        <a href="<?php echo $a; ?>">Back to question</a>
         <h3><?php echo $title; ?></h3>
         <p><?php echo $description; ?></p>
         <br><br><br>
