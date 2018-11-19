@@ -111,7 +111,7 @@
      <div class="navbar-fixed orange">
      <!--  <a href="#!" class="brand-logo">Logo</a> -->
        <!--<a href="index.php"><img class="responsive-img brand-logo hide-on-small-only" src="img/logo.jpg" alt="" width="13%"></a>-->
-       <a href="../final/" class="brand-logo">Let's Cook</a>
+       <!-- <a href="../final/" class="brand-logo">Let's Cook</a> -->
        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
        <ul class="right hide-on-med-and-down">
          <li><a href="../login_register/">Login/Register</a></li>
