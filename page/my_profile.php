@@ -36,7 +36,7 @@ $city = $_GET['city'];
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
  <script src="js/materialize-stepper.min.js"></script>
-
+<title>My profile</title>
  <style>
     /* Style the tab content */
     .tabcontent {

@@ -1,7 +1,7 @@
 <?php
 include 'html_php/new_hearder.php';
 ?>
-
+<title>Category</title>
   <style media="screen">
     th {
       font-weight: bold;

@@ -1,7 +1,7 @@
 <?php
   include 'html_php/new_hearder.php';
  ?>
-<title>Live chat</title>
+<title>Live video stream</title>
 
 <link rel="stylesheet" type="text/css" href="js/jScrollPane/jScrollPane.css" />
 <!-- <link rel="stylesheet" type="text/css" href="css/page.css" /> -->

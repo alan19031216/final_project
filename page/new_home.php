@@ -34,6 +34,7 @@
     }
 
  </style>
+ <title>Home</title>
  <div class="row">
    <div class="col l3 m4 s12 card" style="margin:10px">
      <table class="centered striped" border="1">
