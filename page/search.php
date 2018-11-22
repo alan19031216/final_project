@@ -2,7 +2,7 @@
 include 'html_php/new_hearder.php';
 
  ?>
-
+ <title>Search</title>
   <?php
     require 'php/config.php';
     $num = $_GET['num'];
