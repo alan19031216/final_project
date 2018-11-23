@@ -6,7 +6,7 @@ $username = $_SESSION['username'];
  <html>
    <head>
      <meta charset="utf-8">
-
+     <title>Recipe</title>
      <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
      <link type="text/css" rel="stylesheet" href="../css/style_bookshelf.css"  media="screen,projection"/>
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
